@@ -48,6 +48,10 @@
         "zOffset": -10.2,
         "scale": 0.47
       },
+      "stock": {
+        "yOffset": 3.6506,
+        "zOffset": 8.4
+      },
       "underBarrel": {
         "yOffset": 2.8,
         "zOffset": -1.0,

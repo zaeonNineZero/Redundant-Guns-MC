@@ -9,12 +9,14 @@ import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+// Copy of SpecialModels to handle all model parts that are used together with existing NZGE model parts.
+
 @Mod.EventBusSubscriber(modid = RedundantGuns.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
-public enum SpecialModels
+public enum RedundantSpecialModels
 {
-    COMBAT_PISTOL_BASE("combat_pistol_base"),
-    COMBAT_PISTOL_SLIDE("combat_pistol_slide"),
-    COMBAT_PISTOL_RAILMOUNT("combat_pistol_railmount");
+    TACTICAL_INFANTRY_RIFLE_BASE("tactical_infantry_rifle_base"),
+	
+    TACTICAL_SNIPER_RIFLE_BASE("tactical_sniper_rifle_base");
 
     /**
      * The location of an item model in the [MOD_ID]/models/special/[NAME] folder
@@ -31,7 +33,7 @@ public enum SpecialModels
      *
      * @param modelName name of the model file
      */
-    SpecialModels(String modelName)
+    RedundantSpecialModels(String modelName)
     {
         this.modelLocation = new ResourceLocation(RedundantGuns.MOD_ID, "special/" + modelName);
     }
@@ -57,7 +59,7 @@ public enum SpecialModels
     @SubscribeEvent
     public static void registerAdditional(ModelEvent.RegisterAdditional event)
     {
-        for(SpecialModels model : values())
+        for(RedundantSpecialModels model : values())
         {
             event.register(model.modelLocation);
         }
@@ -70,7 +72,7 @@ public enum SpecialModels
     @SubscribeEvent
     public static void onBake(ModelEvent.BakingCompleted event)
     {
-        for(SpecialModels model : values())
+        for(RedundantSpecialModels model : values())
         {
             model.cachedModel = null;
         }

@@ -5,7 +5,7 @@ import com.mojang.math.Vector3f;
 import com.mrcrayfish.guns.common.Gun;
 import com.mrcrayfish.guns.client.GunModel;
 import zaeonninezero.nzgmaddon.client.SpecialModels;
-import zaeonninezero.redundantguns.client.SpecialModels;
+import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
 import com.mrcrayfish.guns.client.util.RenderUtil;
 import com.mrcrayfish.guns.item.GunItem;
@@ -35,7 +35,7 @@ public class TacticalSniperRifleModel implements IOverrideModel
     public void render(float partialTicks, ItemTransforms.TransformType transformType, ItemStack stack, ItemStack parent, @Nullable LivingEntity entity, PoseStack poseStack, MultiBufferSource buffer, int light, int overlay)
     {
 		// Render the item's BakedModel, which will serve as the core of our custom model.
-        BakedModel bakedModel = SpecialModels.TACTICAL_SNIPER_RIFLE_BASE.getModel();
+        BakedModel bakedModel = RedundantSpecialModels.TACTICAL_SNIPER_RIFLE_BASE.getModel();
         Minecraft.getInstance().getItemRenderer().render(stack, ItemTransforms.TransformType.NONE, false, poseStack, buffer, light, overlay, GunModel.wrap(bakedModel));
 
 		// Render the iron sights element, which is only present when a scope is not attached.
