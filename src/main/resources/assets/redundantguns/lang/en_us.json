@@ -1,5 +1,8 @@
 {
 	"itemGroup.redundantguns": "Redundant Guns",
 	
-	"item.redundantguns.combat_pistol": "Combat Pistol"
+	"item.redundantguns.combat_pistol": "Combat Pistol",
+	"item.redundantguns.tactical_infantry_rifle": "Tactical Infantry Rifle",
+	"item.redundantguns.tactical_sniper_rifle": "Tactical Sniper Rifle",
+	"item.redundantguns.vintage_bolt_rifle": "Vintage Bolt Action Rifle"
 }

@@ -1,0 +1,53 @@
+{
+  "general": {
+    "rate": 28,
+    "gripType": "cgm:two_handed",
+    "maxAmmo": 5,
+    "reloadAmount": 1,
+    "recoilAngle": 6.0,
+    "recoilKick": 0.65,
+    "recoilDurationOffset": 0.25,
+    "recoilAdsReduction": 0.3,
+    "alwaysSpread": true,
+    "spread": 0.2
+  },
+  "projectile": {
+    "item": "nzgmaddon:medium_bullet",
+    "damage": 15.0,
+    "size": 0.0625,
+    "speed": 24.0,
+    "life": 30,
+    "gravity": true
+  },
+  "sounds": {
+    "fire": "redundantguns:item.vintage_bolt_rifle.fire",
+    "reload": "nzgmaddon:item.rifle.reload",
+    "cock": "nzgmaddon:item.bolt_action_rifle.cock",
+    "silencedFire": "redundantguns:item.vintage_bolt_rifle.silenced_fire",
+    "enchantedFire": "redundantguns:item.vintage_bolt_rifle.enchanted_fire"
+  },
+  "display": {
+    "flash": {
+      "yOffset": 3.8365,
+      "zOffset": -10.21
+    }
+  },
+  "modules": {
+    "zoom": {
+      "yOffset": 4.7,
+      "zOffset": 4.0,
+      "fovModifier": 0.6
+    },
+    "attachments": {
+      "scope": {
+        "yOffset": 4.32,
+        "zOffset": 3.3
+      },
+      "barrel": {
+        "yOffset": 3.8365,
+        "zOffset": -10.2,
+        "scale": 0.46
+      }
+    }
+  }
+}

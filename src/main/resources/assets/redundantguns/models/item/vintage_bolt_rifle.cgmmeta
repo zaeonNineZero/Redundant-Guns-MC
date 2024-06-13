@@ -3,27 +3,23 @@
         "attachments": {
             "barrel": {
                 "translation": [8.0, 3.8365, -2.2],
-                "scale": [0.47, 0.47, 0.47]
+                "scale": [0.46, 0.46, 0.46]
             },
             "scope": {
                 "translation": [8.0, 4.32, 11.3]
             },
-            "stock": {
-                "translation": [8.0, 2.75, 16.799],
-                "scale": [0.87, 0.87, 0.87]
-            },
             "underBarrel": {
-                "translation": [8.0, 2.8, 6.7],
-                "scale": [0.95, 0.95, 0.95]
+                "translation": [8.0, 2.7, 7.6],
+                "scale": [0.9, 0.9, 0.9]
             }
         },
         "ironSight": {
-            "camera": [8.0, 5.0, 19.5],
-            "viewportFov": 59.0
+            "camera": [8.0, 4.7, 19.0],
+            "viewportFov": 60.0
         },
         "muzzleFlash": {
             "translation": [8.0, 3.8365, -2.7],
-            "scale": [0.65, 0.65, 0.65]
+            "scale": [0.6, 0.6, 0.6]
         }
     }
 }

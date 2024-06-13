@@ -13,5 +13,24 @@
       "redundantguns:item/combat_pistol/enchanted_fire",
       "redundantguns:item/combat_pistol/enchanted_fire2"
     ]
+  },
+  
+  "item.vintage_bolt_rifle.fire": {
+    "subtitle":"subtitle.cgm.fire",
+    "sounds": [
+      "redundantguns:item/vintage_bolt_action_rifle/fire"
+    ]
+  },
+  "item.vintage_bolt_rifle.enchanted_fire": {
+    "subtitle":"subtitle.cgm.enchanted_fire",
+    "sounds": [
+      "redundantguns:item/vintage_bolt_action_rifle/enchanted_fire"
+    ]
+  },
+  "item.vintage_bolt_rifle.silenced_fire": {
+    "subtitle":"subtitle.cgm.silenced",
+    "sounds": [
+      "redundantguns:item/vintage_bolt_action_rifle/silenced_fire"
+    ]
   }
 }
