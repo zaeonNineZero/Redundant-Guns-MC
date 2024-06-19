@@ -37,10 +37,10 @@ public class CarbineRifleModel implements IOverrideModel
         BakedModel bakedModel = RedundantSpecialModels.CARBINE_RIFLE_BASE.getModel();
         Minecraft.getInstance().getItemRenderer().render(stack, ItemTransforms.TransformType.NONE, false, poseStack, buffer, light, overlay, GunModel.wrap(bakedModel));
         
-        // Render a selected model based on the "handguard_variant" NBT tag.
-    	BakedModel handguardModel = RedundantSpecialModels.CARBINE_RIFLE_HANDGUARD_1.getModel();
+        // Render a selected model based on the "HandguardVariant" NBT tag.
+    	BakedModel handguardModel = RedundantSpecialModels.CARBINE_RIFLE_HANDGUARD_0.getModel();
         if (getVariant(stack, "handguard_variant") == 1)
-        handguardModel = RedundantSpecialModels.CARBINE_RIFLE_HANDGUARD_2.getModel();
+        handguardModel = RedundantSpecialModels.CARBINE_RIFLE_HANDGUARD_1.getModel();
         RenderUtil.renderModel(handguardModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
         
         // Render the rear iron sight element, which is only present when a scope is not attached.
@@ -49,7 +49,7 @@ public class CarbineRifleModel implements IOverrideModel
 		ItemStack attachmentStack = Gun.getAttachment(IAttachment.Type.SCOPE, stack);
         if(attachmentStack.isEmpty())
 		{
-            // Render a selected model based on the "sight_variant" NBT tag.
+            // Render a selected model based on the "SightVariant" NBT tag.
         	BakedModel sightModel = RedundantSpecialModels.CARBINE_RIFLE_REARSIGHT.getModel();
             if (getVariant(stack, "sight_variant") == 1)
             sightModel = RedundantSpecialModels.CARBINE_RIFLE_CARRYHANDLE.getModel();

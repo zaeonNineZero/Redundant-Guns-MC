@@ -1,0 +1,16 @@
+{
+  "type": "cgm:workbench",
+  "materials": [
+    {
+      "tag": "forge:ingots/iron",
+      "count": 23
+    },
+	{
+      "tag": "forge:nuggets/iron",
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "redundantguns:tactical_sniper_rifle"
+  }
+}

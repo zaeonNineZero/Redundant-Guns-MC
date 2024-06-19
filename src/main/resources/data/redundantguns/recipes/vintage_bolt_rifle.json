@@ -1,0 +1,20 @@
+{
+  "type": "cgm:workbench",
+  "materials": [
+    {
+      "tag": "forge:ingots/iron",
+      "count": 17
+    },
+	{
+      "tag": "forge:nuggets/iron",
+      "count": 1
+    },
+	{
+      "tag": "minecraft:planks",
+      "count": 5
+    }
+  ],
+  "result": {
+    "item": "redundantguns:vintage_bolt_rifle"
+  }
+}
