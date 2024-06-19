@@ -33,13 +33,15 @@ public class CarbineRifleModel implements IOverrideModel
 	// We start by declaring our render function that will handle rendering the core baked model (which is a non-moving part).
     public void render(float partialTicks, ItemTransforms.TransformType transformType, ItemStack stack, ItemStack parent, @Nullable LivingEntity entity, PoseStack poseStack, MultiBufferSource buffer, int light, int overlay)
     {
-		// Render the item's BakedModel, which will serve as the core of our custom model.
+     // Select the Baked Model we'll be rendering, based on the value of the CustomModelData tag.
         BakedModel bakedModel = RedundantSpecialModels.CARBINE_RIFLE_BASE.getModel();
+        if (getVariant(stack, "BaseVariant") == 1)
+        bakedModel = RedundantSpecialModels.CARBINE_RIFLE_BASE_1.getModel();
         Minecraft.getInstance().getItemRenderer().render(stack, ItemTransforms.TransformType.NONE, false, poseStack, buffer, light, overlay, GunModel.wrap(bakedModel));
         
         // Render a selected model based on the "HandguardVariant" NBT tag.
     	BakedModel handguardModel = RedundantSpecialModels.CARBINE_RIFLE_HANDGUARD_0.getModel();
-        if (getVariant(stack, "handguard_variant") == 1)
+        if (getVariant(stack, "HandguardVariant") == 1)
         handguardModel = RedundantSpecialModels.CARBINE_RIFLE_HANDGUARD_1.getModel();
         RenderUtil.renderModel(handguardModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
         
@@ -51,8 +53,8 @@ public class CarbineRifleModel implements IOverrideModel
 		{
             // Render a selected model based on the "SightVariant" NBT tag.
         	BakedModel sightModel = RedundantSpecialModels.CARBINE_RIFLE_REARSIGHT.getModel();
-            if (getVariant(stack, "sight_variant") == 1)
-            sightModel = RedundantSpecialModels.CARBINE_RIFLE_CARRYHANDLE.getModel();
+            if (getVariant(stack, "SightVariant") == 1)
+            sightModel = (getVariant(stack, "BaseVariant") == 1 ? RedundantSpecialModels.CARBINE_RIFLE_CARRYHANDLE_1.getModel() : RedundantSpecialModels.CARBINE_RIFLE_CARRYHANDLE.getModel());
             RenderUtil.renderModel(sightModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		}
 

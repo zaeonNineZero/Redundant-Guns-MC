@@ -19,7 +19,7 @@
   },
   "sounds": {
     "fire": "redundantguns:item.carbine_rifle.fire",
-    "reload": "cgm:item.assault_rifle.reload",
+    "reload": "nzgmaddon:item.assault_rifle.reload",
     "cock": "cgm:item.assault_rifle.cock",
     "silencedFire": "cgm:item.assault_rifle.silenced_fire",
     "enchantedFire": "redundantguns:item.carbine_rifle.enchanted_fire"

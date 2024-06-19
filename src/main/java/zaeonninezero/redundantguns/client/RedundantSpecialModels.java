@@ -19,10 +19,12 @@ public enum RedundantSpecialModels
     COMBAT_PISTOL_RAILMOUNT("combat_pistol_railmount"),
     
 	CARBINE_RIFLE_BASE("carbine_rifle_base"),
+	CARBINE_RIFLE_BASE_1("carbine_rifle_base_1"),
 	CARBINE_RIFLE_HANDGUARD_0("carbine_rifle_handguard_0"),
 	CARBINE_RIFLE_HANDGUARD_1("carbine_rifle_handguard_1"),
     CARBINE_RIFLE_REARSIGHT("carbine_rifle_rearsight"),
     CARBINE_RIFLE_CARRYHANDLE("carbine_rifle_carryhandle"),
+    CARBINE_RIFLE_CARRYHANDLE_1("carbine_rifle_carryhandle_1"),
 	
 	TACTICAL_INFANTRY_RIFLE_BASE("tactical_infantry_rifle_base"),
 	
