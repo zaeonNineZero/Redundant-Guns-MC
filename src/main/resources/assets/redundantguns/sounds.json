@@ -11,7 +11,37 @@
     "subtitle":"subtitle.cgm.enchanted_fire",
     "sounds": [
       "redundantguns:item/combat_pistol/enchanted_fire",
-      "redundantguns:item/combat_pistol/enchanted_fire2"
+      "redundantguns:item/combat_pistol/enchanted_fire2",
+      "redundantguns:item/combat_pistol/enchanted_fire3"
+    ]
+  },
+  "item.combat_pistol.silenced_fire": {
+    "subtitle":"subtitle.cgm.silenced",
+    "sounds": [
+      "cgm:item/pistol/silenced_fire"
+    ]
+  },
+  
+  "item.carbine_rifle.fire": {
+    "subtitle":"subtitle.cgm.fire",
+    "sounds": [
+      "redundantguns:item/carbine_rifle/fire",
+      "redundantguns:item/carbine_rifle/fire2",
+      "redundantguns:item/carbine_rifle/fire3"
+    ]
+  },
+  "item.carbine_rifle.enchanted_fire": {
+    "subtitle":"subtitle.cgm.enchanted_fire",
+    "sounds": [
+      "redundantguns:item/carbine_rifle/enchanted_fire",
+      "redundantguns:item/carbine_rifle/enchanted_fire2",
+      "redundantguns:item/carbine_rifle/enchanted_fire3"
+    ]
+  },
+  "item.carbine_rifle.silenced_fire": {
+    "subtitle":"subtitle.cgm.silenced",
+    "sounds": [
+      "cgm:item/assault_rifle/silenced_fire"
     ]
   },
   
