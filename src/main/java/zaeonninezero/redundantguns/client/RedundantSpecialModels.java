@@ -9,12 +9,22 @@ import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-// Copy of SpecialModels to handle all model parts that are used together with existing NZGE model parts.
+// Renamed from just SpecialModels to allow usage with existing NZGE model parts.
 
 @Mod.EventBusSubscriber(modid = RedundantGuns.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public enum RedundantSpecialModels
 {
-    TACTICAL_INFANTRY_RIFLE_BASE("tactical_infantry_rifle_base"),
+	COMBAT_PISTOL_BASE("combat_pistol_base"),
+    COMBAT_PISTOL_SLIDE("combat_pistol_slide"),
+    COMBAT_PISTOL_RAILMOUNT("combat_pistol_railmount"),
+    
+	CARBINE_RIFLE_BASE("carbine_rifle_base"),
+	CARBINE_RIFLE_HANDGUARD_1("carbine_rifle_handguard_1"),
+	CARBINE_RIFLE_HANDGUARD_2("carbine_rifle_handguard_2"),
+    CARBINE_RIFLE_REARSIGHT("carbine_rifle_rearsight"),
+    CARBINE_RIFLE_CARRYHANDLE("carbine_rifle_carryhandle"),
+	
+	TACTICAL_INFANTRY_RIFLE_BASE("tactical_infantry_rifle_base"),
 	
     VINTAGE_BOLT_RIFLE_BASE("vintage_bolt_rifle_base"),
 	

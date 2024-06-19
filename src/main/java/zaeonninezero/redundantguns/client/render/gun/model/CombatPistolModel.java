@@ -3,7 +3,7 @@ package zaeonninezero.redundantguns.client.render.gun.model;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mrcrayfish.guns.common.Gun;
 import com.mrcrayfish.guns.client.GunModel;
-import zaeonninezero.redundantguns.client.SpecialModels;
+import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
 import com.mrcrayfish.guns.client.util.RenderUtil;
 import com.mrcrayfish.guns.item.GunItem;
@@ -33,7 +33,7 @@ public class CombatPistolModel implements IOverrideModel
     public void render(float partialTicks, ItemTransforms.TransformType transformType, ItemStack stack, ItemStack parent, @Nullable LivingEntity entity, PoseStack poseStack, MultiBufferSource buffer, int light, int overlay)
     {
 		// Render the item's BakedModel, which will serve as the core of our custom model.
-        BakedModel bakedModel = SpecialModels.COMBAT_PISTOL_BASE.getModel();
+        BakedModel bakedModel = RedundantSpecialModels.COMBAT_PISTOL_BASE.getModel();
         Minecraft.getInstance().getItemRenderer().render(stack, ItemTransforms.TransformType.NONE, false, poseStack, buffer, light, overlay, GunModel.wrap(bakedModel));
 
 		// Render the top rail element that appears when a scope is attached.
@@ -42,7 +42,7 @@ public class CombatPistolModel implements IOverrideModel
 		ItemStack attachmentStack = Gun.getAttachment(IAttachment.Type.SCOPE, stack);
         if(!attachmentStack.isEmpty())
 		{
-            RenderUtil.renderModel(SpecialModels.COMBAT_PISTOL_RAILMOUNT.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+            RenderUtil.renderModel(RedundantSpecialModels.COMBAT_PISTOL_RAILMOUNT.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		}
 
 		// Next, we do the animated parts.
@@ -79,7 +79,7 @@ public class CombatPistolModel implements IOverrideModel
         if(isPlayer)
         poseStack.translate(0, 0, (boltMovement * 1.5) * 0.0625);
 		// Our transformations are done - now we can render the model.
-        RenderUtil.renderModel(SpecialModels.COMBAT_PISTOL_SLIDE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+        RenderUtil.renderModel(RedundantSpecialModels.COMBAT_PISTOL_SLIDE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
     }
