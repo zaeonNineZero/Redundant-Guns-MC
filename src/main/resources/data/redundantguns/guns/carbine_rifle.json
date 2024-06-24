@@ -20,6 +20,12 @@
   "sounds": {
     "fire": "redundantguns:item.carbine_rifle.fire",
     "reload": "nzgmaddon:item.assault_rifle.reload",
+    "reloadClipOut": "nzgmaddon:item.assault_rifle.reload",
+    "reloadClipOutThreshold": 0.1,
+    "reloadClipIn": "nzgmaddon:item.assault_rifle.reload",
+    "reloadClipInThreshold": 0.5,
+    "reloadLate": "cgm:item.assault_rifle.cock",
+    "reloadLateThreshold": 0.8,
     "cock": "cgm:item.assault_rifle.cock",
     "silencedFire": "cgm:item.assault_rifle.silenced_fire",
     "enchantedFire": "redundantguns:item.carbine_rifle.enchanted_fire"

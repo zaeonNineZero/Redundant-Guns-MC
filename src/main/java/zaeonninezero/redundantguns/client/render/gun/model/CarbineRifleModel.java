@@ -1,24 +1,29 @@
 package zaeonninezero.redundantguns.client.render.gun.model;
 
+import java.lang.reflect.Method;
+
+import javax.annotation.Nullable;
+
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mrcrayfish.guns.common.Gun;
+import com.mrcrayfish.guns.GunMod;
 import com.mrcrayfish.guns.client.GunModel;
-import zaeonninezero.nzgmaddon.client.SpecialModels;
-import zaeonninezero.redundantguns.client.RedundantSpecialModels;
+import com.mrcrayfish.guns.client.handler.GunRenderingHandler;
+import com.mrcrayfish.guns.client.handler.ReloadHandler;
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
+import com.mrcrayfish.guns.client.util.GunReloadAnimationHelper;
 import com.mrcrayfish.guns.client.util.RenderUtil;
-import com.mrcrayfish.guns.item.GunItem;
+import com.mrcrayfish.guns.common.Gun;
 import com.mrcrayfish.guns.item.attachment.IAttachment;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemCooldowns;
 import net.minecraft.world.item.ItemStack;
-
-import javax.annotation.Nullable;
+import net.minecraft.world.phys.Vec3;
+import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 
 /**
  * Author: MrCrayfish
@@ -27,7 +32,11 @@ import javax.annotation.Nullable;
  */
 public class CarbineRifleModel implements IOverrideModel
 {
-    @Override
+	private boolean disableAnimations = false;
+	private Method getReloadCycleProgress = null;
+	private Method getAnimationTrans = null;
+	
+	@Override
 	// This class renders a multi-part model depending on various NBT values and equipped attachments.
 	
 	// We start by declaring our render function that will handle rendering the core baked model (which is a non-moving part).
@@ -58,7 +67,34 @@ public class CarbineRifleModel implements IOverrideModel
             RenderUtil.renderModel(sightModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		}
 
-		// Since this model doesn't have animations, our code can end here.
+		// Special animated segment for compat with the CGM Expanded fork.
+        boolean isPlayer = (entity != null && entity.equals(Minecraft.getInstance().player));
+        boolean isFirstPerson = (transformType == ItemTransforms.TransformType.FIRST_PERSON_RIGHT_HAND || transformType == ItemTransforms.TransformType.FIRST_PERSON_LEFT_HAND);
+        
+        Vec3 transforms = Vec3.ZERO;
+        
+        if(isPlayer && isFirstPerson && !disableAnimations)
+        {
+        	try {
+        			float reloadCycleProgress = GunRenderingHandler.get().getReloadCycleProgress(stack);
+        			transforms = GunReloadAnimationHelper.getAnimationTrans(stack, reloadCycleProgress, "magazine").scale(ReloadHandler.get().getReloadProgress(partialTicks));
+        		}
+        		catch(Exception e) {
+                	GunMod.LOGGER.error("Redundant Guns encountered an error trying to apply animations:");
+                	e.printStackTrace();
+                	disableAnimations = true;
+        		}
+        }
+        
+        poseStack.pushPose();
+		// Now we apply our transformations.
+		// All we need to do is move the model based on the cooldown variable.
+        if(isPlayer && transforms!=Vec3.ZERO)
+        poseStack.translate(transforms.x*0.0625, transforms.y*0.0625, transforms.z*0.0625);
+		// Our transformations are done - now we can render the model.
+        RenderUtil.renderModel(RedundantSpecialModels.CARBINE_RIFLE_MAGAZINE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+		// Pop pose to compile everything in the render matrix.
+        poseStack.popPose();
     }
     
     //NBT fetch code for skin variants - ported from the "hasAmmo" function under common/Gun.java
