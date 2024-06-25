@@ -11,6 +11,7 @@ import com.mrcrayfish.guns.client.handler.GunRenderingHandler;
 import com.mrcrayfish.guns.client.handler.ReloadHandler;
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
 import com.mrcrayfish.guns.client.util.GunReloadAnimationHelper;
+import com.mrcrayfish.guns.client.util.PropertyHelper;
 import com.mrcrayfish.guns.client.util.RenderUtil;
 import com.mrcrayfish.guns.common.Gun;
 import com.mrcrayfish.guns.item.attachment.IAttachment;
@@ -77,7 +78,7 @@ public class CarbineRifleModel implements IOverrideModel
         {
         	try {
         			float reloadCycleProgress = GunRenderingHandler.get().getReloadCycleProgress(stack);
-        			transforms = GunReloadAnimationHelper.getAnimationTrans(stack, reloadCycleProgress, "magazine").scale(ReloadHandler.get().getReloadProgress(partialTicks));
+        			transforms = GunReloadAnimationHelper.getAnimationTrans(stack, reloadCycleProgress, "magazine").scale(ReloadHandler.get().getReloadProgress(partialTicks)).scale(0.75);
         		}
         		catch(Exception e) {
                 	GunMod.LOGGER.error("Redundant Guns encountered an error trying to apply animations:");
