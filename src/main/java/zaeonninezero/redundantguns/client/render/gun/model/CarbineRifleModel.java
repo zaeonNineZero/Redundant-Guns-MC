@@ -10,6 +10,7 @@ import com.mrcrayfish.guns.client.GunModel;
 import com.mrcrayfish.guns.client.handler.GunRenderingHandler;
 import com.mrcrayfish.guns.client.handler.ReloadHandler;
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
+import com.mrcrayfish.guns.client.util.GunAnimationHelper;
 import com.mrcrayfish.guns.client.util.GunReloadAnimationHelper;
 import com.mrcrayfish.guns.client.util.PropertyHelper;
 import com.mrcrayfish.guns.client.util.RenderUtil;
@@ -22,6 +23,7 @@ import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import zaeonninezero.redundantguns.client.RedundantSpecialModels;
@@ -69,19 +71,23 @@ public class CarbineRifleModel implements IOverrideModel
 		}
 
 		// Special animated segment for compat with the CGM Expanded fork.
+        // First, some variables for animation building
         boolean isPlayer = (entity != null && entity.equals(Minecraft.getInstance().player));
         boolean isFirstPerson = (transformType == ItemTransforms.TransformType.FIRST_PERSON_RIGHT_HAND || transformType == ItemTransforms.TransformType.FIRST_PERSON_LEFT_HAND);
         
-        Vec3 transforms = Vec3.ZERO;
+        Vec3 translations = Vec3.ZERO;
+        Vec3 rotations = Vec3.ZERO;
+        String animType = "none";
         
         if(isPlayer && isFirstPerson && !disableAnimations)
         {
         	try {
-        			float reloadCycleProgress = GunRenderingHandler.get().getReloadCycleProgress(stack);
-        			transforms = GunReloadAnimationHelper.getAnimationTrans(stack, reloadCycleProgress, "magazine").scale(ReloadHandler.get().getReloadProgress(partialTicks)).scale(0.75);
+        			translations = GunAnimationHelper.getSmartAnimationTrans(stack, (Player) entity, partialTicks, "magazine");
+        	        rotations = GunAnimationHelper.getSmartAnimationRot(stack, (Player) entity, partialTicks, "magazine");
+        	        animType = GunAnimationHelper.getSmartAnimationType(stack, (Player) entity, partialTicks);
         		}
         		catch(Exception e) {
-                	GunMod.LOGGER.error("Redundant Guns encountered an error trying to apply animations:");
+                	GunMod.LOGGER.error("Redundant Guns encountered an error trying to apply animations, disabling animation compat.");
                 	e.printStackTrace();
                 	disableAnimations = true;
         		}
@@ -90,8 +96,13 @@ public class CarbineRifleModel implements IOverrideModel
         poseStack.pushPose();
 		// Now we apply our transformations.
 		// All we need to do is move the model based on the cooldown variable.
-        if(isPlayer && transforms!=Vec3.ZERO)
-        poseStack.translate(transforms.x*0.0625, transforms.y*0.0625, transforms.z*0.0625);
+        if(isPlayer && !disableAnimations)
+        {
+        	if(translations!=Vec3.ZERO)
+        	poseStack.translate(translations.x*0.0625, translations.y*0.0625, translations.z*0.0625);
+        	if(rotations!=Vec3.ZERO)
+        	GunAnimationHelper.rotateAroundOffset(poseStack, rotations, animType, stack, "magazine");
+    	}
 		// Our transformations are done - now we can render the model.
         RenderUtil.renderModel(RedundantSpecialModels.CARBINE_RIFLE_MAGAZINE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
