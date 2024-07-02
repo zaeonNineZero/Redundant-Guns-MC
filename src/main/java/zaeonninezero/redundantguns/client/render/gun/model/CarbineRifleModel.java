@@ -36,11 +36,10 @@ import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 public class CarbineRifleModel implements IOverrideModel
 {
 	private boolean disableAnimations = false;
-	private Method getReloadCycleProgress = null;
-	private Method getAnimationTrans = null;
 	
 	@Override
-	// This class renders a multi-part model depending on various NBT values and equipped attachments.
+	// This class renders a model with support for NBT and attachment based part variations
+	// and custom animations from CGM Expanded.
 	
 	// We start by declaring our render function that will handle rendering the core baked model (which is a non-moving part).
     public void render(float partialTicks, ItemTransforms.TransformType transformType, ItemStack stack, ItemStack parent, @Nullable LivingEntity entity, PoseStack poseStack, MultiBufferSource buffer, int light, int overlay)
@@ -72,22 +71,24 @@ public class CarbineRifleModel implements IOverrideModel
 
 		// Special animated segment for compat with the CGM Expanded fork.
         // First, some variables for animation building
-        boolean isPlayer = (entity != null && entity.equals(Minecraft.getInstance().player));
-        boolean isFirstPerson = (transformType == ItemTransforms.TransformType.FIRST_PERSON_RIGHT_HAND || transformType == ItemTransforms.TransformType.FIRST_PERSON_LEFT_HAND);
+        boolean isPlayer = entity != null && entity.equals(Minecraft.getInstance().player);
+        boolean isFirstPerson = (transformType.firstPerson());
         
         Vec3 translations = Vec3.ZERO;
         Vec3 rotations = Vec3.ZERO;
-        String animType = "none";
+        Vec3 offsets = Vec3.ZERO;
         
         if(isPlayer && isFirstPerson && !disableAnimations)
         {
         	try {
-        			translations = GunAnimationHelper.getSmartAnimationTrans(stack, (Player) entity, partialTicks, "magazine");
-        	        rotations = GunAnimationHelper.getSmartAnimationRot(stack, (Player) entity, partialTicks, "magazine");
-        	        animType = GunAnimationHelper.getSmartAnimationType(stack, (Player) entity, partialTicks);
+					Player player = (Player) entity;
+					
+        			translations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "magazine");
+        	        rotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "magazine");
+        	        offsets = GunAnimationHelper.getSmartAnimationRotOffset(stack, player, partialTicks, "magazine");
         		}
         		catch(Exception e) {
-                	GunMod.LOGGER.error("Redundant Guns encountered an error trying to apply animations, disabling animation compat.");
+                	GunMod.LOGGER.error("Redundant Guns encountered an error trying to apply animations.");
                 	e.printStackTrace();
                 	disableAnimations = true;
         		}
@@ -95,13 +96,12 @@ public class CarbineRifleModel implements IOverrideModel
         
         poseStack.pushPose();
 		// Now we apply our transformations.
-		// All we need to do is move the model based on the cooldown variable.
         if(isPlayer && !disableAnimations)
         {
         	if(translations!=Vec3.ZERO)
         	poseStack.translate(translations.x*0.0625, translations.y*0.0625, translations.z*0.0625);
         	if(rotations!=Vec3.ZERO)
-        	GunAnimationHelper.rotateAroundOffset(poseStack, rotations, animType, stack, "magazine");
+               GunAnimationHelper.rotateAroundOffset(poseStack, rotations, offsets);
     	}
 		// Our transformations are done - now we can render the model.
         RenderUtil.renderModel(RedundantSpecialModels.CARBINE_RIFLE_MAGAZINE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
