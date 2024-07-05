@@ -51,6 +51,12 @@
       "redundantguns:item/vintage_bolt_action_rifle/fire"
     ]
   },
+  "item.vintage_bolt_rifle.fire_single": {
+    "subtitle":"subtitle.cgm.fire",
+    "sounds": [
+      "redundantguns:item/vintage_bolt_action_rifle/fire_single"
+    ]
+  },
   "item.vintage_bolt_rifle.enchanted_fire": {
     "subtitle":"subtitle.cgm.enchanted_fire",
     "sounds": [
@@ -62,5 +68,17 @@
     "sounds": [
       "redundantguns:item/vintage_bolt_action_rifle/silenced_fire"
     ]
+  },
+  "item.vintage_bolt_rifle.cock": {
+    "subtitle":"subtitle.cgm.cock",
+    "sounds": [{"name":"redundantguns:item/vintage_bolt_action_rifle/cock"}]
+  },
+  "item.vintage_bolt_rifle.bolt_back": {
+    "subtitle":"subtitle.cgm.reload",
+    "sounds": [{"name":"redundantguns:item/vintage_bolt_action_rifle/bolt_back"}]
+  },
+  "item.vintage_bolt_rifle.bolt_forward": {
+    "subtitle":"subtitle.cgm.cock",
+    "sounds": [{"name":"redundantguns:item/vintage_bolt_action_rifle/bolt_forward"}]
   }
 }

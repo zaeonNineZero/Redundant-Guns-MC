@@ -67,17 +67,17 @@ public class VintageBoltRifleModel implements IOverrideModel
         boolean correctContext = (transformType.firstPerson() || transformType == ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND || transformType == ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND);
         boolean useFallbackAnimation = false;
         
-        Vec3 translations = Vec3.ZERO;
-        Vec3 rotations = Vec3.ZERO;
-        Vec3 offsets = new Vec3(0, -4.15, 0);
+        Vec3 boltTranslations = Vec3.ZERO;
+        Vec3 boltRotations = Vec3.ZERO;
+        Vec3 boltRotOffset = new Vec3(0, -4.15, 0);
         
         if(isPlayer && correctContext && !disableAnimations)
         {
         	try {
     				Player player = (Player) entity;
     				
-        			translations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "bolt");
-        	        rotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "bolt");
+        			boltTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "bolt");
+        	        boltRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "bolt");
 
         	    	if(!GunAnimationHelper.hasAnimation("fire", stack) && GunAnimationHelper.getSmartAnimationType(stack, player, partialTicks)=="fire")
         	    	useFallbackAnimation = true;
@@ -112,12 +112,12 @@ public class VintageBoltRifleModel implements IOverrideModel
 	            float cooldown_f = Math.min(Math.max((-cooldown_a*intensity+boltLeadTime)+intensity,0),1);
 	            float cooldown_g = Math.min(cooldown_e,cooldown_f);
 	            
-    			translations = new Vec3(0, 0, (cooldown_d * 2.5));
-    	        rotations = new Vec3(0, 0, (67.5F * Math.min(cooldown_g*2F,1)));
+    			boltTranslations = new Vec3(0, 0, (cooldown_d * 2.5));
+    	        boltRotations = new Vec3(0, 0, (67.5F * Math.min(cooldown_g*2F,1)));
 	        }
     	}
 
-		// Sniper Rifle bolt and chamber. This animated part cycles backward then forward after firing.
+		// Bolt-Action Rifle bolt and chamber. This animated part cycles backward then forward after firing.
         // This element consists of two parts.
         
         // Part 1: Rotating bolt handle
@@ -126,18 +126,18 @@ public class VintageBoltRifleModel implements IOverrideModel
 		// Now we apply our transformations.
         if(isPlayer)
         {
-        	if(translations!=Vec3.ZERO)
-        	poseStack.translate(0, 0, translations.z*0.0625);
+        	if(boltTranslations!=Vec3.ZERO)
+        	poseStack.translate(0, 0, boltTranslations.z*0.0625);
         	if (!disableAnimations)
         	{
-            	if(rotations!=Vec3.ZERO)
-                GunAnimationHelper.rotateAroundOffset(poseStack, rotations, offsets);
+            	if(boltRotations!=Vec3.ZERO)
+                GunAnimationHelper.rotateAroundOffset(poseStack, boltRotations, boltRotOffset);
         	}
         	else
         	{
-	        	poseStack.translate(0, -offsets.y*0.0625, 0);
-	        	poseStack.mulPose(Vector3f.ZN.rotationDegrees((float) rotations.z));
-	        	poseStack.translate(0, offsets.y*0.0625, 0);
+	        	poseStack.translate(0, -boltRotOffset.y*0.0625, 0);
+	        	poseStack.mulPose(Vector3f.ZN.rotationDegrees((float) boltRotations.z));
+	        	poseStack.translate(0, boltRotOffset.y*0.0625, 0);
         	}
         }
 		// Our transformations are done - now we can render the model.
@@ -150,17 +150,10 @@ public class VintageBoltRifleModel implements IOverrideModel
         poseStack.pushPose();
 		// Now we apply our transformations.
         if(isPlayer)
-        poseStack.translate(0, 0, translations.z*0.0625);
+        poseStack.translate(0, 0, boltTranslations.z*0.0625);
 		// Our transformations are done - now we can render the model.
         RenderUtil.renderModel(SpecialModels.BOLT_ACTION_RIFLE_CHAMBER.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
-    }
-    
-    //NBT fetch code for skin variants - ported from the "hasAmmo" function under common/Gun.java
-    public static int getVariant(ItemStack gunStack)
-    {
-        CompoundTag tag = gunStack.getOrCreateTag();
-        return tag.getInt("CustomModelData");
     }
 }
