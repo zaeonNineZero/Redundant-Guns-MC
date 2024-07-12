@@ -74,18 +74,18 @@ public class CarbineRifleModel implements IOverrideModel
         boolean isPlayer = entity != null && entity.equals(Minecraft.getInstance().player);
         boolean isFirstPerson = (transformType.firstPerson());
         
-        Vec3 translations = Vec3.ZERO;
-        Vec3 rotations = Vec3.ZERO;
-        Vec3 offsets = Vec3.ZERO;
+        Vec3 magTranslations = Vec3.ZERO;
+        Vec3 magRotations = Vec3.ZERO;
+        Vec3 magRotOffset = Vec3.ZERO;
         
         if(isPlayer && isFirstPerson && !disableAnimations)
         {
         	try {
 					Player player = (Player) entity;
 					
-        			translations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "magazine");
-        	        rotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "magazine");
-        	        offsets = GunAnimationHelper.getSmartAnimationRotOffset(stack, player, partialTicks, "magazine");
+        			magTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "magazine");
+        	        magRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "magazine");
+        	        magRotOffset = GunAnimationHelper.getSmartAnimationRotOffset(stack, player, partialTicks, "magazine");
         		}
         		catch(Exception e) {
                 	GunMod.LOGGER.error("Redundant Guns encountered an error trying to apply animations.");
@@ -98,10 +98,10 @@ public class CarbineRifleModel implements IOverrideModel
 		// Now we apply our transformations.
         if(isPlayer && !disableAnimations)
         {
-        	if(translations!=Vec3.ZERO)
-        	poseStack.translate(translations.x*0.0625, translations.y*0.0625, translations.z*0.0625);
-        	if(rotations!=Vec3.ZERO)
-               GunAnimationHelper.rotateAroundOffset(poseStack, rotations, offsets);
+        	if(magTranslations!=Vec3.ZERO)
+        	poseStack.translate(magTranslations.x*0.0625, magTranslations.y*0.0625, magTranslations.z*0.0625);
+        	if(magRotations!=Vec3.ZERO)
+               GunAnimationHelper.rotateAroundOffset(poseStack, magRotations, magRotOffset);
     	}
 		// Our transformations are done - now we can render the model.
         RenderUtil.renderModel(RedundantSpecialModels.CARBINE_RIFLE_MAGAZINE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
