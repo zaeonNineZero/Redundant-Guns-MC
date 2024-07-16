@@ -87,6 +87,9 @@ public class CarbineRifleModel implements IOverrideModel
         	        magRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "magazine");
         	        magRotOffset = GunAnimationHelper.getSmartAnimationRotOffset(stack, player, partialTicks, "magazine");
         		}
+	    		catch(NoClassDefFoundError ignored) {
+	            	disableAnimations = true;
+	    		}
         		catch(Exception e) {
                 	GunMod.LOGGER.error("Redundant Guns encountered an error trying to apply animations.");
                 	e.printStackTrace();
