@@ -17,6 +17,7 @@ public enum RedundantSpecialModels
 	COMBAT_PISTOL_BASE("combat_pistol_base"),
     COMBAT_PISTOL_SLIDE("combat_pistol_slide"),
     COMBAT_PISTOL_RAILMOUNT("combat_pistol_railmount"),
+    COMBAT_PISTOL_MAGAZINE("combat_pistol_magazine"),
     
 	CARBINE_RIFLE_BASE("carbine_rifle_base"),
 	CARBINE_RIFLE_BASE_1("carbine_rifle_base_1"),
