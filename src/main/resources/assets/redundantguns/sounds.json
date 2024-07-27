@@ -44,6 +44,23 @@
       "cgm:item/assault_rifle/silenced_fire"
     ]
   },
+  "item.carbine_rifle.mag_out": {
+    "sounds": [
+      "redundantguns:item/carbine_rifle/mag_out"
+    ]
+  },
+  "item.carbine_rifle.mag_in": {
+    "subtitle":"subtitle.cgm.reload",
+    "sounds": [
+      "redundantguns:item/carbine_rifle/mag_in"
+    ]
+  },
+  "item.carbine_rifle.cock": {
+    "subtitle":"subtitle.cgm.cock",
+    "sounds": [
+      "redundantguns:item/carbine_rifle/cock"
+    ]
+  },
   
   "item.vintage_bolt_rifle.fire": {
     "subtitle":"subtitle.cgm.fire",
@@ -63,10 +80,22 @@
       "redundantguns:item/vintage_bolt_action_rifle/enchanted_fire"
     ]
   },
+  "item.vintage_bolt_rifle.enchanted_fire_single": {
+    "subtitle":"subtitle.cgm.enchanted_fire",
+    "sounds": [
+      "redundantguns:item/vintage_bolt_action_rifle/enchanted_fire_single"
+    ]
+  },
   "item.vintage_bolt_rifle.silenced_fire": {
     "subtitle":"subtitle.cgm.silenced",
     "sounds": [
       "redundantguns:item/vintage_bolt_action_rifle/silenced_fire"
+    ]
+  },
+  "item.vintage_bolt_rifle.silenced_fire_single": {
+    "subtitle":"subtitle.cgm.silenced",
+    "sounds": [
+      "redundantguns:item/vintage_bolt_action_rifle/silenced_fire_single"
     ]
   },
   "item.vintage_bolt_rifle.cock": {
@@ -74,7 +103,6 @@
     "sounds": [{"name":"redundantguns:item/vintage_bolt_action_rifle/cock"}]
   },
   "item.vintage_bolt_rifle.bolt_back": {
-    "subtitle":"subtitle.cgm.reload",
     "sounds": [{"name":"redundantguns:item/vintage_bolt_action_rifle/bolt_back"}]
   },
   "item.vintage_bolt_rifle.bolt_forward": {

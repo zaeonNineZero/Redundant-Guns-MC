@@ -61,7 +61,7 @@ public class TacticalInfantryRifleModel implements IOverrideModel
         {
         	try {
     				Player player = (Player) entity;
-    				chamberTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "slide");
+    				chamberTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "bolt_handle");
 					
         			magTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "magazine");
         	        magRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "magazine");
