@@ -26,6 +26,7 @@ public class initItems {
 	//Guns
     public static final RegistryObject<GunItem> COMBAT_PISTOL = ITEMS.register("combat_pistol", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
     public static final RegistryObject<GunItem> CARBINE_RIFLE = ITEMS.register("carbine_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
+    public static final RegistryObject<GunItem> COMBAT_ASSAULT_RIFLE = ITEMS.register("combat_assault_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> TACTICAL_INFANTRY_RIFLE = ITEMS.register("tactical_infantry_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> VINTAGE_BOLT_RIFLE = ITEMS.register("vintage_bolt_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> TACTICAL_SNIPER_RIFLE = ITEMS.register("tactical_sniper_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));

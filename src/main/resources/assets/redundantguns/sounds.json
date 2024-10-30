@@ -62,6 +62,34 @@
     ]
   },
   
+  "item.combat_assault_rifle.fire": {
+    "subtitle":"subtitle.cgm.fire",
+    "sounds": [
+      "redundantguns:item/combat_assault_rifle/fire",
+      "redundantguns:item/combat_assault_rifle/fire2",
+      "redundantguns:item/combat_assault_rifle/fire3"
+    ]
+  },
+  "item.combat_assault_rifle.enchanted_fire": {
+    "subtitle":"subtitle.cgm.enchanted_fire",
+    "sounds": [
+      "redundantguns:item/combat_assault_rifle/enchanted_fire",
+      "redundantguns:item/combat_assault_rifle/enchanted_fire2",
+      "redundantguns:item/combat_assault_rifle/enchanted_fire3"
+    ]
+  },
+  "item.combat_assault_rifle.mag_out": {
+    "sounds": [
+      "redundantguns:item/combat_assault_rifle/mag_out"
+    ]
+  },
+  "item.combat_assault_rifle.mag_in": {
+    "subtitle":"subtitle.cgm.reload",
+    "sounds": [
+      "redundantguns:item/combat_assault_rifle/mag_in"
+    ]
+  },
+  
   "item.vintage_bolt_rifle.fire": {
     "subtitle":"subtitle.cgm.fire",
     "sounds": [

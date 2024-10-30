@@ -5,7 +5,6 @@ import com.mrcrayfish.guns.common.Gun;
 import com.mrcrayfish.guns.GunMod;
 import com.mrcrayfish.guns.client.GunModel;
 
-import zaeonninezero.nzgmaddon.client.SpecialModels;
 import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
 import com.mrcrayfish.guns.client.util.GunAnimationHelper;
@@ -79,7 +78,7 @@ public class CombatPistolModel implements IOverrideModel
 	            	disableAnimations = true;
 	    		}
         		catch(Exception e) {
-                	GunMod.LOGGER.error("NZGE encountered an error trying to apply animations.");
+                	GunMod.LOGGER.error("Redundant Guns encountered an error trying to apply animations.");
                 	e.printStackTrace();
                 	disableAnimations = true;
         		}
@@ -127,7 +126,18 @@ public class CombatPistolModel implements IOverrideModel
                GunAnimationHelper.rotateAroundOffset(poseStack, magRotations, magRotOffset);
     	}
 		// Render the transformed model.
-        RenderUtil.renderModel(RedundantSpecialModels.COMBAT_PISTOL_MAGAZINE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+        RedundantSpecialModels magModel = RedundantSpecialModels.COMBAT_PISTOL_MAGAZINE;
+        try {
+        	ItemStack magStack = Gun.getAttachment(IAttachment.Type.byTagKey("Magazine"), stack);
+            if(!magStack.isEmpty())
+            {
+	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("extended_magazine"))
+			    	magModel = RedundantSpecialModels.COMBAT_PISTOL_EXTENDED_MAG;
+            }
+		}
+		catch(Error ignored) {} catch(Exception ignored) {}
+        
+        RenderUtil.renderModel(magModel.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
     }

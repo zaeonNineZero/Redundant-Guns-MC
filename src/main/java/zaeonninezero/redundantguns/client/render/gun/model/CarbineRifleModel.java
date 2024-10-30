@@ -26,6 +26,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
+import zaeonninezero.nzgmaddon.client.SpecialModels;
 import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 
 /**
@@ -96,18 +97,34 @@ public class CarbineRifleModel implements IOverrideModel
                 	disableAnimations = true;
         		}
         }
-        
-        poseStack.pushPose();
+
 		// Now we apply our transformations.
-        if(isPlayer && !disableAnimations)
+        // Magazine transforms
+        poseStack.pushPose();
+		// Apply transformations to this part.
+        if(isPlayer && isFirstPerson && !disableAnimations)
         {
         	if(magTranslations!=Vec3.ZERO)
         	poseStack.translate(magTranslations.x*0.0625, magTranslations.y*0.0625, magTranslations.z*0.0625);
         	if(magRotations!=Vec3.ZERO)
                GunAnimationHelper.rotateAroundOffset(poseStack, magRotations, magRotOffset);
     	}
-		// Our transformations are done - now we can render the model.
-        RenderUtil.renderModel(RedundantSpecialModels.CARBINE_RIFLE_MAGAZINE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+		// Magazine model selection and rendering
+        RedundantSpecialModels magModel = RedundantSpecialModels.CARBINE_RIFLE_MAGAZINE;
+        try {
+        	ItemStack magStack = Gun.getAttachment(IAttachment.Type.byTagKey("Magazine"), stack);
+            if(!magStack.isEmpty())
+            {
+	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("light_magazine"))
+		    		magModel = RedundantSpecialModels.CARBINE_RIFLE_LIGHT_MAG;
+	            else
+	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("extended_magazine"))
+			    	magModel = RedundantSpecialModels.CARBINE_RIFLE_EXTENDED_MAG;
+            }
+		}
+		catch(Error ignored) {} catch(Exception ignored) {}
+        
+        RenderUtil.renderModel(magModel.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
     }

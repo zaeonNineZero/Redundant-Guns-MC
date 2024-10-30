@@ -18,6 +18,7 @@ public enum RedundantSpecialModels
     COMBAT_PISTOL_SLIDE("combat_pistol_slide"),
     COMBAT_PISTOL_RAILMOUNT("combat_pistol_railmount"),
     COMBAT_PISTOL_MAGAZINE("combat_pistol_magazine"),
+    COMBAT_PISTOL_EXTENDED_MAG("combat_pistol_extended_mag"),
     
 	CARBINE_RIFLE_BASE("carbine_rifle_base"),
 	CARBINE_RIFLE_BASE_1("carbine_rifle_base_1"),
@@ -27,6 +28,14 @@ public enum RedundantSpecialModels
     CARBINE_RIFLE_CARRYHANDLE("carbine_rifle_carryhandle"),
     CARBINE_RIFLE_CARRYHANDLE_1("carbine_rifle_carryhandle_1"),
     CARBINE_RIFLE_MAGAZINE("carbine_rifle_magazine"),
+    CARBINE_RIFLE_LIGHT_MAG("carbine_rifle_light_mag"),
+    CARBINE_RIFLE_EXTENDED_MAG("carbine_rifle_extended_mag"),
+
+    COMBAT_ASSAULT_RIFLE_BASE("combat_assault_rifle_base"),
+    COMBAT_ASSAULT_RIFLE_SIGHTS("combat_assault_rifle_sights"),
+    COMBAT_ASSAULT_RIFLE_MAGAZINE("combat_assault_rifle_magazine"),
+    COMBAT_ASSAULT_RIFLE_LIGHT_MAG("combat_assault_rifle_light_mag"),
+    COMBAT_ASSAULT_RIFLE_EXTENDED_MAG("combat_assault_rifle_extended_mag"),
 	
 	TACTICAL_INFANTRY_RIFLE_BASE("tactical_infantry_rifle_base"),
 	
