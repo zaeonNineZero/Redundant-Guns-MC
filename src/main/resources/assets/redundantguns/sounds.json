@@ -86,7 +86,7 @@
   "item.combat_assault_rifle.mag_in": {
     "subtitle":"subtitle.cgm.reload",
     "sounds": [
-      "redundantguns:item/combat_assault_rifle/mag_in"
+      "nzgmaddon:item/bullpup_rifle/mag_in"
     ]
   },
   
