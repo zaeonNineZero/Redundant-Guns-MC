@@ -22,6 +22,29 @@
     ]
   },
   
+  "item.sidearm_pistol.fire": {
+    "subtitle":"subtitle.cgm.fire",
+    "sounds": [
+      "redundantguns:item/sidearm_pistol/fire",
+      "redundantguns:item/sidearm_pistol/fire2",
+      "redundantguns:item/sidearm_pistol/fire3"
+    ]
+  },
+  "item.sidearm_pistol.enchanted_fire": {
+    "subtitle":"subtitle.cgm.enchanted_fire",
+    "sounds": [
+      "redundantguns:item/sidearm_pistol/enchanted_fire",
+      "redundantguns:item/sidearm_pistol/enchanted_fire2",
+      "redundantguns:item/sidearm_pistol/enchanted_fire3"
+    ]
+  },
+  "item.sidearm_pistol.silenced_fire": {
+    "subtitle":"subtitle.cgm.silenced",
+    "sounds": [
+      "cgm:item/pistol/silenced_fire"
+    ]
+  },
+  
   "item.carbine_rifle.fire": {
     "subtitle":"subtitle.cgm.fire",
     "sounds": [
@@ -59,6 +82,25 @@
     "subtitle":"subtitle.cgm.cock",
     "sounds": [
       "redundantguns:item/carbine_rifle/cock"
+    ]
+  },
+  
+  "item.ranger_assault_rifle.fire": {
+    "subtitle":"subtitle.cgm.fire",
+    "sounds": [
+      "redundantguns:item/ranger_assault_rifle/fire",
+      "redundantguns:item/ranger_assault_rifle/fire2",
+      "redundantguns:item/ranger_assault_rifle/fire3",
+      "redundantguns:item/ranger_assault_rifle/fire4"
+    ]
+  },
+  "item.ranger_assault_rifle.enchanted_fire": {
+    "subtitle":"subtitle.cgm.enchanted_fire",
+    "sounds": [
+      "redundantguns:item/ranger_assault_rifle/enchanted_fire",
+      "redundantguns:item/ranger_assault_rifle/enchanted_fire2",
+      "redundantguns:item/ranger_assault_rifle/enchanted_fire3",
+      "redundantguns:item/ranger_assault_rifle/enchanted_fire4"
     ]
   },
   

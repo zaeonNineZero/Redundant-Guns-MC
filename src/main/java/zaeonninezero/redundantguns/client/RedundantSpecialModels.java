@@ -20,6 +20,12 @@ public enum RedundantSpecialModels
     COMBAT_PISTOL_MAGAZINE("combat_pistol_magazine"),
     COMBAT_PISTOL_EXTENDED_MAG("combat_pistol_extended_mag"),
     
+	SIDEARM_PISTOL_BASE("sidearm_pistol_base"),
+	SIDEARM_PISTOL_SLIDE("sidearm_pistol_slide"),
+	SIDEARM_PISTOL_RAILMOUNT("sidearm_pistol_railmount"),
+    SIDEARM_PISTOL_MAGAZINE("sidearm_pistol_magazine"),
+    SIDEARM_PISTOL_EXTENDED_MAG("sidearm_pistol_extended_mag"),
+    
 	CARBINE_RIFLE_BASE("carbine_rifle_base"),
 	CARBINE_RIFLE_BASE_1("carbine_rifle_base_1"),
 	CARBINE_RIFLE_HANDGUARD_0("carbine_rifle_handguard_0"),
@@ -30,6 +36,12 @@ public enum RedundantSpecialModels
     CARBINE_RIFLE_MAGAZINE("carbine_rifle_magazine"),
     CARBINE_RIFLE_LIGHT_MAG("carbine_rifle_light_mag"),
     CARBINE_RIFLE_EXTENDED_MAG("carbine_rifle_extended_mag"),
+
+    RANGER_AR_BASE("ranger_ar_base"),
+    RANGER_AR_BASE_1("ranger_ar_base_1"),
+    RANGER_AR_MAGAZINE("ranger_ar_magazine"),
+    RANGER_AR_LIGHT_MAG("ranger_ar_light_mag"),
+    RANGER_AR_EXTENDED_MAG("ranger_ar_extended_mag"),
 
     COMBAT_ASSAULT_RIFLE_BASE("combat_assault_rifle_base"),
     COMBAT_ASSAULT_RIFLE_SIGHTS("combat_assault_rifle_sights"),

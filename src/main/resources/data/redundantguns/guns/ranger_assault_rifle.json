@@ -1,0 +1,62 @@
+{
+  "general": {
+    "auto": true,
+    "rate": 2,
+    "gripType": "cgm:two_handed",
+    "maxAmmo": 30,
+    "reloadAmount": 8,
+    "recoilAngle": 2.5,
+    "recoilKick": 1.1,
+    "recoilAdsReduction": 0.3,
+    "alwaysSpread": false,
+    "spread": 6.5
+  },
+  "projectile": {
+    "item": "nzgmaddon:medium_bullet",
+    "damage": 4.9,
+    "size": 0.2,
+    "speed": 10.0,
+    "life": 26,
+    "gravity": true
+  },
+  "sounds": {
+    "fire": "redundantguns:item.ranger_assault_rifle.fire",
+    "reload": "nzgmaddon:item.assault_rifle.reload",
+    "cock": "nzgmaddon:item.heavy_ar.cock",
+    "silencedFire": "nzgmaddon:item.heavy_ar.silenced_fire",
+    "enchantedFire": "redundantguns:item.ranger_assault_rifle.enchanted_fire"
+  },
+  "display": {
+    "flash": {
+      "yOffset": 3.0,
+      "zOffset": -8.11
+    }
+  },
+  "modules": {
+    "zoom": {
+      "yOffset": 5.0,
+      "zOffset": 3.08,
+      "fovModifier": 0.6
+    },
+    "attachments": {
+      "scope": {
+        "yOffset": 4.3,
+        "zOffset": 4.0,
+        "scale": 1.0
+      },
+      "barrel": {
+        "yOffset": 3.0,
+        "zOffset": -7.5,
+        "scale": 0.5
+      },
+      "stock": {
+        "yOffset": 3.05,
+        "zOffset": 8.36
+      },
+      "underBarrel": {
+        "yOffset": 2.499,
+        "zOffset": -1.0
+      }
+    }
+  }
+}

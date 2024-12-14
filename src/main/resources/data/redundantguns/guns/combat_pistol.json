@@ -1,18 +1,18 @@
 {
   "general": {
-    "rate": 3,
+    "rate": 4,
     "gripType": "cgm:one_handed",
-    "maxAmmo": 15,
-    "reloadAmount": 15,
-    "recoilAngle": 2.3,
+    "maxAmmo": 12,
+    "reloadAmount": 11,
+    "recoilAngle": 2.5,
     "recoilKick": 0.7,
-    "recoilAdsReduction": 0.35,
+    "recoilAdsReduction": 0.4,
     "alwaysSpread": false,
-    "spread": 4.0
+    "spread": 3.5
   },
   "projectile": {
     "item": "cgm:basic_bullet",
-    "damage": 8.0,
+    "damage": 9.5,
     "size": 0.2,
     "speed": 10.0,
     "life": 24
@@ -21,7 +21,7 @@
     "fire": "redundantguns:item.combat_pistol.fire",
     "reload": "cgm:item.pistol.reload",
     "cock": "cgm:item.pistol.cock",
-    "silencedFire": "cgm:item.pistol.silenced_fire",
+    "silencedFire": "redundantguns:item.combat_pistol.silenced_fire",
     "enchantedFire": "redundantguns:item.combat_pistol.enchanted_fire"
   },
   "display": {

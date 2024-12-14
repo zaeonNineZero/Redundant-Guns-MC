@@ -252,18 +252,6 @@
 			}
 		},
 		{
-			"from": [7.4, 2.62936, 16.25],
-			"to": [8.6, 3.87936, 16.4],
-			"rotation": {"angle": 0, "axis": "y", "origin": [15, 10.8, 16.85]},
-			"faces": {
-				"east": {"uv": [10, 1, 9.5, 2], "texture": "#0", "tintindex": 0},
-				"south": {"uv": [8.5, 0, 9.5, 1], "rotation": 180, "texture": "#0", "tintindex": 0},
-				"west": {"uv": [9.5, 1, 10, 2], "texture": "#0", "tintindex": 0},
-				"up": {"uv": [5, 0.5, 4, 1.5], "texture": "#3", "tintindex": 0},
-				"down": {"uv": [8.5, 2, 9.5, 3], "rotation": 90, "texture": "#0", "tintindex": 0}
-			}
-		},
-		{
 			"from": [7.25, 2.47936, 8.3],
 			"to": [8.75, 3.97936, 13.85],
 			"rotation": {"angle": 0, "axis": "y", "origin": [15, 10.8, 15.6]},
@@ -1041,37 +1029,37 @@
 			"name": "mid_stock",
 			"origin": [15, 10.8, 16.6],
 			"color": 0,
-			"children": [21, 22, 23, 24]
+			"children": [21, 22, 23]
 		},
 		{
 			"name": "bottom_rail",
 			"origin": [8, 11.55, 1.05],
 			"color": 0,
-			"children": [25, 26, 27]
+			"children": [24, 25, 26]
 		},
 		{
 			"name": "front_body",
 			"origin": [8.75, 4.7, 8.3],
 			"color": 0,
 			"children": [
+				27,
 				28,
 				29,
 				30,
 				31,
 				32,
 				33,
-				34,
 				{
 					"name": "group",
 					"origin": [8.75, 4.7, 8.3],
 					"color": 0,
-					"children": [35, 36, 37, 38, 39, 40, 41]
+					"children": [34, 35, 36, 37, 38, 39, 40]
 				},
 				{
 					"name": "body_top_rail",
 					"origin": [8, 11.55, 1.05],
 					"color": 0,
-					"children": [42, 43, 44]
+					"children": [41, 42, 43]
 				}
 			]
 		},
@@ -1080,6 +1068,7 @@
 			"origin": [8, 3.1365, 3.8],
 			"color": 0,
 			"children": [
+				44,
 				45,
 				46,
 				47,
@@ -1088,12 +1077,12 @@
 				50,
 				51,
 				52,
-				53,
 				{
 					"name": "group",
 					"origin": [8, 4.2815, 2.3],
 					"color": 0,
 					"children": [
+						53,
 						54,
 						55,
 						56,
@@ -1102,12 +1091,11 @@
 						59,
 						60,
 						61,
-						62,
 						{
 							"name": "group",
 							"origin": [8, 4.1815, 2.3],
 							"color": 0,
-							"children": [63, 64, 65, 66, 67, 68, 69, 70]
+							"children": [62, 63, 64, 65, 66, 67, 68, 69]
 						}
 					]
 				}
@@ -1117,32 +1105,32 @@
 			"name": "top_rail",
 			"origin": [8.001, 4.50127, 11.05279],
 			"color": 0,
-			"children": [71, 72, 73]
+			"children": [70, 71, 72]
 		},
-		74,
+		73,
 		{
 			"name": "rear_sight",
 			"origin": [8, 8, 8],
 			"color": 0,
 			"children": [
-				75,
+				74,
 				{
 					"name": "group",
 					"origin": [7.74645, 5.54497, 13.125],
 					"color": 0,
-					"children": [76, 77, 78, 79, 80, 81, 82, 83]
+					"children": [75, 76, 77, 78, 79, 80, 81, 82]
 				},
 				{
 					"name": "group",
 					"origin": [8, 7.63938, -0.86062],
 					"color": 0,
-					"children": [84, 85, 86, 87]
+					"children": [83, 84, 85, 86]
 				},
 				{
 					"name": "group",
 					"origin": [8, 7.63938, -0.86062],
 					"color": 0,
-					"children": [88, 89, 90, 91]
+					"children": [87, 88, 89, 90]
 				}
 			]
 		}
