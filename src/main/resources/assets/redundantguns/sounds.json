@@ -109,7 +109,8 @@
     "sounds": [
       "redundantguns:item/combat_assault_rifle/fire",
       "redundantguns:item/combat_assault_rifle/fire2",
-      "redundantguns:item/combat_assault_rifle/fire3"
+      "redundantguns:item/combat_assault_rifle/fire3",
+      "redundantguns:item/combat_assault_rifle/fire4"
     ]
   },
   "item.combat_assault_rifle.enchanted_fire": {
@@ -117,7 +118,8 @@
     "sounds": [
       "redundantguns:item/combat_assault_rifle/enchanted_fire",
       "redundantguns:item/combat_assault_rifle/enchanted_fire2",
-      "redundantguns:item/combat_assault_rifle/enchanted_fire3"
+      "redundantguns:item/combat_assault_rifle/enchanted_fire3",
+      "redundantguns:item/combat_assault_rifle/enchanted_fire4"
     ]
   },
   "item.combat_assault_rifle.mag_out": {
