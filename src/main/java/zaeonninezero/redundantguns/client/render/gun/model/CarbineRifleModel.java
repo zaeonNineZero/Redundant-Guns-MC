@@ -56,6 +56,8 @@ public class CarbineRifleModel implements IOverrideModel
         if (getVariant(stack, "HandguardVariant") == 1)
         handguardModel = RedundantSpecialModels.CARBINE_RIFLE_HANDGUARD_1.getModel();
         RenderUtil.renderModel(handguardModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
+        if (getVariant(stack, "HandguardVariant") == 2)
+        RenderUtil.renderModel(RedundantSpecialModels.CARBINE_RIFLE_HANDGUARD_COVERS.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
         
         // Render the rear iron sight element, which is only present when a scope is not attached.
         // We have to grab the gun's scope attachment slot and check whether it is empty or not.

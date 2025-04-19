@@ -1,0 +1,109 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"2": "redundantguns:items/carbine_rifle",
+		"particle": "redundantguns:items/carbine_rifle"
+	},
+	"elements": [
+		{
+			"from": [6.65, 3.9, 3.351],
+			"to": [6.885, 4.7, 9.75],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [6.65, 3.9, 6.599]},
+			"faces": {
+				"north": {"uv": [0.5, 14, 1, 14.75], "texture": "#2", "tintindex": 0},
+				"east": {"uv": [7, 14, 0.5, 14.75], "texture": "#2", "tintindex": 0},
+				"south": {"uv": [6.5, 14, 7, 14.75], "texture": "#2", "tintindex": 0},
+				"west": {"uv": [0.5, 14, 7, 14.75], "texture": "#2", "tintindex": 0},
+				"up": {"uv": [0.5, 15.5, 7, 16], "rotation": 90, "texture": "#2", "tintindex": 0}
+			}
+		},
+		{
+			"from": [6.95615, 3.1609, 3.3511],
+			"to": [7.18615, 3.9609, 9.7499],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [6.95615, 3.1609, 6.599]},
+			"faces": {
+				"north": {"uv": [0.5, 14, 1, 14.75], "texture": "#2", "tintindex": 0},
+				"east": {"uv": [7, 14.75, 0.5, 15.5], "texture": "#2", "tintindex": 0},
+				"south": {"uv": [6.5, 14, 7, 14.75], "texture": "#2", "tintindex": 0},
+				"west": {"uv": [0.5, 14.75, 7, 15.5], "texture": "#2", "tintindex": 0},
+				"down": {"uv": [7, 15.5, 0.5, 16], "rotation": 90, "texture": "#2", "tintindex": 0}
+			}
+		},
+		{
+			"from": [9.115, 3.9, 3.351],
+			"to": [9.35, 4.7, 9.75],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [9.35, 3.9, 6.599]},
+			"faces": {
+				"north": {"uv": [1, 14, 0.5, 14.75], "texture": "#2", "tintindex": 0},
+				"east": {"uv": [7, 14, 0.5, 14.75], "texture": "#2", "tintindex": 0},
+				"south": {"uv": [7, 14, 6.5, 14.75], "texture": "#2", "tintindex": 0},
+				"west": {"uv": [0.5, 14, 7, 14.75], "texture": "#2", "tintindex": 0},
+				"up": {"uv": [0.5, 16, 7, 15.5], "rotation": 90, "texture": "#2", "tintindex": 0}
+			}
+		},
+		{
+			"from": [8.81385, 3.1609, 3.3511],
+			"to": [9.04385, 3.9609, 9.7499],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [9.04385, 3.1609, 6.599]},
+			"faces": {
+				"north": {"uv": [1, 14, 0.5, 14.75], "texture": "#2", "tintindex": 0},
+				"east": {"uv": [7, 14.75, 0.5, 15.5], "texture": "#2", "tintindex": 0},
+				"south": {"uv": [7, 14, 6.5, 14.75], "texture": "#2", "tintindex": 0},
+				"west": {"uv": [0.5, 14.75, 7, 15.5], "texture": "#2", "tintindex": 0},
+				"down": {"uv": [7, 15.5, 0.5, 16], "rotation": 90, "texture": "#2", "tintindex": 0}
+			}
+		},
+		{
+			"from": [8, 5.015, 3.351],
+			"to": [8.8, 5.25, 9.75],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [8, 5.25, 6.599]},
+			"faces": {
+				"north": {"uv": [0.5, 14, 1, 14.75], "rotation": 270, "texture": "#2", "tintindex": 0},
+				"east": {"uv": [0.5, 15.5, 7, 16], "rotation": 180, "texture": "#2", "tintindex": 0},
+				"south": {"uv": [6.5, 14, 7, 14.75], "rotation": 90, "texture": "#2", "tintindex": 0},
+				"up": {"uv": [0.5, 14.75, 7, 14], "rotation": 90, "texture": "#2", "tintindex": 0},
+				"down": {"uv": [7, 14, 0.5, 14.75], "rotation": 90, "texture": "#2", "tintindex": 0}
+			}
+		},
+		{
+			"from": [7.2609, 4.71385, 3.3511],
+			"to": [8.0609, 4.94385, 9.7499],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [7.2609, 4.94385, 6.599]},
+			"faces": {
+				"north": {"uv": [0.5, 14, 1, 14.75], "rotation": 270, "texture": "#2", "tintindex": 0},
+				"south": {"uv": [6.5, 14, 7, 14.75], "rotation": 90, "texture": "#2", "tintindex": 0},
+				"west": {"uv": [7, 15.5, 0.5, 16], "rotation": 180, "texture": "#2", "tintindex": 0},
+				"up": {"uv": [0.5, 14, 7, 14.75], "rotation": 90, "texture": "#2", "tintindex": 0},
+				"down": {"uv": [7, 14.75, 0.5, 15.5], "rotation": 90, "texture": "#2", "tintindex": 0}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "covers",
+			"origin": [8, 3.1365, 3.8],
+			"color": 0,
+			"children": [
+				{
+					"name": "left_cover",
+					"origin": [6.90615, 3.1609, 6.599],
+					"color": 0,
+					"children": [0, 1]
+				},
+				{
+					"name": "right_cover",
+					"origin": [6.90615, 3.1609, 6.599],
+					"color": 0,
+					"children": [2, 3]
+				},
+				{
+					"name": "top_cover",
+					"origin": [6.90615, 3.1609, 6.599],
+					"color": 0,
+					"children": [4, 5]
+				}
+			]
+		}
+	]
+}
