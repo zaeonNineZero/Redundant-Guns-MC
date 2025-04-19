@@ -31,6 +31,7 @@ public enum RedundantSpecialModels
 	CARBINE_RIFLE_HANDGUARD_0("carbine_rifle_handguard_0"),
 	CARBINE_RIFLE_HANDGUARD_1("carbine_rifle_handguard_1"),
     CARBINE_RIFLE_REARSIGHT("carbine_rifle_rearsight"),
+    CARBINE_RIFLE_REARSIGHT_A2("carbine_rifle_rearsight_a2"),
     CARBINE_RIFLE_CARRYHANDLE("carbine_rifle_carryhandle"),
     CARBINE_RIFLE_CARRYHANDLE_1("carbine_rifle_carryhandle_1"),
     CARBINE_RIFLE_MAGAZINE("carbine_rifle_magazine"),

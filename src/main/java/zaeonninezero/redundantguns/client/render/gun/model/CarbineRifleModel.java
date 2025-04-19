@@ -67,6 +67,9 @@ public class CarbineRifleModel implements IOverrideModel
         	BakedModel sightModel = RedundantSpecialModels.CARBINE_RIFLE_REARSIGHT.getModel();
             if (getVariant(stack, "SightVariant") == 1)
             sightModel = (getVariant(stack, "BaseVariant") == 1 ? RedundantSpecialModels.CARBINE_RIFLE_CARRYHANDLE_1.getModel() : RedundantSpecialModels.CARBINE_RIFLE_CARRYHANDLE.getModel());
+            else
+            if (getVariant(stack, "SightVariant") == 2)
+            sightModel = RedundantSpecialModels.CARBINE_RIFLE_REARSIGHT_A2.getModel();
             RenderUtil.renderModel(sightModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		}
 
