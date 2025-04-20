@@ -1,0 +1,17 @@
+{
+  "type": "cgm:workbench",
+  "materials": [
+    {
+      "count": 28,
+      "tag": "forge:ingots/iron"
+    }
+  ],
+  "result": {
+    "item": "redundantguns:carbine_rifle",
+	"nbt": {
+      "HandguardVariant":2,
+      "SightVariant":2,
+      "BaseVariant":1
+    }
+  }
+}
