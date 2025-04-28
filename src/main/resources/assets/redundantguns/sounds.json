@@ -69,12 +69,6 @@
       "redundantguns:item/carbine_rifle/enchanted_fire3"
     ]
   },
-  "item.carbine_rifle.silenced_fire": {
-    "subtitle":"subtitle.cgm.silenced",
-    "sounds": [
-      "cgm:item/assault_rifle/silenced_fire"
-    ]
-  },
   "item.carbine_rifle.mag_out": {
     "sounds": [
       "redundantguns:item/carbine_rifle/mag_out"
