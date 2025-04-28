@@ -6,6 +6,7 @@ import com.mrcrayfish.guns.GunMod;
 import com.mrcrayfish.guns.client.GunModel;
 import zaeonninezero.nzgmaddon.client.SpecialModels;
 import zaeonninezero.redundantguns.client.RedundantSpecialModels;
+
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
 import com.mrcrayfish.guns.client.util.GunAnimationHelper;
 import com.mrcrayfish.guns.client.util.RenderUtil;
@@ -15,6 +16,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemCooldowns;
@@ -28,22 +30,55 @@ import javax.annotation.Nullable;
  * Modified by zaeonNineZero for Nine Zero's Gun Expansion
  * Attachment detection logic based off of code from Mo' Guns by Bomb787 and AlanorMiga (MigaMi)
  */
-public class TacticalInfantryRifleModel implements IOverrideModel
+public class PrecisionBattleRifleModel implements IOverrideModel
 {
 	private boolean disableAnimations = false;
 	
     @Override
-	// This class renders a multi-part model that supports animations and removable parts.
-	// We'll render the non-moving/static parts first, then render the animated parts.
+	// This class renders a multi-part model with support for interchangeable parts and animations.
+	// Static parts are rendered first, followed by any moving/animated parts.
 	
 	// We start by declaring our render function that will handle rendering the core baked model (which is a non-moving part).
     public void render(float partialTicks, ItemTransforms.TransformType transformType, ItemStack stack, ItemStack parent, @Nullable LivingEntity entity, PoseStack poseStack, MultiBufferSource buffer, int light, int overlay)
     {
-		// Render the item's BakedModel, which will serve as the core of our custom model.
-        BakedModel bakedModel = RedundantSpecialModels.TACTICAL_INFANTRY_RIFLE_BASE.getModel();
+		// Select the Baked Model we'll be rendering, based on the value of the CustomModelData tag.
+        BakedModel bakedModel = RedundantSpecialModels.PRECISION_BATTLE_RIFLE_BASE.getModel();
+        if (getVariant(stack) == 1 || getVariant(stack, "BaseVariant") == 1)
+        bakedModel = RedundantSpecialModels.PRECISION_BATTLE_RIFLE_BASE_1.getModel();
+        
+        // Render the BakedModel we selected.
         Minecraft.getInstance().getItemRenderer().render(stack, ItemTransforms.TransformType.NONE, false, poseStack, buffer, light, overlay, GunModel.wrap(bakedModel));
 
-		// The top rail of the Tactical Infantry Rifle is included in the base model.
+        // Render a selected model based on the "HandguardVariant" NBT tag.
+    	BakedModel handguardModel = RedundantSpecialModels.PRECISION_BATTLE_RIFLE_HANDGUARD.getModel();
+        if (getVariant(stack, "HandguardVariant") == 1)
+        handguardModel = RedundantSpecialModels.PRECISION_BATTLE_RIFLE_HANDGUARD_1.getModel();
+        RenderUtil.renderModel(handguardModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
+
+		// Render the top rail element, which is only present when a scope is attached.
+		// We have to grab the gun's scope attachment slot and check whether it is empty or not.
+		// If the isEmpty function returns false, then we render the rail.
+        ItemStack attachmentScopeStack = Gun.getAttachment(IAttachment.Type.SCOPE, stack);
+        if(!attachmentScopeStack.isEmpty())
+		{
+            RenderUtil.renderModel(RedundantSpecialModels.PRECISION_BATTLE_RIFLE_TOP_RAIL.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+		}
+
+		// Render the bottom rail element, which is only present when an underbarrel attachment is equipped.
+		// Same as above - we check the underbarrel attachment slot.
+        ItemStack attachmentGripStack = Gun.getAttachment(IAttachment.Type.UNDER_BARREL, stack);
+        if(!attachmentGripStack.isEmpty())
+		{
+            RenderUtil.renderModel(RedundantSpecialModels.PRECISION_BATTLE_RIFLE_BOTTOM_RAIL.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+		}
+        
+		// Render the stock adapter element, which is only present when a stock attachment is equipped.
+		// Same as above once again, this time with the stock attachment slot.
+        ItemStack attachmentStockStack = Gun.getAttachment(IAttachment.Type.STOCK, stack);
+        if(!attachmentStockStack.isEmpty())
+		{
+            RenderUtil.renderModel(SpecialModels.AUTO_SNIPER_RIFLE_STOCK_ADAPTER.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+		}
 
         // Special animated segment for compat with the CGM Expanded fork.
         // First, some variables for animation building
@@ -51,7 +86,9 @@ public class TacticalInfantryRifleModel implements IOverrideModel
         boolean isFirstPerson = (transformType.firstPerson());
         boolean correctContext = (transformType.firstPerson() || transformType == ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND || transformType == ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND);
         
-        Vec3 chamberTranslations = Vec3.ZERO;
+        Vec3 boltTranslations = Vec3.ZERO;
+        Vec3 boltRotations = Vec3.ZERO;
+        Vec3 boltRotOffset = Vec3.ZERO;
         
         Vec3 magTranslations = Vec3.ZERO;
         Vec3 magRotations = Vec3.ZERO;
@@ -61,7 +98,9 @@ public class TacticalInfantryRifleModel implements IOverrideModel
         {
         	try {
     				Player player = (Player) entity;
-    				chamberTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "bolt_handle");
+    				boltTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "bolt_handle");
+    				boltRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "bolt_handle");
+    				boltRotOffset = GunAnimationHelper.getSmartAnimationRotOffset(stack, player, partialTicks, "bolt_handle");
 					
         			magTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "magazine");
         	        magRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "magazine");
@@ -82,7 +121,7 @@ public class TacticalInfantryRifleModel implements IOverrideModel
         Gun gun = gunStack.getModifiedGun(stack);
         if(isPlayer && correctContext)
         {
-        	float cooldownDivider = 1.0F*Math.max((float) gun.getGeneral().getRate()/2.6F,1);
+            float cooldownDivider = 1.0F*Math.max((float) gun.getGeneral().getRate()/1F,1);
             float cooldownOffset1 = cooldownDivider - 1.0F;
             float intensity = 1.0F +1;
             
@@ -95,22 +134,27 @@ public class TacticalInfantryRifleModel implements IOverrideModel
             float cooldown_c = Math.min(Math.max((-cooldown_a*intensity)+intensity,0),1);
             float cooldown_d = Math.min(cooldown_b,cooldown_c);
             
-            chamberTranslations = chamberTranslations.add(0, 0, cooldown_d * 1.5);
+            boltTranslations = boltTranslations.add(0, 0, cooldown_d * 0.25);
         }
-
-		// Infantry Rifle charging handle. This animated part kicks backward on firing, then moves back to its resting position.
+        
+		// Auto Sniper Charging handle
         poseStack.pushPose();
         // Apply transformations to this part.
         if(isPlayer)
-        poseStack.translate(0, 0, chamberTranslations.z * 0.0625);
+        {
+        	if(boltTranslations!=Vec3.ZERO)
+        	poseStack.translate(0, 0, boltTranslations.z*0.0625);
+        	if(boltRotations!=Vec3.ZERO && !disableAnimations)
+               GunAnimationHelper.rotateAroundOffset(poseStack, boltRotations, boltRotOffset);
+    	}
         // Render the transformed model.
-        RenderUtil.renderModel(SpecialModels.INFANTRY_RIFLE_CHAMBER.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+        RenderUtil.renderModel(SpecialModels.AUTO_SNIPER_RIFLE_BOLT_HANDLE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
         
         // Magazine transforms
         poseStack.pushPose();
-		// Apply transformations to this part.
+        // Apply transformations to this part.
         if(isPlayer && isFirstPerson && !disableAnimations)
         {
         	if(magTranslations!=Vec3.ZERO)
@@ -119,22 +163,34 @@ public class TacticalInfantryRifleModel implements IOverrideModel
                GunAnimationHelper.rotateAroundOffset(poseStack, magRotations, magRotOffset);
     	}
 		// Magazine model selection and rendering
-        SpecialModels magModel = SpecialModels.INFANTRY_RIFLE_MAGAZINE;
+        BakedModel magModel = SpecialModels.AUTO_SNIPER_RIFLE_EXTENDED_MAG.getModel();
         try {
         	ItemStack magStack = Gun.getAttachment(IAttachment.Type.byTagKey("Magazine"), stack);
             if(!magStack.isEmpty())
             {
 	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("light_magazine"))
-		    		magModel = SpecialModels.INFANTRY_RIFLE_LIGHT_MAG;
+		    		magModel = SpecialModels.AUTO_SNIPER_RIFLE_MAGAZINE.getModel();
 	            else
 	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("extended_magazine"))
-			    	magModel = SpecialModels.INFANTRY_RIFLE_EXTENDED_MAG;
+			    	magModel = RedundantSpecialModels.PRECISION_BATTLE_RIFLE_EXTENDED_MAG.getModel();
             }
 		}
 		catch(Error ignored) {} catch(Exception ignored) {}
-        
-        RenderUtil.renderModel(magModel.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
-		// Pop pose to compile everything in the render matrix.
+
+        RenderUtil.renderModel(magModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
+        // Pop pose to compile everything in the render matrix.
         poseStack.popPose();
+    }
+    
+    //NBT fetch code for skin variants - ported from the "hasAmmo" function under common/Gun.java
+    public static int getVariant(ItemStack gunStack)
+    {
+        CompoundTag tag = gunStack.getOrCreateTag();
+        return tag.getInt("CustomModelData");
+    }
+    public static int getVariant(ItemStack gunStack, String tag_name)
+    {
+        CompoundTag tag = gunStack.getOrCreateTag();
+        return tag.getInt(tag_name);
     }
 }

@@ -51,6 +51,14 @@ public enum RedundantSpecialModels
     COMBAT_ASSAULT_RIFLE_LIGHT_MAG("combat_assault_rifle_light_mag"),
     COMBAT_ASSAULT_RIFLE_EXTENDED_MAG("combat_assault_rifle_extended_mag"),
 	
+    PRECISION_BATTLE_RIFLE_BASE("gun/precision_battle_rifle/precision_battle_rifle_base"),
+    PRECISION_BATTLE_RIFLE_BASE_1("gun/precision_battle_rifle/precision_battle_rifle_base_1"),
+    PRECISION_BATTLE_RIFLE_HANDGUARD("gun/precision_battle_rifle/precision_battle_rifle_handguard"),
+    PRECISION_BATTLE_RIFLE_HANDGUARD_1("gun/precision_battle_rifle/precision_battle_rifle_handguard_1"),
+    PRECISION_BATTLE_RIFLE_TOP_RAIL("gun/precision_battle_rifle/precision_battle_rifle_top_rail"),
+    PRECISION_BATTLE_RIFLE_BOTTOM_RAIL("gun/precision_battle_rifle/precision_battle_rifle_bottom_rail"),
+    PRECISION_BATTLE_RIFLE_EXTENDED_MAG("gun/precision_battle_rifle/precision_battle_rifle_extended_mag"),
+	
 	TACTICAL_INFANTRY_RIFLE_BASE("tactical_infantry_rifle_base"),
 	
     VINTAGE_BOLT_RIFLE_BASE("vintage_bolt_rifle_base"),

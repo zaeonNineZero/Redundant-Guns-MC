@@ -53,6 +53,14 @@
       "redundantguns:item/carbine_rifle/fire3"
     ]
   },
+  "item.carbine_rifle.silenced_fire": {
+    "subtitle":"subtitle.cgm.fire.silenced",
+    "sounds": [
+      "redundantguns:item/carbine_rifle/silenced_fire",
+      "redundantguns:item/carbine_rifle/silenced_fire2",
+      "redundantguns:item/carbine_rifle/silenced_fire3"
+    ]
+  },
   "item.carbine_rifle.enchanted_fire": {
     "subtitle":"subtitle.cgm.enchanted_fire",
     "sounds": [
@@ -131,6 +139,31 @@
     "subtitle":"subtitle.cgm.reload",
     "sounds": [
       "nzgmaddon:item/bullpup_rifle/mag_in"
+    ]
+  },
+  
+  "item.precision_battle_rifle.fire": {
+    "subtitle":"subtitle.cgm.fire",
+    "sounds": [
+      "redundantguns:item/precision_battle_rifle/fire",
+      "redundantguns:item/precision_battle_rifle/fire2",
+      "redundantguns:item/precision_battle_rifle/fire3"
+    ]
+  },
+"item.precision_battle_rifle.silenced_fire": {
+    "subtitle":"subtitle.cgm.fire.silenced",
+    "sounds": [
+      "redundantguns:item/precision_battle_rifle/silenced_fire",
+      "redundantguns:item/precision_battle_rifle/silenced_fire2",
+      "redundantguns:item/precision_battle_rifle/silenced_fire3"
+    ]
+  },
+  "item.precision_battle_rifle.enchanted_fire": {
+    "subtitle":"subtitle.cgm.enchanted_fire",
+    "sounds": [
+      "redundantguns:item/precision_battle_rifle/enchanted_fire",
+      "redundantguns:item/precision_battle_rifle/enchanted_fire2",
+      "redundantguns:item/precision_battle_rifle/enchanted_fire3"
     ]
   },
   
