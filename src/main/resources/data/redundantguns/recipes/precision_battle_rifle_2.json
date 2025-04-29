@@ -1,0 +1,16 @@
+{
+  "type": "cgm:workbench",
+  "materials": [
+    {
+      "tag": "forge:ingots/iron",
+      "count": 27
+    }
+  ],
+  "result": {
+    "item": "redundantguns:precision_battle_rifle",
+	"nbt": {
+      "BaseVariant":1,
+      "HandguardVariant":1
+    }
+  }
+}
