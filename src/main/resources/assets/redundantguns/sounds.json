@@ -167,10 +167,10 @@
       "redundantguns:item/vintage_bolt_action_rifle/fire"
     ]
   },
-  "item.vintage_bolt_rifle.fire_single": {
+  "item.vintage_bolt_rifle.fire_bolt": {
     "subtitle":"subtitle.cgm.fire",
     "sounds": [
-      "redundantguns:item/vintage_bolt_action_rifle/fire_single"
+      "redundantguns:item/vintage_bolt_action_rifle/fire_bolt"
     ]
   },
   "item.vintage_bolt_rifle.enchanted_fire": {
@@ -179,22 +179,22 @@
       "redundantguns:item/vintage_bolt_action_rifle/enchanted_fire"
     ]
   },
-  "item.vintage_bolt_rifle.enchanted_fire_single": {
+  "item.vintage_bolt_rifle.enchanted_fire_bolt": {
     "subtitle":"subtitle.cgm.enchanted_fire",
     "sounds": [
-      "redundantguns:item/vintage_bolt_action_rifle/enchanted_fire_single"
+      "redundantguns:item/vintage_bolt_action_rifle/enchanted_fire_bolt"
     ]
   },
   "item.vintage_bolt_rifle.silenced_fire": {
     "subtitle":"subtitle.cgm.silenced",
     "sounds": [
-      "redundantguns:item/vintage_bolt_action_rifle/silenced_fire"
+      "nzgmaddon:item/bolt_action_rifle/silenced_fire"
     ]
   },
-  "item.vintage_bolt_rifle.silenced_fire_single": {
+  "item.vintage_bolt_rifle.silenced_fire_bolt": {
     "subtitle":"subtitle.cgm.silenced",
     "sounds": [
-      "redundantguns:item/vintage_bolt_action_rifle/silenced_fire_single"
+      "redundantguns:item/vintage_bolt_action_rifle/silenced_fire_bolt"
     ]
   },
   "item.vintage_bolt_rifle.cock": {

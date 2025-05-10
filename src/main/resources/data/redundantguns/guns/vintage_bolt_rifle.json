@@ -20,11 +20,11 @@
     "gravity": true
   },
   "sounds": {
-    "fire": "redundantguns:item.vintage_bolt_rifle.fire",
+    "fire": "redundantguns:item.vintage_bolt_rifle.fire_bolt",
     "reload": "nzgmaddon:item.rifle.reload",
     "cock": "nzgmaddon:item.bolt_action_rifle.cock",
-    "silencedFire": "redundantguns:item.vintage_bolt_rifle.silenced_fire",
-    "enchantedFire": "redundantguns:item.vintage_bolt_rifle.enchanted_fire"
+    "silencedFire": "redundantguns:item.vintage_bolt_rifle.silenced_fire_bolt",
+    "enchantedFire": "redundantguns:item.vintage_bolt_rifle.enchanted_fire_bolt"
   },
   "display": {
     "flash": {

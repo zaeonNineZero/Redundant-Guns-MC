@@ -38,6 +38,12 @@ public enum RedundantSpecialModels
     CARBINE_RIFLE_MAGAZINE("gun/carbine_rifle/carbine_rifle_magazine"),
     CARBINE_RIFLE_LIGHT_MAG("gun/carbine_rifle/carbine_rifle_light_mag"),
     CARBINE_RIFLE_EXTENDED_MAG("gun/carbine_rifle/carbine_rifle_extended_mag"),
+    
+	TACTICAL_CARBINE_BASE("gun/tactical_carbine/tactical_carbine_base"),
+	TACTICAL_CARBINE_BASE_1("gun/tactical_carbine/tactical_carbine_base_1"),
+	TACTICAL_CARBINE_HANDGUARD_0("gun/tactical_carbine/tactical_carbine_handguard_0"),
+	TACTICAL_CARBINE_HANDGUARD_1("gun/tactical_carbine/tactical_carbine_handguard_1"),
+	TACTICAL_CARBINE_SIGHTS("gun/tactical_carbine/tactical_carbine_sights"),
 
     RANGER_AR_BASE("ranger_ar_base"),
     RANGER_AR_BASE_1("ranger_ar_base_1"),
