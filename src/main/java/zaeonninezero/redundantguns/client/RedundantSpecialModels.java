@@ -14,17 +14,17 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = RedundantGuns.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public enum RedundantSpecialModels
 {
-	COMBAT_PISTOL_BASE("combat_pistol_base"),
-    COMBAT_PISTOL_SLIDE("combat_pistol_slide"),
-    COMBAT_PISTOL_RAILMOUNT("combat_pistol_railmount"),
-    COMBAT_PISTOL_MAGAZINE("combat_pistol_magazine"),
-    COMBAT_PISTOL_EXTENDED_MAG("combat_pistol_extended_mag"),
+	COMBAT_PISTOL_BASE("gun/combat_pistol/combat_pistol_base"),
+    COMBAT_PISTOL_SLIDE("gun/combat_pistol/combat_pistol_slide"),
+    COMBAT_PISTOL_RAILMOUNT("gun/combat_pistol/combat_pistol_railmount"),
+    COMBAT_PISTOL_MAGAZINE("gun/combat_pistol/combat_pistol_magazine"),
+    COMBAT_PISTOL_EXTENDED_MAG("gun/combat_pistol/combat_pistol_extended_mag"),
     
-	SIDEARM_PISTOL_BASE("sidearm_pistol_base"),
-	SIDEARM_PISTOL_SLIDE("sidearm_pistol_slide"),
-	SIDEARM_PISTOL_RAILMOUNT("sidearm_pistol_railmount"),
-    SIDEARM_PISTOL_MAGAZINE("sidearm_pistol_magazine"),
-    SIDEARM_PISTOL_EXTENDED_MAG("sidearm_pistol_extended_mag"),
+	SIDEARM_PISTOL_BASE("gun/sidearm_pistol/sidearm_pistol_base"),
+	SIDEARM_PISTOL_SLIDE("gun/sidearm_pistol/sidearm_pistol_slide"),
+	SIDEARM_PISTOL_RAILMOUNT("gun/sidearm_pistol/sidearm_pistol_railmount"),
+    SIDEARM_PISTOL_MAGAZINE("gun/sidearm_pistol/sidearm_pistol_magazine"),
+    SIDEARM_PISTOL_EXTENDED_MAG("gun/sidearm_pistol/sidearm_pistol_extended_mag"),
     
 	CARBINE_RIFLE_BASE("gun/carbine_rifle/carbine_rifle_base"),
 	CARBINE_RIFLE_BASE_1("gun/carbine_rifle/carbine_rifle_base_1"),
@@ -45,17 +45,17 @@ public enum RedundantSpecialModels
 	TACTICAL_CARBINE_HANDGUARD_1("gun/tactical_carbine/tactical_carbine_handguard_1"),
 	TACTICAL_CARBINE_SIGHTS("gun/tactical_carbine/tactical_carbine_sights"),
 
-    RANGER_AR_BASE("ranger_ar_base"),
-    RANGER_AR_BASE_1("ranger_ar_base_1"),
-    RANGER_AR_MAGAZINE("ranger_ar_magazine"),
-    RANGER_AR_LIGHT_MAG("ranger_ar_light_mag"),
-    RANGER_AR_EXTENDED_MAG("ranger_ar_extended_mag"),
+    RANGER_AR_BASE("gun/ranger_assault_rifle/ranger_ar_base"),
+    RANGER_AR_BASE_1("gun/ranger_assault_rifle/ranger_ar_base_1"),
+    RANGER_AR_MAGAZINE("gun/ranger_assault_rifle/ranger_ar_magazine"),
+    RANGER_AR_LIGHT_MAG("gun/ranger_assault_rifle/ranger_ar_light_mag"),
+    RANGER_AR_EXTENDED_MAG("gun/ranger_assault_rifle/ranger_ar_extended_mag"),
 
-    COMBAT_ASSAULT_RIFLE_BASE("combat_assault_rifle_base"),
-    COMBAT_ASSAULT_RIFLE_SIGHTS("combat_assault_rifle_sights"),
-    COMBAT_ASSAULT_RIFLE_MAGAZINE("combat_assault_rifle_magazine"),
-    COMBAT_ASSAULT_RIFLE_LIGHT_MAG("combat_assault_rifle_light_mag"),
-    COMBAT_ASSAULT_RIFLE_EXTENDED_MAG("combat_assault_rifle_extended_mag"),
+    COMBAT_ASSAULT_RIFLE_BASE("gun/combat_assault_rifle/combat_assault_rifle_base"),
+    COMBAT_ASSAULT_RIFLE_SIGHTS("gun/combat_assault_rifle/combat_assault_rifle_sights"),
+    COMBAT_ASSAULT_RIFLE_MAGAZINE("gun/combat_assault_rifle/combat_assault_rifle_magazine"),
+    COMBAT_ASSAULT_RIFLE_LIGHT_MAG("gun/gcombat_assault_rifleun/combat_assault_rifle_light_mag"),
+    COMBAT_ASSAULT_RIFLE_EXTENDED_MAG("gun/combat_assault_rifle/combat_assault_rifle_extended_mag"),
 	
     PRECISION_BATTLE_RIFLE_BASE("gun/precision_battle_rifle/precision_battle_rifle_base"),
     PRECISION_BATTLE_RIFLE_BASE_1("gun/precision_battle_rifle/precision_battle_rifle_base_1"),
@@ -65,11 +65,11 @@ public enum RedundantSpecialModels
     PRECISION_BATTLE_RIFLE_BOTTOM_RAIL("gun/precision_battle_rifle/precision_battle_rifle_bottom_rail"),
     PRECISION_BATTLE_RIFLE_EXTENDED_MAG("gun/precision_battle_rifle/precision_battle_rifle_extended_mag"),
 	
-	TACTICAL_INFANTRY_RIFLE_BASE("tactical_infantry_rifle_base"),
+	TACTICAL_INFANTRY_RIFLE_BASE("gun/tactical_infantry_rifle/tactical_infantry_rifle_base"),
 	
-    VINTAGE_BOLT_RIFLE_BASE("vintage_bolt_rifle_base"),
+    VINTAGE_BOLT_RIFLE_BASE("gun/vintage_bolt_rifle/vintage_bolt_rifle_base"),
 	
-    TACTICAL_SNIPER_RIFLE_BASE("tactical_sniper_rifle_base");
+    TACTICAL_SNIPER_RIFLE_BASE("gun/tactical_sniper_rifle/tactical_sniper_rifle_base");
 
     /**
      * The location of an item model in the [MOD_ID]/models/special/[NAME] folder
