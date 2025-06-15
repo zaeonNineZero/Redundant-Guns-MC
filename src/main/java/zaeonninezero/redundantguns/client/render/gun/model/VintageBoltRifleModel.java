@@ -5,6 +5,9 @@ import com.mojang.math.Vector3f;
 import com.mrcrayfish.guns.common.Gun;
 import com.mrcrayfish.guns.GunMod;
 import com.mrcrayfish.guns.client.GunModel;
+import com.mrcrayfish.guns.client.handler.GunRenderingHandler;
+import com.mrcrayfish.guns.client.handler.ReloadHandler;
+
 import zaeonninezero.nzgmaddon.client.SpecialModels;
 import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
@@ -63,13 +66,19 @@ public class VintageBoltRifleModel implements IOverrideModel
 		// Special animated segment for compat with the CGM Expanded fork.
         // First, some variables for animation building
         boolean isPlayer = entity != null && entity.equals(Minecraft.getInstance().player);
-        //boolean isFirstPerson = (transformType.firstPerson());
+        boolean isFirstPerson = (transformType.firstPerson());
         boolean correctContext = (transformType.firstPerson() || transformType == ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND || transformType == ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND);
         boolean useFallbackAnimation = false;
         
         Vec3 boltTranslations = Vec3.ZERO;
         Vec3 boltRotations = Vec3.ZERO;
         Vec3 boltRotOffset = new Vec3(0, -4.15, 0);
+        
+        Vec3 bulletTranslations = Vec3.ZERO;
+        Vec3 bulletRotations = Vec3.ZERO;
+        Vec3 bulletRotOffset = Vec3.ZERO;
+        
+        Vec3 bullet2Translations = Vec3.ZERO;
         
         if(isPlayer && correctContext && !disableAnimations)
         {
@@ -78,6 +87,12 @@ public class VintageBoltRifleModel implements IOverrideModel
     				
         			boltTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "bolt");
         	        boltRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "bolt");
+        			
+        	        bulletTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "bullet");
+        	        bulletRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "bullet");
+        	        bulletRotOffset = GunAnimationHelper.getSmartAnimationRotOffset(stack, player, partialTicks, "bullet");
+        	        
+        	        bullet2Translations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "bullet2");
 
         	    	if(!GunAnimationHelper.hasAnimation("fire", stack) && GunAnimationHelper.getSmartAnimationType(stack, player, partialTicks)=="fire")
         	    	useFallbackAnimation = true;
@@ -158,5 +173,100 @@ public class VintageBoltRifleModel implements IOverrideModel
         RenderUtil.renderModel(SpecialModels.BOLT_ACTION_RIFLE_CHAMBER.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
+        
+        
+        // Rifle Bullets:
+        // Rifle bullet 1 -- used during custom reload animations.
+        if(shouldRenderBullet(stack,0))
+        {
+    		// Push pose.
+            poseStack.pushPose();
+            // Initial translation to the starting position.
+            poseStack.translate(0.0, -4.15*0.0625, 3.1*0.0625);
+            // Apply transformations.
+            if(!disableAnimations && !useFallbackAnimation && isPlayer && isFirstPerson)
+            {
+            	if(bulletTranslations!=Vec3.ZERO)
+                	poseStack.translate(bulletTranslations.x*0.0625, bulletTranslations.y*0.0625, bulletTranslations.z*0.0625);
+                if(bulletRotations!=Vec3.ZERO)
+                    GunAnimationHelper.rotateAroundOffset(poseStack, bulletRotations, bulletRotOffset);
+        	}
+    		// Render the model.
+            RenderUtil.renderModel(SpecialModels.BOLT_ACTION_RIFLE_BULLET.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+    		// Pop pose.
+            poseStack.popPose();
+        }
+        // Rifle bullet 2 -- used during reload and cycling animations.
+        if(!disableAnimations && !useFallbackAnimation && shouldRenderBullet(stack,1))
+        {
+    		// Push pose.
+            poseStack.pushPose();
+            // Initial translation to the starting position.
+            poseStack.translate(0.0, -4.15*0.0625, 3.1*0.0625);
+            // Apply transformations.
+            if(isPlayer)
+            {
+            	if(bulletTranslations!=Vec3.ZERO)
+                	poseStack.translate(bullet2Translations.x*0.0625, bullet2Translations.y*0.0625, bullet2Translations.z*0.0625);
+        	}
+    		// Render the model.
+            RenderUtil.renderModel(SpecialModels.BOLT_ACTION_RIFLE_BULLET.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+    		// Pop pose.
+            poseStack.popPose();
+        }
+        // Rifle clip -- used during custom reload animations.
+        if(shouldRenderClip(stack))
+        {
+    		// Push pose.
+            poseStack.pushPose();
+            // Initial translation to the starting position.
+            poseStack.translate(0.0, -4.15*0.0625, 3.1*0.0625);
+            // Apply transformations. (Uses bullets transforms for simplicity)
+            if(!disableAnimations && !useFallbackAnimation && isPlayer && isFirstPerson)
+            {
+            	if(bulletTranslations!=Vec3.ZERO)
+                	poseStack.translate(bulletTranslations.x*0.0625, bulletTranslations.y*0.0625, bulletTranslations.z*0.0625);
+                if(bulletRotations!=Vec3.ZERO)
+                    GunAnimationHelper.rotateAroundOffset(poseStack, bulletRotations, bulletRotOffset);
+        	}
+    		// Render the model.
+            RenderUtil.renderModel(RedundantSpecialModels.VINTAGE_BOLT_RIFLE_CLIP.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+    		// Pop pose.
+            poseStack.popPose();
+        }
+    }
+    
+    //Code check for whether a bullet should be rendered.
+    public boolean shouldRenderBullet(ItemStack gunStack, int bullet)
+    {
+        CompoundTag tag = gunStack.getOrCreateTag();
+        if(!disableAnimations)
+        try {
+        	float progress = (ReloadHandler.get().getReloadTimer()>=0.8 ? GunRenderingHandler.get().getReloadDeltaTime(gunStack) : 0);
+        	boolean hasBullet = (Gun.hasInfiniteAmmo(gunStack) || (tag.getInt("AmmoCount") >= bullet));
+        	if ((bullet>0 && hasBullet)
+        	|| (bullet==0 && GunAnimationHelper.getAnimationValue("reload", gunStack, progress, "bullet", "forceShowBullet")>=1))
+        	return true;
+        	else
+        	return false;
+		}
+		catch(Error ignored) {disableAnimations = true;} catch(Exception ignored) {disableAnimations = true;}
+        
+        return (Gun.hasInfiniteAmmo(gunStack) || (tag.getInt("AmmoCount") >= bullet));
+    }
+    public boolean shouldRenderClip(ItemStack gunStack)
+    {
+        CompoundTag tag = gunStack.getOrCreateTag();
+        if(!disableAnimations)
+        try {
+        	float progress = (ReloadHandler.get().getReloadTimer()>=0.8 ? GunRenderingHandler.get().getReloadDeltaTime(gunStack) : 0);
+        	if (GunAnimationHelper.getAnimationValue("reload", gunStack, progress, "bullet", "showClip")>=1)
+        	return true;
+        	else
+        	return false;
+		}
+		catch(Error ignored) {disableAnimations = true;} catch(Exception ignored) {disableAnimations = true;}
+        
+        return false;
     }
 }

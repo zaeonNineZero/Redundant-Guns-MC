@@ -68,6 +68,7 @@ public enum RedundantSpecialModels
 	TACTICAL_INFANTRY_RIFLE_BASE("gun/tactical_infantry_rifle/tactical_infantry_rifle_base"),
 	
     VINTAGE_BOLT_RIFLE_BASE("gun/vintage_bolt_rifle/vintage_bolt_rifle_base"),
+    VINTAGE_BOLT_RIFLE_CLIP("gun/vintage_bolt_rifle/vintage_bolt_rifle_clip"),
 	
     TACTICAL_SNIPER_RIFLE_BASE("gun/tactical_sniper_rifle/tactical_sniper_rifle_base");
 
