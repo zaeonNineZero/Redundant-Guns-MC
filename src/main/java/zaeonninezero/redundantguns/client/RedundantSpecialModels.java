@@ -64,6 +64,7 @@ public enum RedundantSpecialModels
     PRECISION_BATTLE_RIFLE_TOP_RAIL("gun/precision_battle_rifle/precision_battle_rifle_top_rail"),
     PRECISION_BATTLE_RIFLE_BOTTOM_RAIL("gun/precision_battle_rifle/precision_battle_rifle_bottom_rail"),
     PRECISION_BATTLE_RIFLE_EXTENDED_MAG("gun/precision_battle_rifle/precision_battle_rifle_extended_mag"),
+    PRECISION_BATTLE_RIFLE_BOLT_FOLDED("gun/precision_battle_rifle/precision_battle_rifle_bolt_folded"),
 	
 	TACTICAL_INFANTRY_RIFLE_BASE("gun/tactical_infantry_rifle/tactical_infantry_rifle_base"),
 	

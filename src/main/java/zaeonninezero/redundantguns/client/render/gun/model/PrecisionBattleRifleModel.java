@@ -4,6 +4,9 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mrcrayfish.guns.common.Gun;
 import com.mrcrayfish.guns.GunMod;
 import com.mrcrayfish.guns.client.GunModel;
+import com.mrcrayfish.guns.client.handler.GunRenderingHandler;
+import com.mrcrayfish.guns.client.handler.ReloadHandler;
+
 import zaeonninezero.nzgmaddon.client.SpecialModels;
 import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 
@@ -134,10 +137,10 @@ public class PrecisionBattleRifleModel implements IOverrideModel
             float cooldown_c = Math.min(Math.max((-cooldown_a*intensity)+intensity,0),1);
             float cooldown_d = Math.min(cooldown_b,cooldown_c);
             
-            boltTranslations = boltTranslations.add(0, 0, cooldown_d * 0.25);
+            boltTranslations = boltTranslations.add(0, 0, cooldown_d * 0.1);
         }
         
-		// Auto Sniper Charging handle
+		// Charging handle -- this part can have one of two models, dependent on reload animations
         poseStack.pushPose();
         // Apply transformations to this part.
         if(isPlayer)
@@ -147,8 +150,12 @@ public class PrecisionBattleRifleModel implements IOverrideModel
         	if(boltRotations!=Vec3.ZERO && !disableAnimations)
                GunAnimationHelper.rotateAroundOffset(poseStack, boltRotations, boltRotOffset);
     	}
-        // Render the transformed model.
-        RenderUtil.renderModel(SpecialModels.AUTO_SNIPER_RIFLE_BOLT_HANDLE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+        // Render the transformed model -- we must also set the handle model.
+        BakedModel boltModel = RedundantSpecialModels.PRECISION_BATTLE_RIFLE_BOLT_FOLDED.getModel();
+        if(unfoldBolt(stack))
+        	boltModel = SpecialModels.AUTO_SNIPER_RIFLE_BOLT_HANDLE.getModel();
+        	
+        RenderUtil.renderModel(boltModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
         
@@ -192,5 +199,19 @@ public class PrecisionBattleRifleModel implements IOverrideModel
     {
         CompoundTag tag = gunStack.getOrCreateTag();
         return tag.getInt(tag_name);
+    }
+    public boolean unfoldBolt(ItemStack gunStack)
+    {
+        if(!disableAnimations)
+        try {
+        	float progress = (ReloadHandler.get().getReloadTimer()>=0.8 ? GunRenderingHandler.get().getReloadDeltaTime(gunStack) : 0);
+        	if (GunAnimationHelper.getAnimationValue("reload", gunStack, progress, "bolt", "unfold")>=1)
+        	return true;
+        	else
+        	return false;
+		}
+		catch(Error ignored) {disableAnimations = true;} catch(Exception ignored) {disableAnimations = true;}
+        
+        return false;
     }
 }

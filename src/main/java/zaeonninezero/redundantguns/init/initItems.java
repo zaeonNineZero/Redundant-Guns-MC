@@ -1,6 +1,5 @@
 package zaeonninezero.redundantguns.init;
 
-import com.mrcrayfish.guns.GunMod;
 import com.mrcrayfish.guns.item.GunItem;
 import zaeonninezero.redundantguns.RedundantGuns;
 import net.minecraft.world.item.Item;

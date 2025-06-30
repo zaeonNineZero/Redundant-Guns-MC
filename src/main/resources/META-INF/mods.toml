@@ -8,7 +8,7 @@ version="1.0.99"
 displayName="Redundant Guns (Dev. Branch)"
 updateJSONURL=""
 displayURL=""
-logoFile="nzgexpansion_banner.png"
+logoFile="redundantguns_banner.png"
 authors="zaeonNineZero"
 description='''
 An addon to NineZero's Gun Expansion, adding even more guns that would be too out-of-place or redundant in the main mod.)
@@ -46,4 +46,4 @@ An addon to NineZero's Gun Expansion, adding even more guns that would be too ou
     side="BOTH"
 
 [modproperties.redundantguns]
-    catalogueImageIcon="nzgexpansion_icon.png"
+    catalogueImageIcon="redundantguns_icon.png"

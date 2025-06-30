@@ -256,7 +256,6 @@ public class VintageBoltRifleModel implements IOverrideModel
     }
     public boolean shouldRenderClip(ItemStack gunStack)
     {
-        CompoundTag tag = gunStack.getOrCreateTag();
         if(!disableAnimations)
         try {
         	float progress = (ReloadHandler.get().getReloadTimer()>=0.8 ? GunRenderingHandler.get().getReloadDeltaTime(gunStack) : 0);
