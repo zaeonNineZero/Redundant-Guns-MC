@@ -9,6 +9,7 @@ import com.mrcrayfish.guns.client.handler.GunRenderingHandler;
 import com.mrcrayfish.guns.client.handler.ReloadHandler;
 
 import zaeonninezero.nzgmaddon.client.SpecialModels;
+import zaeonninezero.nzgmaddon.util.CGMExpandedHelper;
 import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
 import com.mrcrayfish.guns.client.util.GunAnimationHelper;
@@ -240,8 +241,8 @@ public class VintageBoltRifleModel implements IOverrideModel
     public boolean shouldRenderBullet(ItemStack gunStack, int bullet)
     {
         CompoundTag tag = gunStack.getOrCreateTag();
-        if(!disableAnimations)
-        try {
+        if(CGMExpandedHelper.isExpandedInstalled() && !disableAnimations)
+        {
         	float progress = (ReloadHandler.get().getReloadTimer()>=0.8 ? GunRenderingHandler.get().getReloadDeltaTime(gunStack) : 0);
         	boolean hasBullet = (Gun.hasInfiniteAmmo(gunStack) || (tag.getInt("AmmoCount") >= bullet));
         	if ((bullet>0 && hasBullet)
@@ -250,21 +251,19 @@ public class VintageBoltRifleModel implements IOverrideModel
         	else
         	return false;
 		}
-		catch(Error ignored) {disableAnimations = true;} catch(Exception ignored) {disableAnimations = true;}
         
         return (Gun.hasInfiniteAmmo(gunStack) || (tag.getInt("AmmoCount") >= bullet));
     }
     public boolean shouldRenderClip(ItemStack gunStack)
     {
-        if(!disableAnimations)
-        try {
+    	if(CGMExpandedHelper.isExpandedInstalled() && !disableAnimations)
+        {
         	float progress = (ReloadHandler.get().getReloadTimer()>=0.8 ? GunRenderingHandler.get().getReloadDeltaTime(gunStack) : 0);
         	if (GunAnimationHelper.getAnimationValue("reload", gunStack, progress, "bullet", "showClip")>=1)
         	return true;
         	else
         	return false;
 		}
-		catch(Error ignored) {disableAnimations = true;} catch(Exception ignored) {disableAnimations = true;}
         
         return false;
     }
