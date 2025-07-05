@@ -252,7 +252,7 @@ public class VintageBoltRifleModel implements IOverrideModel
         	return false;
 		}
         
-        return (Gun.hasInfiniteAmmo(gunStack) || (tag.getInt("AmmoCount") >= bullet));
+        return (tag.getBoolean("IgnoreAmmo")) || (tag.getInt("AmmoCount") >= bullet);
     }
     public boolean shouldRenderClip(ItemStack gunStack)
     {
