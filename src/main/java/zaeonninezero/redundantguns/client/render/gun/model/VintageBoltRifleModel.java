@@ -243,7 +243,7 @@ public class VintageBoltRifleModel implements IOverrideModel
         CompoundTag tag = gunStack.getOrCreateTag();
         if(CGMExpandedHelper.isExpandedInstalled() && !disableAnimations)
         {
-        	float progress = (ReloadHandler.get().getReloadTimer()>=0.8 ? GunRenderingHandler.get().getReloadDeltaTime(gunStack) : 0);
+        	float progress = (ReloadHandler.get().getReloadTimer()>=0.9 ? GunRenderingHandler.get().getReloadDeltaTime(gunStack) : 0);
         	boolean hasBullet = (Gun.hasInfiniteAmmo(gunStack) || (tag.getInt("AmmoCount") >= bullet));
         	if ((bullet>0 && hasBullet)
         	|| (bullet==0 && GunAnimationHelper.getAnimationValue("reload", gunStack, progress, "bullet", "forceShowBullet")>=1))
@@ -258,7 +258,7 @@ public class VintageBoltRifleModel implements IOverrideModel
     {
     	if(CGMExpandedHelper.isExpandedInstalled() && !disableAnimations)
         {
-        	float progress = (ReloadHandler.get().getReloadTimer()>=0.8 ? GunRenderingHandler.get().getReloadDeltaTime(gunStack) : 0);
+        	float progress = (ReloadHandler.get().getReloadTimer()>=0.9 ? GunRenderingHandler.get().getReloadDeltaTime(gunStack) : 0);
         	if (GunAnimationHelper.getAnimationValue("reload", gunStack, progress, "bullet", "showClip")>=1)
         	return true;
         	else
