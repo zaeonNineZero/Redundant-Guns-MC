@@ -1,9 +1,8 @@
 package zaeonninezero.redundantguns;
 
 import zaeonninezero.redundantguns.init.*;
+import zaeonninezero.redundantguns.client.CreativeGunVariantManager;
 import zaeonninezero.redundantguns.client.ClientHandler;
-
-import com.mrcrayfish.guns.client.CustomGunManager;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
@@ -32,7 +31,7 @@ public class RedundantGuns {
         public void fillItemList(NonNullList<ItemStack> items)
         {
             super.fillItemList(items);
-            CustomGunManager.fill(items);
+            CreativeGunVariantManager.addItemVariants(items);
         }
     };
 	

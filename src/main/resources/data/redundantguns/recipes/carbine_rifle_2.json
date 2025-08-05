@@ -10,7 +10,7 @@
     "item": "redundantguns:carbine_rifle",
 	"nbt": {
       "HandguardVariant":2,
-      "SightVariant":2,
+      "SightVariant":0,
       "BaseVariant":1
     }
   }
