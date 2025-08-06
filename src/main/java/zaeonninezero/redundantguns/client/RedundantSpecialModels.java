@@ -55,7 +55,7 @@ public enum RedundantSpecialModels
     COMBAT_ASSAULT_RIFLE_SIGHTS("gun/combat_assault_rifle/combat_assault_rifle_sights"),
     COMBAT_ASSAULT_RIFLE_SIGHTS_1("gun/combat_assault_rifle/combat_assault_rifle_sights_1"),
     COMBAT_ASSAULT_RIFLE_MAGAZINE("gun/combat_assault_rifle/combat_assault_rifle_magazine"),
-    COMBAT_ASSAULT_RIFLE_LIGHT_MAG("gun/gcombat_assault_rifleun/combat_assault_rifle_light_mag"),
+    COMBAT_ASSAULT_RIFLE_LIGHT_MAG("gun/combat_assault_rifle/combat_assault_rifle_light_mag"),
     COMBAT_ASSAULT_RIFLE_EXTENDED_MAG("gun/combat_assault_rifle/combat_assault_rifle_extended_mag"),
 	
     PRECISION_BATTLE_RIFLE_BASE("gun/precision_battle_rifle/precision_battle_rifle_base"),

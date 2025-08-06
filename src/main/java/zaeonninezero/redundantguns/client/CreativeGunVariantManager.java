@@ -32,12 +32,22 @@ public class CreativeGunVariantManager
         // Carbine Rifle, Variant 2
     	ItemStack carbinerrifle_2 = new ItemStack(initItems.CARBINE_RIFLE.get());
     	{
-    		CompoundTag tag = carbinerrifle_1.getOrCreateTag();
+    		CompoundTag tag = carbinerrifle_2.getOrCreateTag();
         	tag.putInt("AmmoCount", initItems.CARBINE_RIFLE.get().getGun().getGeneral().getMaxAmmo());
     		tag.putInt("HandguardVariant", 2);
     		tag.putInt("BaseVariant", 1);
     	}
     	items.add(carbinerrifle_2);
+    	
+    	
+        // Combat Assault Rifle, Variant 1
+    	ItemStack combatrifle_1 = new ItemStack(initItems.COMBAT_ASSAULT_RIFLE.get());
+    	{
+    		CompoundTag tag = combatrifle_1.getOrCreateTag();
+        	tag.putInt("AmmoCount", initItems.COMBAT_ASSAULT_RIFLE.get().getGun().getGeneral().getMaxAmmo());
+    		tag.putInt("SightVariant", 1);
+    	}
+    	items.add(combatrifle_1);
     	
     	
     	// Precision Battle Rifle, Variant 1
