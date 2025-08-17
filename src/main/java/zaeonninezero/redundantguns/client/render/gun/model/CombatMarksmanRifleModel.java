@@ -1,22 +1,17 @@
 package zaeonninezero.redundantguns.client.render.gun.model;
 
-import java.lang.reflect.Method;
-
-import javax.annotation.Nullable;
-
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mrcrayfish.guns.common.Gun;
 import com.mrcrayfish.guns.GunMod;
 import com.mrcrayfish.guns.client.GunModel;
-import com.mrcrayfish.guns.client.handler.GunRenderingHandler;
-import com.mrcrayfish.guns.client.handler.ReloadHandler;
+import zaeonninezero.nzgmaddon.client.SpecialModels;
+import zaeonninezero.redundantguns.client.RedundantSpecialModels;
+
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
 import com.mrcrayfish.guns.client.util.GunAnimationHelper;
-import com.mrcrayfish.guns.client.util.GunReloadAnimationHelper;
-import com.mrcrayfish.guns.client.util.PropertyHelper;
 import com.mrcrayfish.guns.client.util.RenderUtil;
-import com.mrcrayfish.guns.common.Gun;
+import com.mrcrayfish.guns.item.GunItem;
 import com.mrcrayfish.guns.item.attachment.IAttachment;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
@@ -24,70 +19,65 @@ import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemCooldowns;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
-import zaeonninezero.nzgmaddon.client.SpecialModels;
-import zaeonninezero.redundantguns.client.RedundantSpecialModels;
+
+import javax.annotation.Nullable;
 
 /**
  * Author: MrCrayfish
  * Modified by zaeonNineZero for Nine Zero's Gun Expansion
  * Attachment detection logic based off of code from Mo' Guns by Bomb787 and AlanorMiga (MigaMi)
  */
-public class TacticalCarbineModel implements IOverrideModel
+public class CombatMarksmanRifleModel implements IOverrideModel
 {
 	private boolean disableAnimations = false;
 	
-	@Override
-	// This class renders a model with support for NBT and attachment based part variations
-	// and custom animations from CGM Expanded.
+    @Override
+	// This class renders a multi-part model that supports animations and removeable parts.
+	// We only need to render removeable parts for this model, so we can skip the animation portion.
 	
 	// We start by declaring our render function that will handle rendering the core baked model (which is a non-moving part).
     public void render(float partialTicks, ItemTransforms.TransformType transformType, ItemStack stack, ItemStack parent, @Nullable LivingEntity entity, PoseStack poseStack, MultiBufferSource buffer, int light, int overlay)
     {
-     // Select the Baked Model we'll be rendering, based on the value of the CustomModelData tag.
-        BakedModel bakedModel = RedundantSpecialModels.TACTICAL_CARBINE_BASE.getModel();
-        if (getVariant(stack, "BaseVariant") == 1)
-        bakedModel = RedundantSpecialModels.TACTICAL_CARBINE_BASE_1.getModel();
+		// Render the item's BakedModel, which will serve as the core of our custom model.
+        BakedModel bakedModel = RedundantSpecialModels.COMBAT_MARKSMAN_RIFLE_BASE.getModel();
         Minecraft.getInstance().getItemRenderer().render(stack, ItemTransforms.TransformType.NONE, false, poseStack, buffer, light, overlay, GunModel.wrap(bakedModel));
-        
-        // Render a selected model based on the "HandguardVariant" NBT tag.
-    	BakedModel handguardModel = RedundantSpecialModels.TACTICAL_CARBINE_HANDGUARD_0.getModel();
-        if (getVariant(stack, "HandguardVariant") == 1)
-        handguardModel = RedundantSpecialModels.TACTICAL_CARBINE_HANDGUARD_1.getModel();
-        RenderUtil.renderModel(handguardModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
-        
-        // Render the rear iron sight element, which is only present when a scope is not attached.
-        // We have to grab the gun's scope attachment slot and check whether it is empty or not.
-        // If the isEmpty function returns true, then we render the iron sights.
+
+		// Render the iron sights element, which is only present when a scope is not attached.
+		// We have to grab the gun's scope attachment slot and check whether it is empty or not.
+		// If the isEmpty function returns true, then we render the iron sights.
 		ItemStack attachmentStack = Gun.getAttachment(IAttachment.Type.SCOPE, stack);
         if(attachmentStack.isEmpty())
 		{
-            // Render a selected model based on the "SightVariant" NBT tag.
-        	BakedModel sightModel = RedundantSpecialModels.TACTICAL_CARBINE_SIGHTS.getModel();
+        	BakedModel sightModel = SpecialModels.BATTLE_RIFLE_SIGHTS.getModel();
             RenderUtil.renderModel(sightModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		}
         else
-        if((getVariant(stack, "RemoveableSights") == 0))
+        if((getVariant(stack, "FlipSights") == 1))
     	{
-            // There are two iron sight variants that can be rendered.
-            BakedModel sightModel = RedundantSpecialModels.TACTICAL_CARBINE_SIGHTS_FOLDED.getModel();
+            BakedModel sightModel = SpecialModels.BATTLE_RIFLE_SIGHTS_FOLDED.getModel();
             RenderUtil.renderModel(sightModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
     	}
-
-		// Special animated segment for compat with the CGM Expanded fork.
+        
+        // Special animated segment for compat with the CGM Expanded fork.
         // First, some variables for animation building
         boolean isPlayer = entity != null && entity.equals(Minecraft.getInstance().player);
         boolean isFirstPerson = (transformType.firstPerson());
+        boolean correctContext = (transformType.firstPerson() || transformType == ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND || transformType == ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND);
+        
+        Vec3 boltTranslations = Vec3.ZERO;
         
         Vec3 magTranslations = Vec3.ZERO;
         Vec3 magRotations = Vec3.ZERO;
         Vec3 magRotOffset = Vec3.ZERO;
         
-        if(isPlayer && isFirstPerson && !disableAnimations)
+        if(isPlayer && correctContext && !disableAnimations)
         {
         	try {
-					Player player = (Player) entity;
+    				Player player = (Player) entity;
+    				boltTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "bolt_handle");
 					
         			magTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "magazine");
         	        magRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "magazine");
@@ -97,13 +87,43 @@ public class TacticalCarbineModel implements IOverrideModel
 	            	disableAnimations = true;
 	    		}
         		catch(Exception e) {
-                	GunMod.LOGGER.error("Redundant Guns encountered an error trying to apply animations.");
+                	GunMod.LOGGER.error("NZGE encountered an error trying to apply animations.");
                 	e.printStackTrace();
                 	disableAnimations = true;
         		}
         }
+        
+        // Fire animation is done the old way, and added onto the existing animation.
+        GunItem gunStack = (GunItem) stack.getItem();
+        Gun gun = gunStack.getModifiedGun(stack);
+        if(isPlayer && correctContext)
+        {
+            float cooldownDivider = 1.0F*Math.max((float) gun.getGeneral().getRate()/3F,1);
+            float cooldownOffset1 = cooldownDivider - 1.0F;
+            float intensity = 1.0F +1;
+            
+        	ItemCooldowns tracker = Minecraft.getInstance().player.getCooldowns();
+            float cooldown = tracker.getCooldownPercent(stack.getItem(), Minecraft.getInstance().getFrameTime());
+            cooldown *= cooldownDivider;
+            float cooldown_a = cooldown-cooldownOffset1;
 
-		// Now we apply our transformations.
+            float cooldown_b = Math.min(Math.max(cooldown_a*intensity,0),1);
+            float cooldown_c = Math.min(Math.max((-cooldown_a*intensity)+intensity,0),1);
+            float cooldown_d = Math.min(cooldown_b,cooldown_c);
+            
+            boltTranslations = boltTranslations.add(0, 0, cooldown_d * 3);
+        }
+
+		// Battle Rifle charging handle. This animated part kicks backward on firing, then moves back to its resting position.
+        poseStack.pushPose();
+		// Apply transformations to this part.
+        if(isPlayer)
+        poseStack.translate(0, 0, boltTranslations.z * 0.0625);
+		// Render the transformed model.
+        RenderUtil.renderModel(SpecialModels.BATTLE_RIFLE_BOLT_HANDLE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+		// Pop pose to compile everything in the render matrix.
+        poseStack.popPose();
+        
         // Magazine transforms
         poseStack.pushPose();
 		// Apply transformations to this part.
@@ -115,34 +135,21 @@ public class TacticalCarbineModel implements IOverrideModel
                GunAnimationHelper.rotateAroundOffset(poseStack, magRotations, magRotOffset);
     	}
 		// Magazine model selection and rendering
-        RedundantSpecialModels magModel = RedundantSpecialModels.CARBINE_RIFLE_MAGAZINE;
-        RedundantSpecialModels pmagModel = RedundantSpecialModels.CARBINE_RIFLE_PMAG;
+        SpecialModels magModel = SpecialModels.BATTLE_RIFLE_LIGHT_MAG;
         try {
         	ItemStack magStack = Gun.getAttachment(IAttachment.Type.byTagKey("Magazine"), stack);
             if(!magStack.isEmpty())
             {
-	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("light_magazine"))
-	            {
-		    		magModel = RedundantSpecialModels.CARBINE_RIFLE_LIGHT_MAG;
-		    		pmagModel = RedundantSpecialModels.CARBINE_RIFLE_LIGHT_PMAG;
-	            }
-	            else
 	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("extended_magazine"))
-	            {
-	            	magModel = RedundantSpecialModels.CARBINE_RIFLE_EXTENDED_MAG;
-	            	pmagModel = magModel;
-            	}
+			    	magModel = SpecialModels.BATTLE_RIFLE_MAGAZINE;
             }
 		}
 		catch(Error ignored) {} catch(Exception ignored) {}
         
-        magModel = getVariant(stack, "MagVariant")==0 ? magModel : pmagModel ;
         RenderUtil.renderModel(magModel.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
     }
-    
-    //NBT fetch code for skin variants - ported from the "hasAmmo" function under common/Gun.java
     public static int getVariant(ItemStack gunStack, String tag_name)
     {
         CompoundTag tag = gunStack.getOrCreateTag();

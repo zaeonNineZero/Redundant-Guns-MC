@@ -159,6 +159,27 @@
     ]
   },
   
+  "item.combat_marksman_rifle.fire": {
+    "subtitle":"subtitle.cgm.fire",
+    "sounds": [
+      "redundantguns:item/combat_marksman_rifle/fire",
+      "redundantguns:item/combat_marksman_rifle/fire2",
+      "redundantguns:item/combat_marksman_rifle/fire3"
+    ]
+  },
+  "item.combat_marksman_rifle.silenced_fire": {
+    "subtitle":"subtitle.cgm.silenced",
+    "sounds": [
+      "redundantguns:item/combat_marksman_rifle/silenced_fire"
+    ]
+  },
+  "item.combat_marksman_rifle.enchanted_fire": {
+    "subtitle":"subtitle.cgm.enchanted_fire",
+    "sounds": [
+      "redundantguns:item/combat_marksman_rifle/enchanted_fire"
+    ]
+  },
+  
   "item.vintage_bolt_rifle.fire": {
     "subtitle":"subtitle.cgm.fire",
     "sounds": [

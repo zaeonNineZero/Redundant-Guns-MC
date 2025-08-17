@@ -2,7 +2,7 @@
     "cgm:weapon": {
         "attachments": {
             "barrel": {
-                "translation": [8.0, 3.9, 1.25],
+                "translation": [8.0, 3.9, 1.35],
                 "scale": [0.5, 0.5, 0.5]
             },
             "scope": {

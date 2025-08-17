@@ -116,19 +116,27 @@ public class CarbineRifleModel implements IOverrideModel
     	}
 		// Magazine model selection and rendering
         RedundantSpecialModels magModel = RedundantSpecialModels.CARBINE_RIFLE_MAGAZINE;
+        RedundantSpecialModels pmagModel = RedundantSpecialModels.CARBINE_RIFLE_PMAG;
         try {
         	ItemStack magStack = Gun.getAttachment(IAttachment.Type.byTagKey("Magazine"), stack);
             if(!magStack.isEmpty())
             {
 	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("light_magazine"))
+	            {
 		    		magModel = RedundantSpecialModels.CARBINE_RIFLE_LIGHT_MAG;
+		    		pmagModel = RedundantSpecialModels.CARBINE_RIFLE_LIGHT_PMAG;
+	            }
 	            else
 	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("extended_magazine"))
-			    	magModel = RedundantSpecialModels.CARBINE_RIFLE_EXTENDED_MAG;
+	            {
+	            	magModel = RedundantSpecialModels.CARBINE_RIFLE_EXTENDED_MAG;
+	            	pmagModel = magModel;
+            	}
             }
 		}
 		catch(Error ignored) {} catch(Exception ignored) {}
         
+        magModel = getVariant(stack, "MagVariant")==0 ? magModel : pmagModel ;
         RenderUtil.renderModel(magModel.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();

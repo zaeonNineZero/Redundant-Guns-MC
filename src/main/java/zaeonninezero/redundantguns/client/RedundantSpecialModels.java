@@ -32,18 +32,22 @@ public enum RedundantSpecialModels
 	CARBINE_RIFLE_HANDGUARD_1("gun/carbine_rifle/carbine_rifle_handguard_1"),
 	CARBINE_RIFLE_HANDGUARD_COVERS("gun/carbine_rifle/carbine_rifle_handguard_covers"),
     CARBINE_RIFLE_REARSIGHT("gun/carbine_rifle/carbine_rifle_rearsight"),
+    CARBINE_RIFLE_REARSIGHT_FOLDED("gun/carbine_rifle/carbine_rifle_rearsight_folded"),
     CARBINE_RIFLE_REARSIGHT_A2("gun/carbine_rifle/carbine_rifle_rearsight_a2"),
     CARBINE_RIFLE_CARRYHANDLE("gun/carbine_rifle/carbine_rifle_carryhandle"),
     CARBINE_RIFLE_CARRYHANDLE_1("gun/carbine_rifle/carbine_rifle_carryhandle_1"),
     CARBINE_RIFLE_MAGAZINE("gun/carbine_rifle/carbine_rifle_magazine"),
     CARBINE_RIFLE_LIGHT_MAG("gun/carbine_rifle/carbine_rifle_light_mag"),
     CARBINE_RIFLE_EXTENDED_MAG("gun/carbine_rifle/carbine_rifle_extended_mag"),
+    CARBINE_RIFLE_PMAG("gun/carbine_rifle/carbine_rifle_pmag"),
+    CARBINE_RIFLE_LIGHT_PMAG("gun/carbine_rifle/carbine_rifle_light_pmag"),
     
 	TACTICAL_CARBINE_BASE("gun/tactical_carbine/tactical_carbine_base"),
 	TACTICAL_CARBINE_BASE_1("gun/tactical_carbine/tactical_carbine_base_1"),
 	TACTICAL_CARBINE_HANDGUARD_0("gun/tactical_carbine/tactical_carbine_handguard_0"),
 	TACTICAL_CARBINE_HANDGUARD_1("gun/tactical_carbine/tactical_carbine_handguard_1"),
 	TACTICAL_CARBINE_SIGHTS("gun/tactical_carbine/tactical_carbine_sights"),
+	TACTICAL_CARBINE_SIGHTS_FOLDED("gun/tactical_carbine/tactical_carbine_sights_folded"),
 
     RANGER_AR_BASE("gun/ranger_assault_rifle/ranger_ar_base"),
     RANGER_AR_BASE_1("gun/ranger_assault_rifle/ranger_ar_base_1"),
@@ -54,6 +58,8 @@ public enum RedundantSpecialModels
     COMBAT_ASSAULT_RIFLE_BASE("gun/combat_assault_rifle/combat_assault_rifle_base"),
     COMBAT_ASSAULT_RIFLE_SIGHTS("gun/combat_assault_rifle/combat_assault_rifle_sights"),
     COMBAT_ASSAULT_RIFLE_SIGHTS_1("gun/combat_assault_rifle/combat_assault_rifle_sights_1"),
+    COMBAT_ASSAULT_RIFLE_SIGHTS_FOLDED("gun/combat_assault_rifle/combat_assault_rifle_sights_folded"),
+    COMBAT_ASSAULT_RIFLE_SIGHTS_1_FOLDED("gun/combat_assault_rifle/combat_assault_rifle_sights_1_folded"),
     COMBAT_ASSAULT_RIFLE_MAGAZINE("gun/combat_assault_rifle/combat_assault_rifle_magazine"),
     COMBAT_ASSAULT_RIFLE_LIGHT_MAG("gun/combat_assault_rifle/combat_assault_rifle_light_mag"),
     COMBAT_ASSAULT_RIFLE_EXTENDED_MAG("gun/combat_assault_rifle/combat_assault_rifle_extended_mag"),
@@ -68,6 +74,8 @@ public enum RedundantSpecialModels
     PRECISION_BATTLE_RIFLE_BOLT_FOLDED("gun/precision_battle_rifle/precision_battle_rifle_bolt_folded"),
 	
 	TACTICAL_INFANTRY_RIFLE_BASE("gun/tactical_infantry_rifle/tactical_infantry_rifle_base"),
+
+    COMBAT_MARKSMAN_RIFLE_BASE("gun/combat_marksman_rifle/combat_marksman_rifle_base"),
 	
     VINTAGE_BOLT_RIFLE_BASE("gun/vintage_bolt_rifle/vintage_bolt_rifle_base"),
     VINTAGE_BOLT_RIFLE_CLIP("gun/vintage_bolt_rifle/vintage_bolt_rifle_clip"),

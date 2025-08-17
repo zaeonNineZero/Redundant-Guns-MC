@@ -27,6 +27,14 @@ public class initSounds {
 	public static final RegistryObject<SoundEvent> ITEM_CARBINE_RIFLE_ENCHANTED_FIRE = register("item.carbine_rifle.enchanted_fire");
 	public static final RegistryObject<SoundEvent> ITEM_CARBINE_RIFLE_SILENCED_FIRE = register("item.carbine_rifle.silenced_fire");
 
+	public static final RegistryObject<SoundEvent> ITEM_PRECISION_BATTLE_RIFLE_FIRE = register("item.precision_battle_rifle.fire");
+	public static final RegistryObject<SoundEvent> ITEM_PRECISION_BATTLE_ENCHANTED_FIRE = register("item.precision_battle_rifle.enchanted_fire");
+	public static final RegistryObject<SoundEvent> ITEM_PRECISION_BATTLE_SILENCED_FIRE = register("item.precision_battle_rifle.silenced_fire");
+
+	public static final RegistryObject<SoundEvent> ITEM_COMBAT_MARKSMAN_RIFLE_FIRE = register("item.combat_marksman_rifle.fire");
+	public static final RegistryObject<SoundEvent> ITEM_COMBAT_MARKSMAN_ENCHANTED_FIRE = register("item.combat_marksman_rifle.enchanted_fire");
+	public static final RegistryObject<SoundEvent> ITEM_COMBAT_MARKSMAN_SILENCED_FIRE = register("item.combat_marksman_rifle.silenced_fire");
+
 	public static final RegistryObject<SoundEvent> ITEM_VINTAGE_BOLT_RIFLE_FIRE = register("item.vintage_bolt_rifle.fire");
 	public static final RegistryObject<SoundEvent> ITEM_VINTAGE_BOLT_RIFLE_ENCHANTED_FIRE = register("item.vintage_bolt_rifle.enchanted_fire");
 	public static final RegistryObject<SoundEvent> ITEM_VINTAGE_BOLT_RIFLE_SILENCED_FIRE = register("item.vintage_bolt_rifle.silenced_fire");
