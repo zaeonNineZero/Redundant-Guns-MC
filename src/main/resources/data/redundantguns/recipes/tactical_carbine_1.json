@@ -1,0 +1,15 @@
+{
+  "type": "cgm:workbench",
+  "materials": [
+    {
+      "count": 28,
+      "tag": "forge:ingots/iron"
+    }
+  ],
+  "result": {
+    "item": "redundantguns:tactical_carbine",
+	"nbt": {
+      "HandguardVariant":1
+    }
+  }
+}
