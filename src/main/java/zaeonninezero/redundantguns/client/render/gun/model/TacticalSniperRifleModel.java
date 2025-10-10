@@ -50,7 +50,7 @@ public class TacticalSniperRifleModel implements IOverrideModel
 		ItemStack attachmentStack = Gun.getAttachment(IAttachment.Type.SCOPE, stack);
         if(attachmentStack.isEmpty())
 		{
-            RenderUtil.renderModel(SpecialModels.SNIPER_RIFLE_SIGHTS.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+            RenderUtil.renderModel(RedundantSpecialModels.TACTICAL_SNIPER_RIFLE_SIGHTS.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		}
         
         // Special animated segment for compat with the CGM Expanded fork.

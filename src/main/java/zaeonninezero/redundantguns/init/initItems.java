@@ -37,11 +37,12 @@ public class initItems {
     public static final RegistryObject<GunItem> RANGER_ASSAULT_RIFLE = ITEMS.register("ranger_assault_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> COMBAT_ASSAULT_RIFLE = ITEMS.register("combat_assault_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> PRECISION_BATTLE_RIFLE = ITEMS.register("precision_battle_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
+	public static final RegistryObject<GunItem> MARES_LEG_RIFLE = ITEMS.register("mares_leg_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> TACTICAL_INFANTRY_RIFLE = ITEMS.register("tactical_infantry_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> COMBAT_MARKSMAN_RIFLE = ITEMS.register("combat_marksman_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> VINTAGE_BOLT_RIFLE = ITEMS.register("vintage_bolt_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> TACTICAL_SNIPER_RIFLE = ITEMS.register("tactical_sniper_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	
 	//Stocks
-    public static final RegistryObject<Item> SPECIALIZED_CARBINE_STOCK  = ITEMS.register("specialized_carbine_stock", () -> new StockItem(Stock.create(RedundantGunModifiers.SPECIALIZED_CARBINE_STOCK), new Item.Properties().stacksTo(1).tab(nzgmAddon.GROUP)));
+    public static final RegistryObject<Item> SPECIALIZED_CARBINE_STOCK  = ITEMS.register("specialized_carbine_stock", () -> new StockItem(Stock.create(RedundantGunModifiers.SPECIALIZED_CARBINE_STOCK), new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 }

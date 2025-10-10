@@ -34,6 +34,7 @@ public enum RedundantSpecialModels
     CARBINE_RIFLE_REARSIGHT("gun/carbine_rifle/carbine_rifle_rearsight"),
     CARBINE_RIFLE_REARSIGHT_FOLDED("gun/carbine_rifle/carbine_rifle_rearsight_folded"),
     CARBINE_RIFLE_REARSIGHT_A2("gun/carbine_rifle/carbine_rifle_rearsight_a2"),
+    CARBINE_RIFLE_REARSIGHT_3("gun/carbine_rifle/carbine_rifle_rearsight_3"),
     CARBINE_RIFLE_CARRYHANDLE("gun/carbine_rifle/carbine_rifle_carryhandle"),
     CARBINE_RIFLE_CARRYHANDLE_1("gun/carbine_rifle/carbine_rifle_carryhandle_1"),
     CARBINE_RIFLE_MAGAZINE("gun/carbine_rifle/carbine_rifle_magazine"),
@@ -46,8 +47,10 @@ public enum RedundantSpecialModels
 	TACTICAL_CARBINE_BASE_1("gun/tactical_carbine/tactical_carbine_base_1"),
 	TACTICAL_CARBINE_HANDGUARD_0("gun/tactical_carbine/tactical_carbine_handguard_0"),
 	TACTICAL_CARBINE_HANDGUARD_1("gun/tactical_carbine/tactical_carbine_handguard_1"),
+	TACTICAL_CARBINE_HANDGUARD_2("gun/tactical_carbine/tactical_carbine_handguard_2"),
 	TACTICAL_CARBINE_SIGHTS("gun/tactical_carbine/tactical_carbine_sights"),
 	TACTICAL_CARBINE_SIGHTS_FOLDED("gun/tactical_carbine/tactical_carbine_sights_folded"),
+	TACTICAL_CARBINE_SIGHTS_1("gun/tactical_carbine/tactical_carbine_sights_1"),
 
     RANGER_AR_BASE("gun/ranger_assault_rifle/ranger_ar_base"),
     RANGER_AR_BASE_1("gun/ranger_assault_rifle/ranger_ar_base_1"),
@@ -73,6 +76,9 @@ public enum RedundantSpecialModels
     PRECISION_BATTLE_RIFLE_EXTENDED_MAG("gun/precision_battle_rifle/precision_battle_rifle_extended_mag"),
     PRECISION_BATTLE_RIFLE_BOLT_FOLDED("gun/precision_battle_rifle/precision_battle_rifle_bolt_folded"),
 	
+	MARES_LEG_RIFLE_BASE("gun/mares_leg_rifle/mares_leg_rifle_base"),
+	MARES_LEG_RIFLE_BASE_1("gun/mares_leg_rifle/mares_leg_rifle_base_1"),
+	
 	TACTICAL_INFANTRY_RIFLE_BASE("gun/tactical_infantry_rifle/tactical_infantry_rifle_base"),
 
     COMBAT_MARKSMAN_RIFLE_BASE("gun/combat_marksman_rifle/combat_marksman_rifle_base"),
@@ -80,7 +86,8 @@ public enum RedundantSpecialModels
     VINTAGE_BOLT_RIFLE_BASE("gun/vintage_bolt_rifle/vintage_bolt_rifle_base"),
     VINTAGE_BOLT_RIFLE_CLIP("gun/vintage_bolt_rifle/vintage_bolt_rifle_clip"),
 	
-    TACTICAL_SNIPER_RIFLE_BASE("gun/tactical_sniper_rifle/tactical_sniper_rifle_base");
+    TACTICAL_SNIPER_RIFLE_BASE("gun/tactical_sniper_rifle/tactical_sniper_rifle_base"),
+    TACTICAL_SNIPER_RIFLE_SIGHTS("gun/tactical_sniper_rifle/tactical_sniper_rifle_sights");
 
     /**
      * The location of an item model in the [MOD_ID]/models/special/[NAME] folder

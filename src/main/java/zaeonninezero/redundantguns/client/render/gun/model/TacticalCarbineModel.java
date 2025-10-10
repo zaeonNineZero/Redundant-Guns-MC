@@ -55,6 +55,9 @@ public class TacticalCarbineModel implements IOverrideModel
     	BakedModel handguardModel = RedundantSpecialModels.TACTICAL_CARBINE_HANDGUARD_0.getModel();
         if (getVariant(stack, "HandguardVariant") == 1)
         handguardModel = RedundantSpecialModels.TACTICAL_CARBINE_HANDGUARD_1.getModel();
+        else
+        if (getVariant(stack, "HandguardVariant") == 2)
+        handguardModel = RedundantSpecialModels.TACTICAL_CARBINE_HANDGUARD_2.getModel();
         RenderUtil.renderModel(handguardModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
         
         // Render the rear iron sight element, which is only present when a scope is not attached.
@@ -65,6 +68,8 @@ public class TacticalCarbineModel implements IOverrideModel
 		{
             // Render a selected model based on the "SightVariant" NBT tag.
         	BakedModel sightModel = RedundantSpecialModels.TACTICAL_CARBINE_SIGHTS.getModel();
+            if (getVariant(stack, "SightVariant") == 1)
+            sightModel = RedundantSpecialModels.TACTICAL_CARBINE_SIGHTS_1.getModel();
             RenderUtil.renderModel(sightModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		}
         else

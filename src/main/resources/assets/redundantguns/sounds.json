@@ -80,6 +80,17 @@
       "redundantguns:item/carbine_rifle/mag_in"
     ]
   },
+  "item.carbine_rifle.mag_out_empty": {
+    "sounds": [
+      "redundantguns:item/carbine_rifle/mag_out_empty"
+    ]
+  },
+  "item.carbine_rifle.mag_in_empty": {
+    "subtitle":"subtitle.cgm.reload",
+    "sounds": [
+      "redundantguns:item/carbine_rifle/mag_in_empty"
+    ]
+  },
   "item.carbine_rifle.cock": {
     "subtitle":"subtitle.cgm.cock",
     "sounds": [

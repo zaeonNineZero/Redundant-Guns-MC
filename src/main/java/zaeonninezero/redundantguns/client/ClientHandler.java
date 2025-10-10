@@ -27,6 +27,7 @@ public class ClientHandler
         ModelOverrides.register(initItems.SIDEARM_PISTOL.get(), new SidearmPistolModel());
         ModelOverrides.register(initItems.TACTICAL_CARBINE.get(), new TacticalCarbineModel());
         ModelOverrides.register(initItems.TACTICAL_INFANTRY_RIFLE.get(), new TacticalInfantryRifleModel());
+        ModelOverrides.register(initItems.MARES_LEG_RIFLE.get(), new MaresLegRifleModel());
         ModelOverrides.register(initItems.TACTICAL_SNIPER_RIFLE.get(), new TacticalSniperRifleModel());
         ModelOverrides.register(initItems.VINTAGE_BOLT_RIFLE.get(), new VintageBoltRifleModel());
     }
