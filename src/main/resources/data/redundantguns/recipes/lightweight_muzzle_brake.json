@@ -1,0 +1,12 @@
+{
+  "type": "cgm:workbench",
+  "materials": [
+    {
+      "count": 4,
+      "tag": "forge:nuggets/iron"
+    }
+  ],
+  "result": {
+    "item": "redundantguns:lightweight_muzzle_break"
+  }
+}

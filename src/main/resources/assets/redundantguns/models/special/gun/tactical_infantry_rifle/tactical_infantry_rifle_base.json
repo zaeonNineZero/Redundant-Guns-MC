@@ -948,7 +948,7 @@
 				"east": {"uv": [5.82804, 5, 4.3, 6.5], "texture": "#0", "tintindex": 0},
 				"west": {"uv": [4.3, 5, 5.82804, 6.5], "texture": "#0", "tintindex": 0},
 				"up": {"uv": [4.3, 4, 5.82804, 5], "rotation": 90, "texture": "#0", "tintindex": 0},
-				"down": {"uv": [4.3, 6.5, 6, 7.5], "rotation": 270, "texture": "#0", "tintindex": 0}
+				"down": {"uv": [4.3, 6.5, 5.82804, 7.5], "rotation": 270, "texture": "#0", "tintindex": 0}
 			}
 		},
 		{
@@ -996,8 +996,8 @@
 		},
 		{
 			"name": "rear_grip",
-			"from": [7.45, -0.35, 14.02],
-			"to": [8.55, 2.85, 15.27],
+			"from": [7.45, -0.95, 14.02],
+			"to": [8.55, 2.55, 15.27],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 4.75, 15.32]},
 			"faces": {
 				"north": {"uv": [15, 0.5, 16, 3.5], "texture": "#3"},

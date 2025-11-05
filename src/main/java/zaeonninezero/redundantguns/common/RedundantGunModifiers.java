@@ -8,7 +8,28 @@ import net.minecraft.util.Mth;
  */
 public class RedundantGunModifiers
 {
-    public static final IGunModifier SPECIALIZED_CARBINE_STOCK = new IGunModifier()
+
+    public static final IGunModifier LIGHT_MUZZLE_BRAKE_EFFECT = new IGunModifier()
+    {
+    	@Override
+        public float recoilModifier()
+        {
+            return 0.94F;
+        }
+
+        @Override
+        public float kickModifier()
+        {
+            return 0.94F;
+        }
+
+        @Override
+        public double modifyMuzzleFlashScale(double scale)
+        {
+            return 1.10F;
+        }
+    };
+	public static final IGunModifier SPECIALIZED_CARBINE_STOCK = new IGunModifier()
     {
         @Override
         public float recoilModifier()

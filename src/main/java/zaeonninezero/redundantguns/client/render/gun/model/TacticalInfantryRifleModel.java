@@ -5,6 +5,7 @@ import com.mrcrayfish.guns.common.Gun;
 import com.mrcrayfish.guns.GunMod;
 import com.mrcrayfish.guns.client.GunModel;
 import zaeonninezero.nzgmaddon.client.SpecialModels;
+import zaeonninezero.nzgmaddon.util.CGMExpandedHelper;
 import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
 import com.mrcrayfish.guns.client.util.GunAnimationHelper;
@@ -31,6 +32,7 @@ import javax.annotation.Nullable;
  */
 public class TacticalInfantryRifleModel implements IOverrideModel
 {
+	private boolean hasExpanded = CGMExpandedHelper.isExpandedInstalled();
 	private boolean disableAnimations = false;
 	
     @Override
@@ -100,8 +102,8 @@ public class TacticalInfantryRifleModel implements IOverrideModel
         Vec3 magTranslations = Vec3.ZERO;
         Vec3 magRotations = Vec3.ZERO;
         Vec3 magRotOffset = Vec3.ZERO;
-        
-        if(isPlayer && correctContext && !disableAnimations)
+
+        if(hasExpanded && !disableAnimations && isPlayer && correctContext)
         {
         	try {
     				Player player = (Player) entity;
@@ -155,7 +157,7 @@ public class TacticalInfantryRifleModel implements IOverrideModel
         // Magazine transforms
         poseStack.pushPose();
 		// Apply transformations to this part.
-        if(isPlayer && isFirstPerson && !disableAnimations)
+        if(hasExpanded && !disableAnimations && isPlayer && isFirstPerson)
         {
         	if(magTranslations!=Vec3.ZERO)
         	poseStack.translate(magTranslations.x*0.0625, magTranslations.y*0.0625, magTranslations.z*0.0625);
@@ -164,6 +166,7 @@ public class TacticalInfantryRifleModel implements IOverrideModel
     	}
 		// Magazine model selection and rendering
         SpecialModels magModel = SpecialModels.INFANTRY_RIFLE_MAGAZINE;
+        if(hasExpanded)
         try {
         	ItemStack magStack = Gun.getAttachment(IAttachment.Type.byTagKey("Magazine"), stack);
             if(!magStack.isEmpty())

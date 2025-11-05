@@ -1,8 +1,10 @@
 package zaeonninezero.redundantguns.init;
 
 import com.mrcrayfish.guns.common.GunModifiers;
+import com.mrcrayfish.guns.item.BarrelItem;
 import com.mrcrayfish.guns.item.GunItem;
 import com.mrcrayfish.guns.item.StockItem;
+import com.mrcrayfish.guns.item.attachment.impl.Barrel;
 import com.mrcrayfish.guns.item.attachment.impl.Stock;
 
 import zaeonninezero.nzgmaddon.nzgmAddon;
@@ -42,6 +44,9 @@ public class initItems {
 	public static final RegistryObject<GunItem> COMBAT_MARKSMAN_RIFLE = ITEMS.register("combat_marksman_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> VINTAGE_BOLT_RIFLE = ITEMS.register("vintage_bolt_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
 	public static final RegistryObject<GunItem> TACTICAL_SNIPER_RIFLE = ITEMS.register("tactical_sniper_rifle", () -> new GunItem(new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
+	
+	//Barrels
+	public static final RegistryObject<Item> LIGHTWEIGHT_MUZZLE_BRAKE  = ITEMS.register("lightweight_muzzle_brake", () -> new BarrelItem(Barrel.create(4f,RedundantGunModifiers.LIGHT_MUZZLE_BRAKE_EFFECT), new Item.Properties().stacksTo(1).tab(nzgmAddon.GROUP)));
 	
 	//Stocks
     public static final RegistryObject<Item> SPECIALIZED_CARBINE_STOCK  = ITEMS.register("specialized_carbine_stock", () -> new StockItem(Stock.create(RedundantGunModifiers.SPECIALIZED_CARBINE_STOCK), new Item.Properties().stacksTo(1).tab(RedundantGuns.GROUP)));
