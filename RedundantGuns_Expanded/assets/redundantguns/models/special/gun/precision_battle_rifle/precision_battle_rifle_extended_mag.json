@@ -1,0 +1,57 @@
+{
+	"credit": "Made with Blockbench",
+	"loader": "framework:open_model",
+	"textures": {
+		"1": "redundantguns:items/precision_battle_rifle",
+		"particle": "redundantguns:items/precision_battle_rifle"
+	},
+	"components": [
+		{
+			"from": [7.45, 1.695, 9.45],
+			"to": [8.55, 4.02, 11.95],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 1.6, -0.5]},
+			"faces": {
+				"north": {"uv": [7, 6, 8, 8.25], "texture": "#1"},
+				"east": {"uv": [10.5, 6, 8, 8.25], "texture": "#1"},
+				"south": {"uv": [10.5, 6, 11.5, 8.25], "texture": "#1"},
+				"west": {"uv": [8, 6, 10.5, 8.25], "texture": "#1"},
+				"up": {"uv": [12.5, 9, 15, 10], "rotation": 90, "texture": "#1"},
+				"down": {"uv": [12.5, 15, 15, 16], "rotation": 90, "texture": "#1"}
+			}
+		},
+		{
+			"from": [7.449, -2.07277, 9.00004],
+			"to": [8.551, 0.19723, 11.50004],
+			"rotation": {"angle": 15, "axis": "x", "origin": [8, -0.76277, 10.25004]},
+			"faces": {
+				"north": {"uv": [7, 10, 8, 12], "texture": "#1"},
+				"east": {"uv": [10.5, 10, 8, 12], "texture": "#1"},
+				"south": {"uv": [10.5, 10, 11.5, 12], "texture": "#1"},
+				"west": {"uv": [8, 10, 10.5, 12], "texture": "#1"},
+				"up": {"uv": [12.5, 9, 15, 10], "rotation": 90, "texture": "#1"},
+				"down": {"uv": [12.5, 15, 15, 16], "rotation": 90, "texture": "#1"}
+			}
+		},
+		{
+			"from": [7.4495, 0.0015, 9.25707],
+			"to": [8.5505, 1.8715, 11.75707],
+			"rotation": {"angle": 7.5, "axis": "x", "origin": [8, 0.3115, 10.50707]},
+			"faces": {
+				"north": {"uv": [7, 8.25, 8, 10], "texture": "#1"},
+				"east": {"uv": [10.5, 8.25, 8, 10], "texture": "#1"},
+				"south": {"uv": [10.5, 8.25, 11.5, 10], "texture": "#1"},
+				"west": {"uv": [8, 8.25, 10.5, 10], "texture": "#1"},
+				"up": {"uv": [12.5, 9, 15, 10], "rotation": 90, "texture": "#1"},
+				"down": {"uv": [12.5, 15, 15, 16], "rotation": 90, "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "extended_mag",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}

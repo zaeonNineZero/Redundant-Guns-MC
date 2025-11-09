@@ -1,0 +1,95 @@
+{
+  "general": {
+    "rate": 4,
+    "gripType": "cgm:pistol_custom",
+    "maxAmmo": 12,
+    "lightMagAmmo": 9,
+    "extendedMagAmmo": 15,
+	
+    "reloadAmount": 11,
+	"useMagReload": true,
+	"magReloadTime": 35,
+	"magReloadFromEmptyTime": 38,
+    "reloadStartDelay": 0,
+    "reloadInterruptDelay": 5,
+    "reloadEndDelay": 1,
+	"reloadAllowedCooldown": 0.0,
+	
+    "recoilAngle": 2.4,
+    "recoilKick": 0.5,
+    "recoilAdsReduction": 0.4,
+    "alwaysSpread": false,
+    "spread": 4.1,
+    "restingSpread": 1.0,
+    "spreadAdsReduction": 0.4,
+	"adsSpeed": 1.7
+  },
+  "projectile": {
+    "item": "cgm:basic_bullet",
+    "damage": 7.3,
+    "size": 0.2,
+    "speed": 10.0,
+    "life": 12
+  },
+  "fireModes": {
+    "useFireModes": true
+  },
+  "sounds": {
+    "fire": "redundantguns:item.combat_pistol.fire",
+    "reload": "cgm:item.pistol.reload",
+    "cock": "cgm:item.pistol.cock",
+    "silencedFire": "redundantguns:item.combat_pistol.silenced_fire",
+    "enchantedFire": "redundantguns:item.combat_pistol.enchanted_fire"
+  },
+  "reloadSounds": {
+    "reloadFrames": 21,
+    "reloadClipOut": "cgm:item.pistol.mag_out",
+    "reloadClipOutThreshold": 3.5,
+    "reloadClipIn": "cgm:item.pistol.mag_in",
+    "reloadClipInThreshold": 12.5
+  },
+  "emptyReloadSounds": {
+    "reloadFrames": 29,
+    "reloadClipOut": "cgm:item.pistol.mag_out",
+    "reloadClipOutThreshold": 3.5,
+    "reloadClipIn": "cgm:item.pistol.mag_in",
+    "reloadClipInThreshold": 14.5,
+	"reloadLate": "cgm:item.pistol.slide_forward",
+    "reloadLateThreshold": 20.7
+  },
+  "display": {
+    "flash": {
+      "yOffset": 3.3,
+      "zOffset": 2.14
+    },
+    "forwardHand": {
+      "yOffset": 0.3,
+      "zOffset": -1.5
+    },
+    "rearHand": {
+      "yOffset": 0.3,
+      "zOffset": -1.5
+    }
+  },
+  "modules": {
+    "zoom": {
+      "yOffset": 4.4,
+      "zOffset": 0.0,
+      "fovModifier": 0.8
+    },
+    "attachments": {
+      "scope": {
+        "yOffset": 3.7,
+        "zOffset": 6.0,
+        "scale": 0.75
+      },
+      "barrel": {
+        "yOffset": 3.3,
+        "zOffset": 2.15,
+        "scale": 0.5
+      },
+      "magazine": {
+      }
+    }
+  }
+}
