@@ -43,6 +43,10 @@ public class initSounds {
 	public static final RegistryObject<SoundEvent> ITEM_VINTAGE_BOLT_RIFLE_FIRE = register("item.vintage_bolt_rifle.fire");
 	public static final RegistryObject<SoundEvent> ITEM_VINTAGE_BOLT_RIFLE_ENCHANTED_FIRE = register("item.vintage_bolt_rifle.enchanted_fire");
 	public static final RegistryObject<SoundEvent> ITEM_VINTAGE_BOLT_RIFLE_SILENCED_FIRE = register("item.vintage_bolt_rifle.silenced_fire");
+	public static final RegistryObject<SoundEvent> ITEM_VINTAGE_BOLT_RIFLE_BOLT_BACK = register("item.vintage_bolt_rifle.bolt_back");
+	public static final RegistryObject<SoundEvent> ITEM_VINTAGE_BOLT_RIFLE_BOLT_FORWARD = register("item.vintage_bolt_rifle.bolt_forward");
+	public static final RegistryObject<SoundEvent> ITEM_VINTAGE_BOLT_RIFLE_CLIP_PLACE = register("item.vintage_bolt_rifle.clip_place");
+	public static final RegistryObject<SoundEvent> ITEM_VINTAGE_BOLT_RIFLE_CLIP_IN = register("item.vintage_bolt_rifle.clip_in");
 	
 	//Method to help us register sounds
 	private static RegistryObject<SoundEvent> register(String key) {

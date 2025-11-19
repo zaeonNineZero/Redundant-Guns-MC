@@ -238,6 +238,10 @@
     "subtitle":"subtitle.cgm.cock",
     "sounds": [{"name":"redundantguns:item/vintage_bolt_action_rifle/bolt_forward"}]
   },
+  "item.vintage_bolt_rifle.clip_place": {
+    "subtitle":"subtitle.cgm.reload",
+    "sounds": [{"name":"redundantguns:item/vintage_bolt_action_rifle/clip_place"}]
+  },
   "item.vintage_bolt_rifle.clip_in": {
     "subtitle":"subtitle.cgm.reload",
     "sounds": [{"name":"redundantguns:item/vintage_bolt_action_rifle/clip_in"}]

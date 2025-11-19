@@ -58,6 +58,12 @@ public class MaresLegRifleModel implements IOverrideModel
         // Render the BakedModel we selected.
         Minecraft.getInstance().getItemRenderer().render(stack, ItemTransforms.TransformType.NONE, false, poseStack, buffer, light, overlay, GunModel.wrap(bakedModel));
 
+		// Render the iron sights element if the "RemoveSights" NBT flag is not set to 1.
+        if (getVariant(stack, "RemoveSights") != 1)
+		{
+            RenderUtil.renderModel(SpecialModels.LEVER_ACTION_RIFLE_SIGHTS_1.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+		}
+		
 		// Render the top rail element, which is only present when a scope is attached.
 		// We have to grab the gun's scope attachment slot and check whether it is empty or not.
 		// If the isEmpty function returns false, then we render the rail.
