@@ -9,7 +9,7 @@
     "recoilDurationOffset": 0.25,
     "recoilAdsReduction": 0.3,
     "alwaysSpread": true,
-    "spread": 0.2
+    "spread": 0.5
   },
   "projectile": {
     "item": "nzgmaddon:medium_bullet",

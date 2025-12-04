@@ -7,11 +7,11 @@
     "reloadAmount": 13,
     "recoilAngle": 3.0,
     "recoilKick": 0.33,
-    "recoilAdsReduction": 0.55,
+    "recoilAdsReduction": 0.45,
     "spread": 8.0
   },
   "projectile": {
-    "damage": 5.1,
+    "damage": 5.0,
     "item": "nzgmaddon:medium_bullet",
     "life": 25,
     "size": 0.2,
