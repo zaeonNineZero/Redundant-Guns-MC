@@ -1,2 +1,2 @@
 # Redundant Guns
-Addon for MrCrayfish's Gun Mod and NZGE that adds even more weapons for maximum redundancy.
+Redundant Guns is a companion addon for NineZero's Gun Expansion and MrCrayfish's Gun Mod that adds even more weapons and attachments in the established NZGE/CGM artstyle. (To be expanded upon later)
