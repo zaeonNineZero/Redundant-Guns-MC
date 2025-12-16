@@ -1,0 +1,72 @@
+{
+	"credit": "Made with Blockbench",
+	"loader": "framework:open_model",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "redundantguns:items/combat_pistol",
+		"particle": "cgm:items/pistol_magazines"
+	},
+	"components": [
+		{
+			"from": [7.825, 2.68, 15.36],
+			"to": [8.173, 3.63, 15.56],
+			"rotation": {"angle": -15, "axis": "x", "origin": [8.024, 2.7, 15.56]},
+			"faces": {
+				"north": {"uv": [0, 7, 0.5, 8.5], "texture": "#0"},
+				"east": {"uv": [1, 7, 0.5, 8.5], "texture": "#0"},
+				"south": {"uv": [1, 7, 1.5, 8.5], "texture": "#0"},
+				"west": {"uv": [0.5, 7, 1, 8.5], "texture": "#0"},
+				"up": {"uv": [0.5, 6.5, 1, 7], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.827, 3.20951, 15.60191],
+			"to": [8.173, 3.54951, 15.70191],
+			"rotation": {"angle": -15, "axis": "x", "origin": [8, 3.36659, 15.55767]},
+			"faces": {
+				"north": {"uv": [2, 7.5, 2.5, 8.5], "texture": "#0"},
+				"east": {"uv": [2, 7.5, 2.5, 8.5], "texture": "#0"},
+				"south": {"uv": [2.5, 7.5, 3, 8.5], "texture": "#0"},
+				"west": {"uv": [2, 7.5, 2.5, 8.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.8265, 3.18201, 15.34449],
+			"to": [8.1735, 3.28201, 15.66449],
+			"rotation": {"angle": -27.5, "axis": "x", "origin": [8, 3.36659, 15.55767]},
+			"faces": {
+				"east": {"uv": [2.5, 8.5, 1.5, 9], "texture": "#0"},
+				"west": {"uv": [1.5, 8.5, 2.5, 9], "texture": "#0"},
+				"up": {"uv": [1.5, 8.5, 2.5, 9], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [1.5, 8.5, 2.5, 9], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.8265, 3.47178, 15.34795],
+			"to": [8.1735, 3.57178, 15.66795],
+			"rotation": {"angle": -5, "axis": "x", "origin": [8, 3.36659, 15.55767]},
+			"faces": {
+				"east": {"uv": [2.5, 7, 1.5, 7.5], "texture": "#0"},
+				"west": {"uv": [1.5, 7, 2.5, 7.5], "texture": "#0"},
+				"up": {"uv": [1.5, 7, 2.5, 7.5], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [1.5, 7, 2.5, 7.5], "rotation": 270, "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "hammer",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				0,
+				{
+					"name": "group",
+					"origin": [7.825, 2.95, 15.35],
+					"color": 0,
+					"children": [1, 2, 3]
+				}
+			]
+		}
+	]
+}

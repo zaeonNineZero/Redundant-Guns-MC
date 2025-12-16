@@ -102,7 +102,7 @@ public class SidearmPistolModel implements IOverrideModel
             float cooldown_c = Math.min(Math.max((-cooldown_a*intensity)+intensity,0),1);
             float cooldown_d = Math.min(cooldown_b,cooldown_c);
             
-            slideTranslations = slideTranslations.add(0, 0, cooldown_d * 1.5);
+            slideTranslations = slideTranslations.add(0, 0, cooldown_d * 1.3);
         }
 
 		// Combat Pistol slide. This animated part kicks backward on firing, then moves back to its resting position.

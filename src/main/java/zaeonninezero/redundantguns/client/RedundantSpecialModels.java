@@ -15,9 +15,13 @@ import net.minecraftforge.fml.common.Mod;
 public enum RedundantSpecialModels
 {
 	COMBAT_PISTOL_BASE("gun/combat_pistol/combat_pistol_base"),
+	COMBAT_PISTOL_BASE_1("gun/combat_pistol/combat_pistol_base_1"),
     COMBAT_PISTOL_SLIDE("gun/combat_pistol/combat_pistol_slide"),
-    COMBAT_PISTOL_RAILMOUNT("gun/combat_pistol/combat_pistol_railmount"),
+    COMBAT_PISTOL_HAMMER("gun/combat_pistol/combat_pistol_hammer"),
+    COMBAT_PISTOL_HAMMER_1("gun/combat_pistol/combat_pistol_hammer_1"),
+    COMBAT_PISTOL_SIGHTMOUNT("gun/combat_pistol/combat_pistol_sightmount"),
     COMBAT_PISTOL_MAGAZINE("gun/combat_pistol/combat_pistol_magazine"),
+    COMBAT_PISTOL_LIGHT_MAG("gun/combat_pistol/combat_pistol_light_mag"),
     COMBAT_PISTOL_EXTENDED_MAG("gun/combat_pistol/combat_pistol_extended_mag"),
     
 	SIDEARM_PISTOL_BASE("gun/sidearm_pistol/sidearm_pistol_base"),

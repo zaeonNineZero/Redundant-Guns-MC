@@ -1,0 +1,80 @@
+{
+	"credit": "Made with Blockbench",
+	"loader": "framework:open_model",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "redundantguns:items/combat_pistol",
+		"particle": "cgm:items/pistol_magazines"
+	},
+	"components": [
+		{
+			"from": [7.825, 2.68, 15.36],
+			"to": [8.173, 3.63, 15.56],
+			"rotation": {"angle": -15, "axis": "x", "origin": [8.024, 2.7, 15.56]},
+			"faces": {
+				"north": {"uv": [0, 7, 0.5, 8.5], "texture": "#0"},
+				"east": {"uv": [1, 7, 0.5, 8.5], "texture": "#0"},
+				"south": {"uv": [1, 7, 1.5, 8.5], "texture": "#0"},
+				"west": {"uv": [0.5, 7, 1, 8.5], "texture": "#0"},
+				"up": {"uv": [0.5, 6.5, 1, 7], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.826, 3.29831, 15.3193],
+			"to": [8.172, 3.59831, 15.6193],
+			"rotation": {"angle": 23.25, "axis": "x", "origin": [7.925, 3.59831, 15.31933]},
+			"faces": {
+				"east": {"uv": [2, 6.5, 1.5, 7], "texture": "#0"},
+				"west": {"uv": [1.5, 6.5, 2, 7], "texture": "#0"},
+				"up": {"uv": [1.5, 6.5, 2, 7], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.8255, 3.03813, 15.40201],
+			"to": [8.1725, 3.4892, 15.53308],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [7.9245, 3.21817, 15.51308]},
+			"faces": {
+				"east": {"uv": [2, 6.5, 1.5, 7], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [1.5, 6.5, 2, 7], "rotation": 270, "texture": "#0"},
+				"west": {"uv": [1.5, 6.5, 2, 7], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.825, 3.38268, 15.54588],
+			"to": [8.173, 3.50268, 15.84588],
+			"rotation": {"angle": -20, "axis": "x", "origin": [7.9265, 3.49268, 15.54591]},
+			"faces": {
+				"east": {"uv": [2.5, 6.5, 2, 6.75], "texture": "#0"},
+				"south": {"uv": [2, 6.5, 2.5, 6.75], "texture": "#0"},
+				"west": {"uv": [2, 6.5, 2.5, 6.75], "texture": "#0"},
+				"up": {"uv": [1.5, 7.25, 2, 6.75], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.826, 3.31508, 15.50866],
+			"to": [8.172, 3.41508, 15.85866],
+			"rotation": {"angle": -32.5, "axis": "x", "origin": [7.9255, 3.41508, 15.55869]},
+			"faces": {
+				"east": {"uv": [2.5, 6.5, 2, 6.75], "texture": "#0"},
+				"west": {"uv": [2, 6.5, 2.5, 6.75], "texture": "#0"},
+				"down": {"uv": [2, 6.5, 2.5, 7], "rotation": 270, "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "hammer",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				0,
+				{
+					"name": "group",
+					"origin": [7.825, 2.95, 15.35],
+					"color": 0,
+					"children": [1, 2, 3, 4]
+				}
+			]
+		}
+	]
+}

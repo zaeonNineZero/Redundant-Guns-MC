@@ -1,10 +1,13 @@
 package zaeonninezero.redundantguns.client.render.gun.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Vector3f;
 import com.mrcrayfish.guns.common.Gun;
 import com.mrcrayfish.guns.GunMod;
 import com.mrcrayfish.guns.client.GunModel;
 
+import zaeonninezero.nzgmaddon.client.SpecialModels;
+import zaeonninezero.nzgmaddon.util.CGMExpandedHelper;
 import zaeonninezero.redundantguns.client.RedundantSpecialModels;
 import com.mrcrayfish.guns.client.render.gun.IOverrideModel;
 import com.mrcrayfish.guns.client.util.GunAnimationHelper;
@@ -15,6 +18,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemCooldowns;
@@ -30,6 +34,7 @@ import javax.annotation.Nullable;
  */
 public class CombatPistolModel implements IOverrideModel
 {
+	private boolean hasExpanded = CGMExpandedHelper.isExpandedInstalled();
 	private boolean disableAnimations = false;
 	
     @Override
@@ -41,6 +46,8 @@ public class CombatPistolModel implements IOverrideModel
     {
 		// Render the item's BakedModel, which will serve as the core of our custom model.
         BakedModel bakedModel = RedundantSpecialModels.COMBAT_PISTOL_BASE.getModel();
+        if (getVariant(stack, "BaseVariant") == 1)
+        bakedModel = RedundantSpecialModels.COMBAT_PISTOL_BASE_1.getModel();
         Minecraft.getInstance().getItemRenderer().render(stack, ItemTransforms.TransformType.NONE, false, poseStack, buffer, light, overlay, GunModel.wrap(bakedModel));
 
 		// Render the top rail element that appears when a scope is attached.
@@ -49,7 +56,7 @@ public class CombatPistolModel implements IOverrideModel
 		ItemStack attachmentStack = Gun.getAttachment(IAttachment.Type.SCOPE, stack);
         if(!attachmentStack.isEmpty())
 		{
-            RenderUtil.renderModel(RedundantSpecialModels.COMBAT_PISTOL_RAILMOUNT.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+            RenderUtil.renderModel(RedundantSpecialModels.COMBAT_PISTOL_SIGHTMOUNT.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		}
 
         // Special animated segment for compat with the CGM Expanded fork.
@@ -57,18 +64,26 @@ public class CombatPistolModel implements IOverrideModel
         boolean isPlayer = entity != null && entity.equals(Minecraft.getInstance().player);
         boolean isFirstPerson = (transformType.firstPerson());
         boolean correctContext = (transformType.firstPerson() || transformType == ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND || transformType == ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND);
+        boolean isDisplayed = (transformType == ItemTransforms.TransformType.FIXED);
+        boolean isGUI = (transformType == ItemTransforms.TransformType.GUI);
         
         Vec3 slideTranslations = Vec3.ZERO;
+        
+        Vec3 hammerRotations = Vec3.ZERO;
+        float hammerBaseRotation = 80;
+        Vec3 hammerRotOffset = new Vec3(0, 2.67-8, 7.5);
         
         Vec3 magTranslations = Vec3.ZERO;
         Vec3 magRotations = Vec3.ZERO;
         Vec3 magRotOffset = Vec3.ZERO;
         
-        if(isPlayer && correctContext && !disableAnimations)
+        if(isPlayer && correctContext && hasExpanded && !disableAnimations)
         {
         	try {
     				Player player = (Player) entity;
     				slideTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "slide");
+    				
+    				hammerRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "hammer");
 					
         			magTranslations = GunAnimationHelper.getSmartAnimationTrans(stack, player, partialTicks, "magazine");
         	        magRotations = GunAnimationHelper.getSmartAnimationRot(stack, player, partialTicks, "magazine");
@@ -84,9 +99,11 @@ public class CombatPistolModel implements IOverrideModel
         		}
         }
         
-        // Fire animation is done the old way, and added onto the existing animation.
         GunItem gunStack = (GunItem) stack.getItem();
         Gun gun = gunStack.getModifiedGun(stack);
+        
+		// Slide and hammer animation logic.
+        // This is particularly complex logic since we have multiple moving parts.
         if(isPlayer && correctContext)
         {
             float cooldownDivider = 1.0F*Math.max((float) gun.getGeneral().getRate()/2.7F,1);
@@ -102,7 +119,8 @@ public class CombatPistolModel implements IOverrideModel
             float cooldown_c = Math.min(Math.max((-cooldown_a*intensity)+intensity,0),1);
             float cooldown_d = Math.min(cooldown_b,cooldown_c);
             
-            slideTranslations = slideTranslations.add(0, 0, cooldown_d * 1.5);
+            slideTranslations = slideTranslations.add(0, 0, cooldown_d * 1.3);
+            hammerRotations = hammerRotations.add(((cooldown_c-1) * hammerBaseRotation), 0, 0);
         }
 
 		// Combat Pistol slide. This animated part kicks backward on firing, then moves back to its resting position.
@@ -114,6 +132,31 @@ public class CombatPistolModel implements IOverrideModel
         RenderUtil.renderModel(RedundantSpecialModels.COMBAT_PISTOL_SLIDE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
+        
+        // Hammer. This part rotates backwards along the x-axis, then locks in place during the animation.
+     	// Push pose so we can make do transformations without affecting the models above.
+     	poseStack.pushPose();
+     	// Now we apply our transformations.
+     	if(isPlayer && !isDisplayed && !isGUI)
+     	{
+     	    if (hasExpanded)
+     	    {
+     	    	GunAnimationHelper.rotateAroundOffset(poseStack, hammerRotations.add(hammerBaseRotation,0,0), hammerRotOffset);
+     	    }
+     	    else
+     	    {
+     	    	poseStack.translate(0, hammerRotOffset.y*0.0625, hammerRotOffset.z*0.0625);
+     	    	poseStack.mulPose(Vector3f.XN.rotationDegrees((float) -hammerRotations.x-hammerBaseRotation));
+     	    	poseStack.translate(0, -hammerRotOffset.y*0.0625, -hammerRotOffset.z*0.0625);
+     	    }
+     	}
+     	// Our transformations are done - now we can render the model.
+     	BakedModel hammerModel = RedundantSpecialModels.COMBAT_PISTOL_HAMMER.getModel();
+        if (getVariant(stack, "HammerVariant") == 1)
+     	hammerModel = RedundantSpecialModels.COMBAT_PISTOL_HAMMER_1.getModel();
+     	RenderUtil.renderModel(hammerModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
+     	// Pop pose to compile everything in the render matrix.
+     	poseStack.popPose();
         
         // Magazine for Combat Pistol
         poseStack.pushPose();
@@ -131,6 +174,9 @@ public class CombatPistolModel implements IOverrideModel
         	ItemStack magStack = Gun.getAttachment(IAttachment.Type.byTagKey("Magazine"), stack);
             if(!magStack.isEmpty())
             {
+	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("light_magazine"))
+		    		magModel = RedundantSpecialModels.COMBAT_PISTOL_LIGHT_MAG;
+	            else
 	            if (magStack.getItem().builtInRegistryHolder().key().location().getPath().equals("extended_magazine"))
 			    	magModel = RedundantSpecialModels.COMBAT_PISTOL_EXTENDED_MAG;
             }
@@ -140,5 +186,12 @@ public class CombatPistolModel implements IOverrideModel
         RenderUtil.renderModel(magModel.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
+    }
+    
+    //NBT fetch code for skin variants - ported from the "hasAmmo" function under common/Gun.java
+    public static int getVariant(ItemStack gunStack, String tag_name)
+    {
+        CompoundTag tag = gunStack.getOrCreateTag();
+        return tag.getInt(tag_name);
     }
 }

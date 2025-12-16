@@ -1,0 +1,64 @@
+{
+	"credit": "Made with Blockbench",
+	"loader": "framework:open_model",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "redundantguns:items/combat_pistol"
+	},
+	"components": [
+		{
+			"name": "mag_base",
+			"from": [7.6, -0.58708, 14.59485],
+			"to": [8.4, -0.46208, 15.69485],
+			"rotation": {"angle": -5, "axis": "x", "origin": [8.01, -0.55208, 15.10985]},
+			"faces": {
+				"north": {"uv": [3, 11, 4, 11.25], "texture": "#0"},
+				"east": {"uv": [5.5, 11, 4, 11.25], "texture": "#0"},
+				"south": {"uv": [5.5, 11, 6.5, 11.25], "texture": "#0"},
+				"west": {"uv": [4, 11, 5.5, 11.25], "texture": "#0"},
+				"up": {"uv": [4, 10, 5.5, 11], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [4, 11.5, 5.5, 12.5], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.651, -0.31452, 14.33175],
+			"to": [8.349, 2.99048, 15.33175],
+			"rotation": {"angle": -15, "axis": "x", "origin": [7.949, 0.73548, 14.87175]},
+			"faces": {
+				"north": {"uv": [3, 6.5, 3.5, 9.5], "texture": "#0"},
+				"east": {"uv": [5, 6.5, 3.75, 9.5], "texture": "#0"},
+				"south": {"uv": [5.5, 6.5, 6, 9.5], "texture": "#0"},
+				"west": {"uv": [3.75, 6.5, 5, 9.5], "texture": "#0"},
+				"up": {"uv": [4, 6, 5, 6.5], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.651, -0.58952, 14.73175],
+			"to": [8.349, -0.31452, 15.33175],
+			"rotation": {"angle": -15, "axis": "x", "origin": [7.949, 0.73548, 14.87175]},
+			"faces": {
+				"east": {"uv": [5, 9.5, 4.25, 9.75], "texture": "#0"},
+				"south": {"uv": [5.5, 9.5, 6, 9.75], "texture": "#0"},
+				"west": {"uv": [4.25, 9.5, 5, 9.75], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.651, -0.51404, 14.33175],
+			"to": [8.349, -0.31452, 14.73175],
+			"rotation": {"angle": -15, "axis": "x", "origin": [7.949, 0.73548, 14.87175]},
+			"faces": {
+				"north": {"uv": [3, 9.5, 3.5, 9.68138], "texture": "#0"},
+				"east": {"uv": [4.25, 9.5, 3.75, 9.68138], "texture": "#0"},
+				"west": {"uv": [3.75, 9.5, 4.25, 9.68138], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "magazine",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

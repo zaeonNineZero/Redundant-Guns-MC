@@ -2,7 +2,7 @@
   "general": {
     "rate": 4,
     "gripType": "cgm:one_handed",
-    "maxAmmo": 12,
+    "maxAmmo": 10,
     "reloadAmount": 11,
     "recoilAngle": 2.5,
     "recoilKick": 0.7,

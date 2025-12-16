@@ -81,6 +81,7 @@ public class MaresLegRifleModel implements IOverrideModel
         boolean isPlayer = entity != null && entity.equals(Minecraft.getInstance().player);
         boolean isFirstPerson = (transformType.firstPerson());
         boolean correctContext = (isFirstPerson || transformType == ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND || transformType == ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND);
+        boolean isDisplayed = (transformType == ItemTransforms.TransformType.FIXED);
         boolean useFallbackAnimation = false;
         
         Vec3 leverRotations = Vec3.ZERO;
@@ -152,7 +153,7 @@ public class MaresLegRifleModel implements IOverrideModel
 		// Push pose so we can make do transformations without affecting the models above.
         poseStack.pushPose();
 		// Now we apply our transformations.
-        if(isPlayer)
+        if(isPlayer && correctContext)
         {
         	if (hasExpanded)
         	{
@@ -176,7 +177,7 @@ public class MaresLegRifleModel implements IOverrideModel
 		// Push pose so we can make do transformations without affecting the models above.
 	    poseStack.pushPose();
 		// Now we apply our transformations.
-	    if(isPlayer)
+	    if(isPlayer && !isDisplayed)
 	    {
 	    	if (hasExpanded)
 	    	{
@@ -238,11 +239,6 @@ public class MaresLegRifleModel implements IOverrideModel
     }
     
     //NBT fetch code for skin variants - ported from the "hasAmmo" function under common/Gun.java
-    public static int getVariant(ItemStack gunStack)
-    {
-        CompoundTag tag = gunStack.getOrCreateTag();
-        return tag.getInt("CustomModelData");
-    }
     public static int getVariant(ItemStack gunStack, String tag_name)
     {
         CompoundTag tag = gunStack.getOrCreateTag();
