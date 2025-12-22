@@ -1,0 +1,19 @@
+{
+	"itemGroup.redundantguns": "Redundant Guns",
+	
+	"item.redundantguns.carbine_rifle": "Carbine Rifle",
+	"item.redundantguns.combat_assault_rifle": "Combat Assault Rifle",
+	"item.redundantguns.combat_marksman_rifle": "Combat Marksman Rifle",
+	"item.redundantguns.combat_pistol": "Combat Pistol",
+	"item.redundantguns.mares_leg_rifle": "Mare's Leg Rifle",
+	"item.redundantguns.precision_battle_rifle": "Precision Battle Rifle",
+	"item.redundantguns.ranger_assault_rifle": "Ranger Assault Rifle",
+	"item.redundantguns.sidearm_pistol": "Sidearm Pistol",
+	"item.redundantguns.tactical_carbine": "Tactical Carbine",
+	"item.redundantguns.tactical_infantry_rifle": "Tactical Infantry Rifle",
+	"item.redundantguns.tactical_sniper_rifle": "Tactical Sniper Rifle",
+	"item.redundantguns.vintage_bolt_rifle": "Vintage Bolt-Action Rifle",
+	
+	"item.redundantguns.lightweight_muzzle_brake": "Lightweight Muzzle Brake",
+	"item.redundantguns.specialized_carbine_stock": "Specialized Carbine Stock"
+}

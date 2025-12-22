@@ -21,6 +21,28 @@
       "cgm:item/pistol/silenced_fire"
     ]
   },
+  "item.combat_pistol.mag_out": {
+    "sounds": [
+      "redundantguns:item/combat_pistol/mag_out"
+    ]
+  },
+  "item.combat_pistol.mag_in": {
+    "subtitle":"subtitle.cgm.reload",
+    "sounds": [
+      "redundantguns:item/combat_pistol/mag_in"
+    ]
+  },
+  "item.combat_pistol.slide_back": {
+    "sounds": [
+      "redundantguns:item/combat_pistol/slide_back"
+    ]
+  },
+  "item.combat_pistol.slide_forward": {
+    "subtitle":"subtitle.cgm.reload",
+    "sounds": [
+      "redundantguns:item/combat_pistol/slide_forward"
+    ]
+  },
   
   "item.sidearm_pistol.fire": {
     "subtitle":"subtitle.cgm.fire",
@@ -42,6 +64,28 @@
     "subtitle":"subtitle.cgm.silenced",
     "sounds": [
       "cgm:item/pistol/silenced_fire"
+    ]
+  },
+  "item.sidearm_pistol.mag_out": {
+    "sounds": [
+      "redundantguns:item/sidearm_pistol/mag_out"
+    ]
+  },
+  "item.sidearm_pistol.mag_in": {
+    "subtitle":"subtitle.cgm.reload",
+    "sounds": [
+      "redundantguns:item/sidearm_pistol/mag_in"
+    ]
+  },
+  "item.sidearm_pistol.slide_back": {
+    "sounds": [
+      "redundantguns:item/sidearm_pistol/slide_back"
+    ]
+  },
+  "item.sidearm_pistol.slide_forward": {
+    "subtitle":"subtitle.cgm.reload",
+    "sounds": [
+      "redundantguns:item/sidearm_pistol/slide_forward"
     ]
   },
   
