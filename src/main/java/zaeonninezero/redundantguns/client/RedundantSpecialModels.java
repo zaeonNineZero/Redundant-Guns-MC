@@ -26,6 +26,7 @@ public enum RedundantSpecialModels
     
 	SIDEARM_PISTOL_BASE("gun/sidearm_pistol/sidearm_pistol_base"),
 	SIDEARM_PISTOL_SLIDE("gun/sidearm_pistol/sidearm_pistol_slide"),
+	SIDEARM_PISTOL_HAMMER("gun/sidearm_pistol/sidearm_pistol_hammer"),
 	SIDEARM_PISTOL_RAILMOUNT("gun/sidearm_pistol/sidearm_pistol_railmount"),
     SIDEARM_PISTOL_MAGAZINE("gun/sidearm_pistol/sidearm_pistol_magazine"),
     SIDEARM_PISTOL_EXTENDED_MAG("gun/sidearm_pistol/sidearm_pistol_extended_mag"),
