@@ -67,7 +67,7 @@ public class SidearmPistolModel implements IOverrideModel
         
         Vec3 hammerRotations = Vec3.ZERO;
         float hammerBaseRotation = 78.75F;
-        Vec3 hammerRotOffset = new Vec3(0, 2.84-8, 7.4);
+        Vec3 hammerRotOffset = new Vec3(0, 2.8-8, 7.4);
         
         Vec3 magTranslations = Vec3.ZERO;
         Vec3 magRotations = Vec3.ZERO;
