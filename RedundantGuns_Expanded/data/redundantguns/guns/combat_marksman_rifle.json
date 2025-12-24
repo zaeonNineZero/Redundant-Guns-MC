@@ -20,8 +20,8 @@
     "recoilAngle": 7.0,
     "recoilKick": 1.5,
     "recoilAdsReduction": 0.4,
-    "spread": 14,
-    "restingSpread": 2.0,
+    "spread": 16,
+    "restingSpread": 4.0,
     "spreadAdsReduction": 0.9,
 	"adsSpeed": 1.1
   },

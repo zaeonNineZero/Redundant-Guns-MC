@@ -13,12 +13,12 @@
 			},
 			"viewModel": {
 				"0": {
-					"translation": [-4, -10, -0.5],
-					"rotation": [-55, 45, 0]
+					"translation": [-5, -10, -0.5],
+					"rotation": [-50, 50, 40]
 				},
 				"7": {
-					"translation": [0.0, 0.1, 0.3],
-					"easing": "ease_out_quad"
+					"translation": [-0.4, 0.5, 0.3],
+					"easing": "ease_out_sin"
 				},
 				"13": {
 					"rotation": [0.1, -0.05, -0.2],
@@ -142,6 +142,39 @@
 				}
 			}
 		},
+        "recoil": {
+			"frames": 51,
+			"animationSpeed": 2.0,
+			"modifierScale": 0.5,
+			"progressOffset": 0.0,
+			"viewModel": {
+				"rotOffset": [0, 4.0, 1.0],
+				"0": {
+					"translation": [0.0, 0.0, 0.0],
+					"rotation": [1.0, 0, 0]
+				},
+				"6": {
+					"rotation": [4.0, 0, 0],
+					"rotEasing": "ease_out_cubic"
+				},
+				"8": {
+					"translation": [0.0, 0.0, 2.7],
+					"transEasing": "ease_out_cubic"
+				},
+				"30": {
+					"rotation": [-4.0, 0, 0],
+					"rotEasing": "ease_in_out_sin"
+				},
+				"32": {
+					"translation": [0.0, 0.0, 0.0],
+					"transEasing": "ease_in_out_sin"
+				},
+				"50": {
+					"rotation": [0.0, 0, 0],
+					"rotEasing": "ease_in_out_quad"
+				}
+			}
+		},
         "fire": {
 			"frames": 16,
 			"viewModel": {
@@ -157,22 +190,22 @@
 				"6": {
 					"translation": [0, -0.4, 0],
 					"transEasing": "ease_in_sin",
-					"rotation": [2, 3, 0],
+					"rotation": [2, 2, 3],
 					"rotEasing": "ease_in_quad"
 				},
 				"8": {
 					"translation": [0, -0.5, 0],
-					"rotation": [5, 3, 0],
+					"rotation": [5, 2, 2],
 					"rotEasing": "ease_out_cubic"
 				},
 				"10": {
 					"translation": [0, -0.5, 0],
-					"rotation": [3, 3, 0],
+					"rotation": [3, 2, 1.5],
 					"rotEasing": "ease_in_cubic"
 				},
 				"12": {
 					"translation": [0, -0.4, 0],
-					"rotation": [2, 3, 0],
+					"rotation": [2, 2, 1],
 					"rotEasing": "ease_in_quad"
 				},
 				"16": {
@@ -214,18 +247,19 @@
 					"rotation": [-30, 0, 0]
 				},
 				"7": {
-					"translation": [3.1, 3.6, 2.9]
+					"translation": [3.1, 3.6, 2.9],
+					"transEasing": "ease_in_quad"
 				},
-				"9": {
+				"8": {
 					"translation": [3.1, 3.6, 2.9]
 				},
 				"10": {
 					"translation": [3.1, 3.6, -1.1],
+					"transEasing": "ease_in_cubic",
 					"rotation": [-30, 0, 0]
 				},
 				"11": {
-					"translation": [3.3, 3.4, -1.1],
-					"transEasing": "ease_in_quad"
+					"translation": [3.3, 3.6, -1.1]
 				},
 				"12": {
 					"translation": [3.5, 1.2, -1.1],
@@ -247,18 +281,19 @@
 					"rotation": [0, 0, 67.5]
 				},
 				"7": {
-					"translation": [0, 0, 2.5]
+					"translation": [0, 0, 2.5],
+					"transEasing": "ease_in_quad"
 				},
-				"9": {
+				"8": {
 					"translation": [0, 0, 2.5]
 				},
 				"10": {
 					"translation": [0, 0, 0],
+					"transEasing": "ease_in_cubic",
 					"rotation": [0, 0, 67.5]
 				},
 				"11": {
-					"rotation": [0, 0, 61],
-					"rotEasing": "ease_in_quad"
+					"rotation": [0, 0, 67]
 				},
 				"12": {
 					"rotation": [0, 0, 0],
@@ -273,14 +308,21 @@
 					"translation": [0, -0.3, 0],
 					"easing": "linear"
 				},
-				"9": {
+				"8": {
 					"translation": [0, 0, 0],
-					"easing": "ease_in_out_cubic"
+					"easing": "ease_out_quad"
 				}
 			}
 		},
 		"reloadStart": {
 			"frames": 14,
+			"sounds": {
+				"count": 1,
+				"0": {
+					"id": "redundantguns:item.vintage_bolt_rifle.bolt_back",
+					"playAt": 4.0
+				}
+			},
 			"viewModel": {
 				"0": {
 					"translation": [0, 0, 0],
@@ -337,6 +379,7 @@
 				},
 				"12": {
 					"translation": [3.1, 3.5, 2.9],
+					"transEasing": "ease_in_quad",
 					"rotation": [-30, 0, 0]
 				},
 				"14": {
@@ -356,7 +399,8 @@
 					"translation": [0, 0, 0]
 				},
 				"12": {
-					"translation": [0, 0, 2.5]
+					"translation": [0, 0, 2.5],
+					"transEasing": "ease_in_quad"
 				}
 			},
 			"bullet2": {
@@ -490,6 +534,13 @@
 		},
 		"reloadEnd": {
 			"frames": 22,
+			"sounds": {
+				"count": 1,
+				"0": {
+					"id": "redundantguns:item.vintage_bolt_rifle.bolt_forward",
+					"playAt": 5.0
+				}
+			},
 			"viewModel": {
 				"0": {
 					"translation": [-1.0, 0.1, 0.8],
@@ -545,7 +596,8 @@
 					"rotEasing": "ease_in_cubic"
 				},
 				"8": {
-					"translation": [3.1, 3.5, -1.1]
+					"translation": [3.1, 3.5, -1.1],
+					"transEasing": "ease_in_quad"
 				},
 				"10": {
 					"translation": [3.1, 3.5, -1.1],
@@ -568,7 +620,8 @@
 					"translation": [0, 0, 2.5]
 				},
 				"8": {
-					"translation": [0, 0, 0]
+					"translation": [0, 0, 0],
+					"transEasing": "ease_in_quad"
 				},
 				"10": {
 					"rotation": [0, 0, 67.5]
@@ -582,18 +635,29 @@
 		"reload_Mag": {
 			"frames": 26,
 			"progressOffset": 0.5,
+			"sounds": {
+				"count": 2,
+				"0": {
+					"id": "redundantguns:item.vintage_bolt_rifle.clip_place",
+					"playAt": 14.0
+				},
+				"1": {
+					"id": "redundantguns:item.vintage_bolt_rifle.clip_in",
+					"playAt": 20.0
+				}
+			},
 			"viewModel": {
 				"0": {
 					"translation": [-1.0, 0.2, 0.7],
 					"rotation": [15, 5, -1.5],
 					"easing": "ease_out_quad"
 				},
-				"6": {
+				"5": {
 					"translation": [-1.0, 0.2, 0.7],
 					"rotation": [15, 5, -1],
 					"easing": "ease_in_out_quad"
 				},
-				"19": {
+				"17": {
 					"translation": [-1.0, 0.3, 0.9],
 					"rotation": [16, 6, -2],
 					"easing": "ease_in_quad"
@@ -619,26 +683,26 @@
 					"rotation": [0, 20, 0],
 					"easing": "ease_in_quad"
 				},
-				"6": {
+				"5": {
 					"translation": [3.8, 0.0, 12.0],
 					"rotation": [0, 0, 93],
 					"easing": "ease_in_quad"
 				},
-				"15": {
+				"13": {
 					"translation": [3.0, 5.8, -1.4],
 					"easing": "linear"
 				},
-				"17": {
+				"15": {
 					"translation": [2.4, 5.8, -3.0],
 					"rotation": [-24, 16, 89],
 					"easing": "linear"
 				},
-				"19": {
+				"17": {
 					"translation": [2.3, 6.0, -3.5],
 					"rotation": [-20, 20, 74],
 					"easing": "linear"
 				},
-				"23": {
+				"22": {
 					"translation": [2.8, 7.0, -5.0],
 					"rotation": [-18, 24, 56],
 					"transEasing": "ease_in_out_cubic",
@@ -671,7 +735,7 @@
 					"easing": "zero",
 					"showClip": 0
 				},
-				"6": {
+				"5": {
 					"translation": [2.2, -2, 10],
 					"rotation": [60, -45, 0],
 					"easing": "linear"
@@ -679,22 +743,22 @@
 				"8": {
 					"showClip": 1
 				},
-				"15": {
+				"13": {
 					"translation": [1.0, 2.0, 1.3],
 					"rotation": [4, -7, -10],
 					"easing": "linear"
 				},
-				"17": {
+				"15": {
 					"translation": [0.5, 2.0, 0.1],
 					"rotation": [4, -7, -10],
 					"easing": "linear"
 				},
-				"19": {
+				"17": {
 					"translation": [0, 1.65, 0.05],
 					"rotation": [1, 0, 0],
 					"easing": "linear"
 				},
-				"23": {
+				"22": {
 					"translation": [0, 1.6, 0],
 					"rotation": [0, 0, 0],
 					"transEasing": "ease_in_cubic",

@@ -16,11 +16,11 @@
     "reloadEndDelay": 5,
 	"reloadAllowedCooldown": 0.0,
 	
-    "recoilAngle": 2.6,
+    "recoilAngle": 3.9,
     "recoilKick": 0.9,
     "recoilAdsReduction": 0.3,
     "spread": 8.9,
-    "restingSpread": 2.4,
+    "restingSpread": 2.5,
 	"adsSpeed": 1.2
   },
   "projectile": {

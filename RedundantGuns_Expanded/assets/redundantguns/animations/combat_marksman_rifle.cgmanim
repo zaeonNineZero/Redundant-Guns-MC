@@ -15,11 +15,11 @@
 					"rotEasing": "ease_in_out_quad"
 				},
 				"5": {
-					"translation": [0.06, 0.3, 2.2],
+					"translation": [0.06, 0.12, 2.2],
 					"easing": "ease_out_sin"
 				},
 				"10": {
-					"translation": [0.12, 0.2, 1.0],
+					"translation": [0.12, 0.08, 1.1],
 					"tranEasing": "ease_in_quad"
 				},
 				"12": {

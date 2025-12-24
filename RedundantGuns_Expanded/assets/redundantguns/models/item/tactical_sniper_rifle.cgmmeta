@@ -25,8 +25,8 @@
                 "scale": [0.87, 0.88, 0.88]
             },
             "underBarrel": {
-                "translation": [8.0, 2.85, 7.3],
-                "scale": [0.95, 0.95, 0.95]
+                "translation": [8.0, 2.8, 7.1],
+                "scale": [0.97, 0.97, 0.97]
             }
         },
 		"hands": {
@@ -43,7 +43,7 @@
             }
         },
         "ironSight": {
-            "camera": [8.0, 5.48, 19.5],
+            "camera": [8.0, 5.5, 20.0],
             "viewportFov": 59.0
         },
         "muzzleFlash": {
