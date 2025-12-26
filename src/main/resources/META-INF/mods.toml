@@ -4,14 +4,18 @@ license="GPL3"
 
 [[mods]]
 modId="redundantguns"
-version="1.0.99"
-displayName="Redundant Guns (Dev. Branch)"
+version="1.0.0-RC1"
+displayName="Redundant Guns"
 updateJSONURL=""
 displayURL=""
 logoFile="redundantguns_banner.png"
 authors="zaeonNineZero"
 description='''
+<<<<<<< HEAD
 Companion addon for NineZero's Gun Expansion and MrCrayfish's Gun Mod, adding even more weapons and attachments in the NZGE/CGM artstyle. (Development Branch for implementing and testing features.)
+=======
+Companion addon for NineZero's Gun Expansion and MrCrayfish's Gun Mod, adding even more weapons and attachments in the NZGE/CGM artstyle.
+>>>>>>> origin/1.19.2-develop
 '''
 
 [[dependencies.redundantguns]]
