@@ -22,7 +22,7 @@ public class RedundantGuns {
         @Override
         public ItemStack makeIcon()
         {
-            ItemStack stack = new ItemStack(initItems.COMBAT_PISTOL.get());
+            ItemStack stack = new ItemStack(initItems.SIDEARM_PISTOL.get());
             stack.getOrCreateTag().putInt("IgnoreAmmo", 1);
             return stack;
         }
