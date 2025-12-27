@@ -15,7 +15,7 @@
 		},
 		"gui": {
 			"rotation": [30, 225, 0],
-			"translation": [8, 5.5, 0],
+			"translation": [6.75, 6.5, 0],
 			"scale": [2, 2, 2]
 		},
 		"fixed": {
