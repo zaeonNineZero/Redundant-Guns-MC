@@ -1,7 +1,7 @@
 # Redundant Guns Changelog (1.19.2 Releases -- Developer Edition)
 
 
-### 1.0.0-RC2 (12/28/25)
+### 1.0.0-RC2 (12/--/25)
 Release candidate 2 for Redundant Guns v1.0, with hotfixes to the previous RC.
 * Fixed improper scaling of the Precision Battle Rifle's item frame transform.
 
