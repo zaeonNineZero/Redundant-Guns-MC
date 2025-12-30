@@ -1,13 +1,13 @@
 {
 	"credit": "Made with Blockbench",
-	"texture_size": [32, 32],
+	"loader": "framework:open_model",
 	"textures": {
 		"1": "cgm:items/assault_rifle",
 		"2": "redundantguns:items/carbine_rifle_1",
 		"7": "nzgmaddon:items/heavy_assault_rifle",
 		"particle": "cgm:items/tactical_stock"
 	},
-	"elements": [
+	"components": [
 		{
 			"name": "octagon",
 			"from": [7.79289, 3.4, 0.9001],
@@ -367,7 +367,7 @@
 			}
 		},
 		{
-			"from": [7.45, 1.4, 11.95],
+			"from": [7.45, 1.33352, 11.95],
 			"to": [8.55, 1.81, 13.65],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7.5, 1.4, 11.5]},
 			"faces": {
@@ -391,9 +391,9 @@
 			}
 		},
 		{
-			"from": [7.449, 1.44272, 10.73363],
-			"to": [8.551, 1.88272, 12.23863],
-			"rotation": {"angle": 22.5, "axis": "x", "origin": [7.351, 1.44272, 10.94863]},
+			"from": [7.449, 1.525, 10.749],
+			"to": [8.551, 1.91747, 13.404],
+			"rotation": {"angle": 12.5, "axis": "x", "origin": [8.0007, 1.52502, 10.74899]},
 			"faces": {
 				"east": {"uv": [3, 9.5, 1.5, 10], "texture": "#2"},
 				"west": {"uv": [1.5, 9.5, 3, 10], "texture": "#2"},
@@ -401,17 +401,17 @@
 			}
 		},
 		{
-			"from": [7.4495, 1.91, 10.71],
-			"to": [8.5505, 2.29, 12.115],
-			"rotation": {"angle": 22.5, "axis": "x", "origin": [7.35, 1.85, 10.95]},
+			"from": [7.449, 1.92534, 10.74882],
+			"to": [8.5505, 2.25534, 13.49082],
+			"rotation": {"angle": 12.5, "axis": "x", "origin": [8.0004, 1.92534, 10.75648]},
 			"faces": {
 				"east": {"uv": [3, 9, 1.5, 9.5], "texture": "#2"},
 				"west": {"uv": [1.5, 9, 3, 9.5], "texture": "#2"}
 			}
 		},
 		{
-			"from": [7.4495, 0.95, 12.14],
-			"to": [8.5505, 1.4, 13.65],
+			"from": [7.4495, 0.95035, 13.34106],
+			"to": [8.5505, 1.33352, 13.65],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7.35, 0.95, 11.25]},
 			"faces": {
 				"east": {"uv": [5.5, 9.5, 3, 10], "texture": "#2"},
@@ -422,7 +422,7 @@
 		},
 		{
 			"from": [7.4497, 1.525, 10.749],
-			"to": [8.5503, 1.997, 10.947],
+			"to": [8.5503, 1.922, 10.947],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7.3505, 1.4, 9.965]},
 			"faces": {
 				"north": {"uv": [0, 9.5, 1.5, 10], "texture": "#2"},
@@ -431,9 +431,9 @@
 			}
 		},
 		{
-			"from": [7.4497, 1.997, 10.749],
-			"to": [8.5503, 2.349, 10.897],
-			"rotation": {"angle": 0, "axis": "y", "origin": [7.3505, 1.4, 9.965]},
+			"from": [7.4497, 1.927, 10.749],
+			"to": [8.5503, 2.24918, 10.82043],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.3505, 1.33, 9.965]},
 			"faces": {
 				"north": {"uv": [0, 9, 1.5, 9.5], "texture": "#2"},
 				"east": {"uv": [2, 9, 1.5, 9.5], "texture": "#2"},
