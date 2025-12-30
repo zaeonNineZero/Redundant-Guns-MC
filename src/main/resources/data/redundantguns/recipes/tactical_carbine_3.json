@@ -9,7 +9,8 @@
   "result": {
     "item": "redundantguns:tactical_carbine",
 	"nbt": {
-      "HandguardVariant":2
+      "HandguardVariant":2,
+      "SightVariant":1
     }
   }
 }
