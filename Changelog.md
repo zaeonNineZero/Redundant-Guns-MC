@@ -1,9 +1,12 @@
 # Redundant Guns Changelog (1.19.2 Releases -- Developer Edition)
 
 
-### 1.0.0-RC2 (12/--/25)
+### 1.0.0-RC2 (12/29/25)
 Release candidate 2 for Redundant Guns v1.0, with hotfixes to the previous RC.
+* Properly implemented the open model format gun models into the main mod source.
 * Fixed improper scaling of the Precision Battle Rifle's item frame transform.
+* Added working recipes for the Mare's Leg Rifle (+1 cosmetic variation), and adjusted one of the Tactical Carbine's cosmetic variations.
+* Added some new cosmetic variations to the creative mode tab.
 
 ### 1.0.0-RC1 (12/28/25)
 * Initial public release to CurseForge, and first Release Candidate for Redundant Guns.
