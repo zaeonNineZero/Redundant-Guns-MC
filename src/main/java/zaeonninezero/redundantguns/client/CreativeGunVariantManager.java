@@ -18,6 +18,14 @@ public class CreativeGunVariantManager
     		tag.putInt("HammerVariant", 1);
     	}
     	items.add(combatpistol_1);
+        // Combat Pistol, Variant 2
+    	ItemStack combatpistol_2 = new ItemStack(initItems.COMBAT_PISTOL.get());
+    	{
+    		CompoundTag tag = combatpistol_2.getOrCreateTag();
+        	tag.putInt("AmmoCount", initItems.COMBAT_PISTOL.get().getGun().getGeneral().getMaxAmmo());
+    		tag.putInt("SlideVariant", 1);
+    	}
+    	items.add(combatpistol_2);
     	
     	
         // Ranger Assault Rifle, Variant 1

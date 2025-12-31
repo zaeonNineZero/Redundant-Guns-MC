@@ -18,7 +18,7 @@
   "item.combat_pistol.silenced_fire": {
     "subtitle":"subtitle.cgm.silenced",
     "sounds": [
-      "cgm:item/pistol/silenced_fire"
+      "redundantguns:item/combat_pistol/silenced_fire"
     ]
   },
   "item.combat_pistol.mag_out": {
@@ -63,7 +63,7 @@
   "item.sidearm_pistol.silenced_fire": {
     "subtitle":"subtitle.cgm.silenced",
     "sounds": [
-      "cgm:item/pistol/silenced_fire"
+      "redundantguns:item/combat_pistol/silenced_fire"
     ]
   },
   "item.sidearm_pistol.mag_out": {
