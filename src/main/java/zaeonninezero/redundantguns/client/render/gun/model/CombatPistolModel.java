@@ -58,6 +58,14 @@ public class CombatPistolModel implements IOverrideModel
 		{
             RenderUtil.renderModel(RedundantSpecialModels.COMBAT_PISTOL_SIGHTMOUNT.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		}
+        
+		// Extended frame element -- this renders when the alternate slide variant is used.
+		// We have to grab the gun's scope attachment slot and check whether it is empty or not.
+		// If the isEmpty function returns false, then we render the attachment rail.
+        if (getVariant(stack, "SlideVariant") == 1)
+        {
+            RenderUtil.renderModel(RedundantSpecialModels.COMBAT_PISTOL_FRAME_EXTEND.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+		}
 
         // Special animated segment for compat with the CGM Expanded fork.
         // First, some variables for animation building
@@ -129,7 +137,10 @@ public class CombatPistolModel implements IOverrideModel
         if(isPlayer)
         poseStack.translate(0, 0, slideTranslations.z * 0.0625);
 		// Render the transformed model.
-        RenderUtil.renderModel(RedundantSpecialModels.COMBAT_PISTOL_SLIDE.getModel(), transformType, null, stack, parent, poseStack, buffer, light, overlay);
+     	BakedModel slideModel = RedundantSpecialModels.COMBAT_PISTOL_SLIDE.getModel();
+        if (getVariant(stack, "SlideVariant") == 1)
+        	slideModel = RedundantSpecialModels.COMBAT_PISTOL_SLIDE_1.getModel();
+        RenderUtil.renderModel(slideModel, transformType, null, stack, parent, poseStack, buffer, light, overlay);
 		// Pop pose to compile everything in the render matrix.
         poseStack.popPose();
         
