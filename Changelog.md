@@ -1,6 +1,12 @@
 # Redundant Guns Changelog (1.19.2 Releases -- Developer Edition)
 
 
+### 1.0.0-RC3 (1/2/26)
+Release candidate 3 for Redundant Guns v1.0.
+* Added a recipe for the Specialized Carbine Stock, which had been missing in previous release candidates.
+* Added another cosmetic variation to the Combat Pistol; this variation is craftable and can also be found in the creative mode tab.
+* Updated the Combat Pistol and Sidearm Pistol's fire sounds. Added a unique silenced fire sound for both guns.
+
 ### 1.0.0-RC2 (12/29/25)
 Release candidate 2 for Redundant Guns v1.0, with hotfixes to the previous RC.
 * Properly implemented the open model format gun models into the main mod source.
