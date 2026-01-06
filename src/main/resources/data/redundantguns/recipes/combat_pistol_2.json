@@ -9,6 +9,7 @@
   "result": {
     "item": "redundantguns:combat_pistol",
 	"nbt": {
+      "BaseVariant":2,
       "SlideVariant":1
     }
   }
