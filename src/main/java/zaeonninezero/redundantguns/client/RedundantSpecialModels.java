@@ -16,6 +16,7 @@ public enum RedundantSpecialModels
 {
 	COMBAT_PISTOL_BASE("gun/combat_pistol/combat_pistol_base"),
 	COMBAT_PISTOL_BASE_1("gun/combat_pistol/combat_pistol_base_1"),
+	COMBAT_PISTOL_BASE_2("gun/combat_pistol/combat_pistol_base_2"),
     COMBAT_PISTOL_SLIDE("gun/combat_pistol/combat_pistol_slide"),
     COMBAT_PISTOL_SLIDE_1("gun/combat_pistol/combat_pistol_slide_1"),
     COMBAT_PISTOL_HAMMER("gun/combat_pistol/combat_pistol_hammer"),

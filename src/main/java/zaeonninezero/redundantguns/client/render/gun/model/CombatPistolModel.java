@@ -48,6 +48,9 @@ public class CombatPistolModel implements IOverrideModel
         BakedModel bakedModel = RedundantSpecialModels.COMBAT_PISTOL_BASE.getModel();
         if (getVariant(stack, "BaseVariant") == 1)
         bakedModel = RedundantSpecialModels.COMBAT_PISTOL_BASE_1.getModel();
+        else
+        if (getVariant(stack, "BaseVariant") == 2)
+        bakedModel = RedundantSpecialModels.COMBAT_PISTOL_BASE_2.getModel();
         Minecraft.getInstance().getItemRenderer().render(stack, ItemTransforms.TransformType.NONE, false, poseStack, buffer, light, overlay, GunModel.wrap(bakedModel));
 
 		// Render the top rail element that appears when a scope is attached.
@@ -79,7 +82,7 @@ public class CombatPistolModel implements IOverrideModel
         
         Vec3 hammerRotations = Vec3.ZERO;
         float hammerBaseRotation = 80;
-        Vec3 hammerRotOffset = new Vec3(0, 2.67-8, 7.5);
+        Vec3 hammerRotOffset = new Vec3(0, 2.71-8, 7.45);
         
         Vec3 magTranslations = Vec3.ZERO;
         Vec3 magRotations = Vec3.ZERO;
