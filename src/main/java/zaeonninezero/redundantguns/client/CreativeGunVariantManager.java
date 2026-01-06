@@ -23,6 +23,7 @@ public class CreativeGunVariantManager
     	{
     		CompoundTag tag = combatpistol_2.getOrCreateTag();
         	tag.putInt("AmmoCount", initItems.COMBAT_PISTOL.get().getGun().getGeneral().getMaxAmmo());
+    		tag.putInt("BaseVariant", 2);
     		tag.putInt("SlideVariant", 1);
     	}
     	items.add(combatpistol_2);
