@@ -97,6 +97,16 @@ public class CreativeGunVariantManager
     	items.add(combatrifle_1);
     	
     	
+    	// Tactical Infantry Rifle, Variant 1
+    	ItemStack tacinfantryrifle_1 = new ItemStack(initItems.TACTICAL_INFANTRY_RIFLE.get());
+    	{
+    		CompoundTag tag = tacinfantryrifle_1.getOrCreateTag();
+        	tag.putInt("AmmoCount", initItems.TACTICAL_INFANTRY_RIFLE.get().getGun().getGeneral().getMaxAmmo());
+    		tag.putInt("BaseVariant", 1);
+    	}
+    	items.add(tacinfantryrifle_1);
+    	
+    	
     	// Precision Battle Rifle, Variant 1
     	ItemStack precisionbr_1 = new ItemStack(initItems.PRECISION_BATTLE_RIFLE.get());
     	{
@@ -105,7 +115,7 @@ public class CreativeGunVariantManager
     		tag.putInt("BaseVariant", 1);
     	}
     	items.add(precisionbr_1);
-    	// Automatic Sniper Rifle, Variant 2
+    	// Precision Battle Rifle, Variant 2
     	ItemStack precisionbr_2 = new ItemStack(initItems.PRECISION_BATTLE_RIFLE.get());
     	{
     		CompoundTag tag = precisionbr_2.getOrCreateTag();
