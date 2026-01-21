@@ -1,6 +1,13 @@
 # Redundant Guns Changelog (1.19.2 Releases)
 
 
+### 1.0.0-RC4 (1/17/26)
+Release candidate 4 for Redundant Guns v1.0.
+* Added the 'tactical_infantry_rifle_1' variant to the creative tab.
+* Added another BaseVariant cosmetic part for the Combat Pistol, featuring a short grip safety. This part is used for the 'combat_pistol_2' recipe and creative tab entry.
+* Fixed the Mare's Leg Rifle still having the same position data for barrel attachments and muzzle flashes as the Lever Action Rifle from NZGE. It now uses the correct position data.
+* Updated the Combat Pistol's reloading sounds (for CGM Expanded).
+
 ### 1.0.0-RC3 (1/2/26)
 Release candidate 3 for Redundant Guns v1.0.
 * Added a recipe for the Specialized Carbine Stock, which had been missing in previous release candidates.
