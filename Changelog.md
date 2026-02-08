@@ -1,11 +1,11 @@
 # Redundant Guns Changelog (1.19.2 Releases)
 
 
-### 1.0.0 (TBD)
+### 1.0.0 (2/8/26)
 The full release of Redundant Guns, the companion addon to NineZero's Gun Expansion and MrCrayfish's Gun Mod.
 
 Feature summary of Redundant Guns as of 1.0.0:
-* Over 10 additional weapons to play with, all balanced around the default NZGE and CGM guns. Many weapons are derived from existing NZGE weapons, offering a different appearance and different stats compared to their base weapon.
+* Over 10 additional weapons to play with, all balanced around the default NZGE and CGM guns. Many weapons are derived from existing NZGE weapons, with differences in appearance and stats.
 * One barrel attachment and one stock attachment, both being modified variations of existing NZGE attachments.
 * Crafting recipes for all items, allowing them to be used in survival mode.
 
