@@ -1,7 +1,7 @@
 # Redundant Guns Changelog (1.19.2 Releases -- Developer Edition)
 
 
-### 1.0.0 (TBD)
+### 1.0.0 (2/8/26)
 The full release of Redundant Guns, the companion addon to NineZero's Gun Expansion and MrCrayfish's Gun Mod.
 
 This release is mostly the same as 1.0.0-RC4, just with the mod version and dependency versions updated.
