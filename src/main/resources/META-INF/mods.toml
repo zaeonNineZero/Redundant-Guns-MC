@@ -4,7 +4,7 @@ license="GPL3"
 
 [[mods]]
 modId="redundantguns"
-version="1.0.0-RC4"
+version="1.0.0"
 displayName="Redundant Guns"
 updateJSONURL=""
 displayURL=""
@@ -41,7 +41,7 @@ Companion addon for NineZero's Gun Expansion and MrCrayfish's Gun Mod, adding ev
 [[dependencies.redundantguns]]
     modId="nzgmaddon"
     mandatory=true
-    versionRange="[1.4.99,)"
+    versionRange="[1.5.0,)"
     ordering="AFTER"
     side="BOTH"
 
