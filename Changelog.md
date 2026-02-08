@@ -1,11 +1,17 @@
 # Redundant Guns Changelog (1.19.2 Releases -- Developer Edition)
 
 
+### 1.0.0 (TBD)
+The full release of Redundant Guns, the companion addon to NineZero's Gun Expansion and MrCrayfish's Gun Mod.
+
+This release is mostly the same as 1.0.0-RC4, just with the mod version and dependency versions updated.
+
+
 ### 1.0.0-RC4 (1/17/26)
 Release candidate 4 for Redundant Guns v1.0.
 * Added the 'tactical_infantry_rifle_1' variant to the creative tab.
 * Added another BaseVariant cosmetic part for the Combat Pistol, featuring a short grip safety. This part is used for the 'combat_pistol_2' recipe and creative tab entry.
-* Fixed the Mare's Leg Rifle still having the same position data for barrel attachments and muzzle flashes as the Lever Action Rifle.
+* Fixed the Mare's Leg Rifle still having the same position data for barrel attachments and muzzle flashes as the Lever Action Rifle from NZGE. It now uses the correct position data.
 * Updated the Combat Pistol's reloading sounds (for CGM Expanded).
 
 ### 1.0.0-RC3 (1/2/26)
